@@ -1,0 +1,4 @@
+<RCC>
+    <qresource prefix="MessageClient">
+    </qresource>
+</RCC>
