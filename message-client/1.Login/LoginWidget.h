@@ -17,4 +17,7 @@ public:
 
 private:
     Ui::LoginWgt *m_pUi;
+
+    // …Ë÷√∑Á∏Ò
+    void setStyle();
 };
