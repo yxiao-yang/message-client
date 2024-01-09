@@ -1,10 +1,10 @@
-#include "MessageClient.h"
-#include <QtWidgets/QApplication>
+#include "LoginWidget.h"
+#include <QWidget>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MessageClient w;
+    LoginWidget w;
     w.show();
     return a.exec();
 }
