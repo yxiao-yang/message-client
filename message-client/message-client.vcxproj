@@ -104,8 +104,8 @@
     <None Include="0.ui\LoginWidget.css" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="0.pub\pub_func.h" />
-    <ClInclude Include="1.Login\RegWidget.h" />
+    <ClInclude Include="0.pub\pub_func.hpp" />
+    <QtMoc Include="1.Login\RegWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

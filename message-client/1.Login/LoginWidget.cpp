@@ -1,5 +1,6 @@
 #include "LoginWidget.h"
-#include "pub_func.h"
+#include "pub_func.hpp"
+#include "RegWidget.h"
 #include <QFile>
 #include <QDebug>
 #include <QMouseEvent>
@@ -28,7 +29,8 @@ void LoginWidget::setStyle()
 
     // 应用样式表
     QString strCssName = "LoginWidget.css";
-    if (initCssFile(strCssName))
+    pub_func* func = new pub_func;
+    if (func->initCssFile(strCssName))
     {
         qDebug() << "应用样式表LoginWidget.css成功";
     }
@@ -52,6 +54,7 @@ void LoginWidget::setSlots()
     // 最小化、关闭、登录槽函数
     connect(m_pUi->MinusTb, &QToolButton::clicked, this, &LoginWidget::onTbMinus);
     connect(m_pUi->CloseTb, &QToolButton::clicked, this, &LoginWidget::onTbClose);
+    connect(m_pUi->RegPb, &QPushButton::clicked, this, &LoginWidget::onPbReg);
 }
 
 void LoginWidget::onTbMinus()
@@ -63,6 +66,19 @@ void LoginWidget::onTbMinus()
 void LoginWidget::onTbClose()
 {
     close();
+}
+
+void LoginWidget::onPbReg()
+{
+    // 显示注册窗口
+    if (m_pRegWgt == nullptr)
+    {
+        m_pRegWgt = new RegWidget();
+    }
+    m_pRegWgt->show();
+
+    // 隐藏当前窗口
+    hide();
 }
 
 void LoginWidget::mousePressEvent(QMouseEvent* event)
