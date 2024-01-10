@@ -22,15 +22,13 @@ public:
     void mouseReleaseEvent(QMouseEvent* event);     // 鼠标释放
 
 private slots:
-    void onTbMinus();   // 最小化窗口
-    void onTbClose();   // 关闭窗口
-    void onPbReg();     // 注册按钮
-
-signals:
-    void showRegWidget();   // 跳转到注册界面
+    void onTbMinus();       // 最小化窗口
+    void onTbClose();       // 关闭窗口
+    void onPbReg();         // 注册按钮
+    void showLoginWgt();    // 展示窗口
 
 private:
-    Ui::LoginWgt *m_pUi;
+    Ui::LoginWgt* m_pUi = nullptr;
     RegWidget* m_pRegWgt = nullptr;
 
     /*鼠标事件*/

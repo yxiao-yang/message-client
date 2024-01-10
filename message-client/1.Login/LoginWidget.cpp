@@ -74,11 +74,20 @@ void LoginWidget::onPbReg()
     if (m_pRegWgt == nullptr)
     {
         m_pRegWgt = new RegWidget();
+        connect(m_pRegWgt, &RegWidget::showLoginWgt, this, &LoginWidget::showLoginWgt);
     }
+    m_pRegWgt->setStyle();
     m_pRegWgt->show();
 
     // Òþ²Øµ±Ç°´°¿Ú
-    hide();
+    //hide();
+    close();
+}
+
+void LoginWidget::showLoginWgt()
+{
+    setStyle();
+    show();
 }
 
 void LoginWidget::mousePressEvent(QMouseEvent* event)
