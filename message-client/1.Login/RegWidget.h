@@ -1,5 +1,5 @@
-#ifndef REG_WIDGET_H_
-#define REG_WIDGET_H_
+#ifndef _REG_WIDGET_H_
+#define _REG_WIDGET_H_
 
 #include "ui_RegWidget.h"
 #include <QWidget>

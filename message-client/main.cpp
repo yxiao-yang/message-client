@@ -1,4 +1,5 @@
 #include "LoginWidget.h"
+#include "ConnectServer.h"
 #include <QtWidgets>
 #include <QTextCodec>
 #include <QDebug>
@@ -14,5 +15,10 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     LoginWidget w;
     w.show();
+
+    // 连接服务器和数据库
+    qDebug() << "-------------------------------";
+    ConnectServer::getInstance()->connectServer();
+
     return a.exec();
 }

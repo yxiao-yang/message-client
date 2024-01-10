@@ -38,7 +38,7 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="QtSettings">
     <QtInstall>5.12.12_msvc2017</QtInstall>
-    <QtModules>core;sql;gui;widgets</QtModules>
+    <QtModules>core;sql;network;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'" Label="QtSettings">
@@ -61,7 +61,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
-    <IncludePath>D:\Code\qt\message-client\message-client\0.pub;D:\Code\qt\message-client\message-client\1.Login;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Code\qt\message-client\message-client\0.Conn;D:\Code\qt\message-client\message-client\0.pub;D:\Code\qt\message-client\message-client\1.Login;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
   </PropertyGroup>
@@ -92,6 +92,7 @@
   <ItemGroup>
     <QtRcc Include="MessageClient.qrc" />
     <QtMoc Include="1.Login\LoginWidget.h" />
+    <ClCompile Include="0.Conn\ConnectServer.cpp" />
     <ClCompile Include="1.Login\LoginWidget.cpp" />
     <ClCompile Include="1.Login\RegWidget.cpp" />
     <ClCompile Include="main.cpp" />
@@ -105,6 +106,7 @@
     <None Include="0.ui\LoginWidget.css" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="0.Conn\ConnectServer.h" />
     <ClInclude Include="0.pub\pub_func.hpp" />
     <QtMoc Include="1.Login\RegWidget.h" />
   </ItemGroup>

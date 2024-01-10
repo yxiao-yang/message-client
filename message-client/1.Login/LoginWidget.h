@@ -1,5 +1,5 @@
-#ifndef LOGIN_WIDGET_H
-#define LOGIN_WIDGET_H
+#ifndef _LOGIN_WIDGET_H
+#define _LOGIN_WIDGET_H
 
 #include "ui_LoginWidget.h"
 #include "RegWidget.h"
