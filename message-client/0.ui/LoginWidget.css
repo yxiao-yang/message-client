@@ -38,3 +38,7 @@ QPushButton:hover {
 QPushButton:pressed {
     background-color: rgb(17,171,164);
 }
+
+QToolButton {
+    background-color: transparent;
+}

@@ -1,4 +1,6 @@
 <RCC>
-    <qresource prefix="MessageClient">
+    <qresource prefix="/">
+        <file>0.ui/img/poweroff.png</file>
+        <file>0.ui/img/minus.png</file>
     </qresource>
 </RCC>

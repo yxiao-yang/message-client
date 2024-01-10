@@ -24,3 +24,4 @@ bool initCssFile(QString& strCssFileName)
     }
     return false;
 }
+

@@ -37,9 +37,15 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="1.Login\RegWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="1.Login\ui\RegWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -48,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="0.pub\pub_func.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="1.Login\RegWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
