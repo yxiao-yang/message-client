@@ -1,7 +1,12 @@
 #include "RegWidget.h"
+#include "ConnectServer.h"
 #include "pub_func.hpp"
+#include "json.hpp"
+#include "pub.const.h"
 #include <QMouseEvent>
 #include <QDebug>
+
+using json = nlohmann::json;
 
 #pragma execution_character_set("utf-8")
 
@@ -11,7 +16,6 @@ RegWidget::RegWidget(QWidget* parent)
 {
     m_pUi->setupUi(this);
 
-    setStyle();
     setSlots();
 }
 
@@ -50,12 +54,33 @@ void RegWidget::setStyle()
 void RegWidget::setSlots()
 {
     connect(m_pUi->ReturnTb, &QToolButton::clicked, this, &RegWidget::onReturnTb);
+    connect(m_pUi->RegPb, &QPushButton::clicked, this, &RegWidget::onRegPb);
 }
 
 void RegWidget::onReturnTb()
 {
     emit showLoginWgt();
     close();
+}
+
+void RegWidget::onRegPb()
+{
+    json js;
+    js["msgid"] = REG_MSG;
+    js["Username"] = m_pUi->UserNameLedit->text().toStdString();
+    js["Password"] = m_pUi->PasswordLedit->text().toStdString();
+    js["Telephone"] = m_pUi->PhoneLedit->text().toStdString();
+    std::string strRequest = js.dump();
+
+    int len = ConnectServer::getInstance()->getTcpSocket()->write(QString::fromStdString(strRequest).toLocal8Bit());
+    if (len == -1)
+    {
+        qDebug() << "send register fail";
+    } 
+    else
+    {
+        qDebug() << "send register success";
+    }
 }
 
 void RegWidget::mousePressEvent(QMouseEvent* event)

@@ -16,8 +16,7 @@ int main(int argc, char *argv[])
     LoginWidget w;
     w.show();
 
-    // 连接服务器和数据库
-    qDebug() << "-------------------------------";
+    // 连接服务器
     ConnectServer::getInstance()->connectServer();
 
     return a.exec();

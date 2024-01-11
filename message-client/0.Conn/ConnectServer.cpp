@@ -43,18 +43,18 @@ void ConnectServer::connectServer()
 
 	// 客户端连接服务器成功后会产生connected信号
 	connect(m_pTcpSocket, SIGNAL(connected()), this, SLOT(onConnectedServer()));
-
-	// 如果客户端收到发送过来的数据，系统会产生readyRead信号
-	connect(m_pTcpSocket, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
 }
 
 void ConnectServer::onConnectedServer()
 {
 	m_bConnected = true;
+	qDebug() << "Connect Server Success";
 
-	// 连接成功之后第一次发送自己的帐户
-	//QByteArray straccount = this->account.toUtf8();
-	//tcpClient->write(straccount);
+	// 如果客户端收到发送过来的数据，系统会产生readyRead信号
+	connect(m_pTcpSocket, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
+
+	//断开连接
+	connect(m_pTcpSocket, SIGNAL(disconnected()), SLOT(onDisconnected()));
 }
 
 void ConnectServer::onReadyRead()
@@ -62,7 +62,18 @@ void ConnectServer::onReadyRead()
 
 }
 
+void ConnectServer::onDisconnected()
+{
+	m_bConnected = false;
+	qDebug() << "Connect Server Fail";
+}
+
 bool ConnectServer::isConnectionSuccess()
 {
 	return m_bConnected;
+}
+
+QTcpSocket* ConnectServer::getTcpSocket()
+{
+	return m_pTcpSocket;
 }

@@ -1,20 +1,20 @@
 #ifndef _REG_WIDGET_H_
 #define _REG_WIDGET_H_
 
-#include "ui_RegWidget.h"
+#include "ui_RegSuccessWidget.h"
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class RegWgt; };
+namespace Ui { class RegSuccessWgt; };
 QT_END_NAMESPACE
 
-class RegWidget : public QWidget
+class RegSuccessWidget : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-    explicit RegWidget(QWidget* parent = nullptr);
-    ~RegWidget();
+    explicit RegSuccessWidget(QWidget* parent = nullptr);
+    ~RegSuccessWidget();
 
     // 设置风格
     void setStyle();
@@ -23,20 +23,11 @@ public:
     void mouseMoveEvent(QMouseEvent* event);        // 鼠标移动
     void mouseReleaseEvent(QMouseEvent* event);     // 鼠标释放
 
-private slots:
-    // 点击返回按钮
-    void onReturnTb();
-
-    // 点击注册按钮
-    void onRegPb();
-
 signals:
-    // 展示登录界面
     void showLoginWgt();
 
 private:
-    Ui::RegWgt* m_pUi = nullptr;
-    //LoginWidget* m_pLoginWgt = nullptr;
+    Ui::RegSuccessWgt* m_pUi = nullptr;
 
     /*鼠标事件*/
     QPoint last;                    // 窗口拖动用变量

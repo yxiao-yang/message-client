@@ -94,11 +94,13 @@
     <QtMoc Include="1.Login\LoginWidget.h" />
     <ClCompile Include="0.Conn\ConnectServer.cpp" />
     <ClCompile Include="1.Login\LoginWidget.cpp" />
+    <ClCompile Include="1.Login\RegSuccessWidget.cpp" />
     <ClCompile Include="1.Login\RegWidget.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui" />
+    <QtUic Include="1.Login\ui\RegSuccessWidget.ui" />
     <QtUic Include="1.Login\ui\RegWidget.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -106,7 +108,11 @@
     <None Include="0.ui\LoginWidget.css" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="1.Login\RegSuccessWidget.h" />
     <QtMoc Include="0.Conn\ConnectServer.h" />
+    <ClInclude Include="..\..\..\json\json.hpp" />
+    <ClInclude Include="0.pub\json.hpp" />
+    <ClInclude Include="0.pub\pub.const.h" />
     <ClInclude Include="0.pub\pub_func.hpp" />
     <QtMoc Include="1.Login\RegWidget.h" />
   </ItemGroup>
