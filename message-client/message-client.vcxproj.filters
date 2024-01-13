@@ -46,6 +46,12 @@
     <ClCompile Include="1.Login\RegSuccessWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="0.Conn\Service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="1.Login\service\RegService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui">
@@ -66,13 +72,16 @@
     <ClInclude Include="0.pub\pub_func.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\json\json.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="0.pub\json.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="0.pub\pub.const.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="0.Conn\Service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="1.Login\service\RegService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

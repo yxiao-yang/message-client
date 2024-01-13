@@ -1,4 +1,8 @@
 #include "ConnectServer.h"
+#include "json.hpp"
+#include "Service.h"
+
+using json = nlohmann::json;
 
 ConnectServer* ConnectServer::s_connect = nullptr;
 
@@ -59,7 +63,18 @@ void ConnectServer::onConnectedServer()
 
 void ConnectServer::onReadyRead()
 {
+	qDebug() << "ready read";
 
+	// 从缓冲区拿数据
+	std::string buf = m_pTcpSocket->readAll();
+
+	// 数据反序列化
+	json js = json::parse(buf);
+
+	// 执行对应事件的回调
+	auto msgHandler =
+		Service::getInstance()->getHandler(js["msgid"].get<enMsgType>());
+	msgHandler(js);
 }
 
 void ConnectServer::onDisconnected()
