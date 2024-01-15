@@ -32,7 +32,10 @@ private slots:
 
 signals:
     // 展示登录界面
-    void showLoginWgt();
+    void showLoginWgt_RegService();
+
+    // 发送注册信息
+    void sendRegMessage_RegService(QString& Username, QString& Password, QString& Telephone);
 
 private:
     Ui::RegWgt* m_pUi = nullptr;

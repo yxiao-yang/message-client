@@ -13,12 +13,12 @@ LoginWidget::LoginWidget(QWidget *parent)
 {
     m_pUi->setupUi(this);
 
-    setStyle();
     setSlots();
 }
 
 LoginWidget::~LoginWidget()
 {
+    qDebug() << "µÇÂ¼´°¿ÚÎö¹¹";
     delete m_pUi;
 }
 
@@ -71,23 +71,8 @@ void LoginWidget::onTbClose()
 void LoginWidget::onPbReg()
 {
     // ÏÔÊ¾×¢²á´°¿Ú
-    if (m_pRegWgt == nullptr)
-    {
-        m_pRegWgt = new RegWidget();
-        connect(m_pRegWgt, &RegWidget::showLoginWgt, this, &LoginWidget::showLoginWgt);
-    }
-    m_pRegWgt->setStyle();
-    m_pRegWgt->show();
-
-    // Òþ²Øµ±Ç°´°¿Ú
-    //hide();
-    close();
-}
-
-void LoginWidget::showLoginWgt()
-{
-    setStyle();
-    show();
+    emit showRegWgt_LoginService();
+    hide();
 }
 
 void LoginWidget::mousePressEvent(QMouseEvent* event)

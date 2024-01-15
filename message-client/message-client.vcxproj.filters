@@ -52,6 +52,12 @@
     <ClCompile Include="1.Login\service\RegService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="1.Login\service\LoginService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="1.Login\service\RegSuccessService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui">
@@ -79,18 +85,24 @@
     <ClInclude Include="0.pub\pub.const.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="0.Conn\Service.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="1.Login\service\RegService.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="1.Login\RegWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="0.Conn\ConnectServer.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="0.Conn\Service.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="1.Login\service\RegService.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="1.Login\service\LoginService.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="1.Login\service\RegSuccessService.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="1.Login\RegSuccessWidget.h">

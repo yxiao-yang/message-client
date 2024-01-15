@@ -1,5 +1,5 @@
-#ifndef PUB_FUNC_H
-#define PUB_FUNC_H
+#ifndef _PUB_FUNC_H_
+#define _PUB_FUNC_H_
 
 #include <QtWidgets/QApplication>
 #include <QFile>

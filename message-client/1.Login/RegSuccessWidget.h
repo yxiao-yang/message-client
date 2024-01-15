@@ -1,5 +1,5 @@
-#ifndef _REG_WIDGET_H_
-#define _REG_WIDGET_H_
+#ifndef _REG_SUCCESS_WIDGET_H_
+#define _REG_SUCCESS_WIDGET_H_
 
 #include "ui_RegSuccessWidget.h"
 #include <QWidget>
@@ -23,8 +23,11 @@ public:
     void mouseMoveEvent(QMouseEvent* event);        // 鼠标移动
     void mouseReleaseEvent(QMouseEvent* event);     // 鼠标释放
 
+private slots:
+    void onReturnPb();
+
 signals:
-    void showLoginWgt();
+    void showLoginWgt_RegSuccessService();
 
 private:
     Ui::RegSuccessWgt* m_pUi = nullptr;

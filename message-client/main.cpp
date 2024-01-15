@@ -1,4 +1,4 @@
-#include "LoginWidget.h"
+#include "Service.h"
 #include "ConnectServer.h"
 #include <QtWidgets>
 #include <QTextCodec>
@@ -13,8 +13,7 @@ int main(int argc, char *argv[])
     SetConsoleOutputCP(65001);
 
     QApplication a(argc, argv);
-    LoginWidget w;
-    w.show();
+    Service::getInstance()->showLoginWgt();
 
     // 连接服务器
     ConnectServer::getInstance()->connectServer();

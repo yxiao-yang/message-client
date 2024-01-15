@@ -21,6 +21,7 @@ RegWidget::RegWidget(QWidget* parent)
 
 RegWidget::~RegWidget()
 {
+    qDebug() << "×¢²á´°¿ÚÎö¹¹";
     delete m_pUi;
 }
 
@@ -59,13 +60,13 @@ void RegWidget::setSlots()
 
 void RegWidget::onReturnTb()
 {
-    emit showLoginWgt();
-    close();
+    emit showLoginWgt_RegService();
+    hide();
 }
 
 void RegWidget::onRegPb()
 {
-    json js;
+    /*json js;
     js["msgid"] = REG_MSG;
     js["Username"] = m_pUi->UserNameLedit->text().toStdString();
     js["Password"] = m_pUi->PasswordLedit->text().toStdString();
@@ -81,7 +82,13 @@ void RegWidget::onRegPb()
     {
         qDebug() << "send register success";
         hide();
-    }
+    }*/
+    QString Username = m_pUi->UserNameLedit->text();
+    QString Password = m_pUi->PasswordLedit->text();
+    QString Telephone = m_pUi->PhoneLedit->text();
+
+    emit sendRegMessage_RegService(Username, Password, Telephone);
+    hide();
 }
 
 void RegWidget::mousePressEvent(QMouseEvent* event)

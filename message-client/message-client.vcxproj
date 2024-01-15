@@ -97,7 +97,9 @@
     <ClCompile Include="1.Login\LoginWidget.cpp" />
     <ClCompile Include="1.Login\RegSuccessWidget.cpp" />
     <ClCompile Include="1.Login\RegWidget.cpp" />
+    <ClCompile Include="1.Login\service\LoginService.cpp" />
     <ClCompile Include="1.Login\service\RegService.cpp" />
+    <ClCompile Include="1.Login\service\RegSuccessService.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -111,10 +113,12 @@
     <None Include="0.ui\LoginWidget.css" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="1.Login\service\RegService.h" />
     <QtMoc Include="1.Login\RegSuccessWidget.h" />
+    <QtMoc Include="1.Login\service\RegSuccessService.h" />
+    <QtMoc Include="1.Login\service\LoginService.h" />
+    <QtMoc Include="1.Login\service\RegService.h" />
     <QtMoc Include="0.Conn\ConnectServer.h" />
-    <ClInclude Include="0.Conn\Service.h" />
+    <QtMoc Include="0.Conn\Service.h" />
     <ClInclude Include="0.pub\json.hpp" />
     <ClInclude Include="0.pub\pub.const.h" />
     <ClInclude Include="0.pub\pub_func.hpp" />

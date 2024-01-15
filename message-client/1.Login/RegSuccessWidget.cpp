@@ -43,7 +43,13 @@ void RegSuccessWidget::setStyle(const std::string& strUserid)
 
 void RegSuccessWidget::setSlots()
 {
-    //connect(m_pUi->ReturnTb, &QToolButton::clicked, this, &RegWidget::onReturnTb);
+    connect(m_pUi->RegSuccessPb, &QPushButton::clicked, this, &RegSuccessWidget::onReturnPb);
+}
+
+void RegSuccessWidget::onReturnPb()
+{
+    emit showLoginWgt_RegSuccessService();
+    hide();
 }
 
 void RegSuccessWidget::mousePressEvent(QMouseEvent* event)
