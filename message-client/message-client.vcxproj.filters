@@ -67,6 +67,7 @@
   <ItemGroup>
     <None Include="0.ui\LoginWidget.css" />
     <None Include="0.ui\RegWidget.css" />
+    <None Include="0.ui\RegSuccessWidget.css" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="0.pub\pub_func.hpp">

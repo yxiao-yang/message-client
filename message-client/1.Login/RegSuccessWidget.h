@@ -17,7 +17,7 @@ public:
     ~RegSuccessWidget();
 
     // 设置风格
-    void setStyle();
+    void setStyle(const std::string& strUserid);
 
     void mousePressEvent(QMouseEvent* event);       // 鼠标点击
     void mouseMoveEvent(QMouseEvent* event);        // 鼠标移动

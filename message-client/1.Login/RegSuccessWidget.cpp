@@ -19,25 +19,26 @@ RegSuccessWidget::~RegSuccessWidget()
     delete m_pUi;
 }
 
-void RegSuccessWidget::setStyle()
+void RegSuccessWidget::setStyle(const std::string& strUserid)
 {
     // 设置窗口固定大小
     setFixedSize(900, 600);
 
     // 应用样式表
-    QString strCssName = "RegWidget.css";
+    QString strCssName = "RegSuccessWidget.css";
     pub_func* func = new pub_func;
     if (func->initCssFile(strCssName))
     {
-        qDebug() << "应用样式表RegWidget.css成功";
+        qDebug() << "应用样式表RegSuccessWidget.css成功";
     }
     else
     {
-        qDebug() << "应用样式表RegWidget.css失败";
+        qDebug() << "应用样式表RegSuccessWidget.css失败";
     }
 
     // 其它设置
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());    // 去窗口边框
+    m_pUi->UseridLb->setText("您的账号为：" + QString::fromLocal8Bit(strUserid.data()));
 }
 
 void RegSuccessWidget::setSlots()

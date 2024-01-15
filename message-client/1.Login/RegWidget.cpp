@@ -80,6 +80,7 @@ void RegWidget::onRegPb()
     else
     {
         qDebug() << "send register success";
+        hide();
     }
 }
 

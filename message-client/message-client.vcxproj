@@ -106,6 +106,7 @@
     <QtUic Include="1.Login\ui\RegWidget.ui" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="0.ui\RegSuccessWidget.css" />
     <None Include="0.ui\RegWidget.css" />
     <None Include="0.ui\LoginWidget.css" />
   </ItemGroup>

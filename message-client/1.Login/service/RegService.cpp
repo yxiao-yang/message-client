@@ -12,7 +12,7 @@ void RegService::reg(json& js)
 	if (errnoType == REG_SUCCESS)
 	{
 		std::string Userid = js["Userid"];
-		m_pRegSuccessWgt->setStyle();
+		m_pRegSuccessWgt->setStyle(Userid);
 		m_pRegSuccessWgt->show();
 	}
 	else
