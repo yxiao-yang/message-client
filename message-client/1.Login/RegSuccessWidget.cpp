@@ -29,7 +29,7 @@ void RegSuccessWidget::setStyle(const std::string& strUserid)
     pub_func* func = new pub_func;
     if (func->initCssFile(strCssName))
     {
-        qDebug() << "应用样式表RegSuccessWidget.css成功";
+        //qDebug() << "应用样式表RegSuccessWidget.css成功";
     }
     else
     {

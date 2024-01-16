@@ -32,7 +32,7 @@ void LoginWidget::setStyle()
     pub_func* func = new pub_func;
     if (func->initCssFile(strCssName))
     {
-        qDebug() << "应用样式表LoginWidget.css成功";
+        //qDebug() << "应用样式表LoginWidget.css成功";
     }
     else
     {
@@ -40,7 +40,7 @@ void LoginWidget::setStyle()
     }
 
     // 其它设置
-    m_pUi->UserNameLedit->setPlaceholderText("请输入用户名");
+    m_pUi->UseridLedit->setPlaceholderText("请输入账号");
     m_pUi->PasswordLedit->setPlaceholderText("请输入密码");
 	m_pUi->PasswordLedit->setEchoMode(QLineEdit::Password);     // 密文输入
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());    // 去窗口边框
@@ -55,6 +55,7 @@ void LoginWidget::setSlots()
     connect(m_pUi->MinusTb, &QToolButton::clicked, this, &LoginWidget::onTbMinus);
     connect(m_pUi->CloseTb, &QToolButton::clicked, this, &LoginWidget::onTbClose);
     connect(m_pUi->RegPb, &QPushButton::clicked, this, &LoginWidget::onPbReg);
+    connect(m_pUi->LoginPb, &QPushButton::clicked, this, &LoginWidget::onPbLogin);
 }
 
 void LoginWidget::onTbMinus()
@@ -73,6 +74,13 @@ void LoginWidget::onPbReg()
     // 显示注册窗口
     emit showRegWgt_LoginService();
     hide();
+}
+
+void LoginWidget::onPbLogin()
+{
+    QString Userid = m_pUi->UseridLedit->text();
+    QString Password = m_pUi->PasswordLedit->text();
+    emit loginHome_LoginService(Userid, Password);
 }
 
 void LoginWidget::mousePressEvent(QMouseEvent* event)

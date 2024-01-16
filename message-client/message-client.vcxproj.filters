@@ -58,6 +58,12 @@
     <ClCompile Include="1.Login\service\RegSuccessService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="2.Home\HomeWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="2.Home\service\HomeService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui">
@@ -67,6 +73,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="1.Login\ui\RegSuccessWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="2.Home\ui\HomeWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -83,6 +92,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="0.pub\pub.const.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="2.Home\service\HomeService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="2.Home\HomeWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

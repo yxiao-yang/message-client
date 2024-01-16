@@ -35,7 +35,7 @@ void RegWidget::setStyle()
     pub_func* func = new pub_func;
     if (func->initCssFile(strCssName))
     {
-        qDebug() << "应用样式表RegWidget.css成功";
+        //qDebug() << "应用样式表RegWidget.css成功";
     }
     else
     {
@@ -66,23 +66,6 @@ void RegWidget::onReturnTb()
 
 void RegWidget::onRegPb()
 {
-    /*json js;
-    js["msgid"] = REG_MSG;
-    js["Username"] = m_pUi->UserNameLedit->text().toStdString();
-    js["Password"] = m_pUi->PasswordLedit->text().toStdString();
-    js["Telephone"] = m_pUi->PhoneLedit->text().toStdString();
-    std::string strRequest = js.dump();
-
-    int len = ConnectServer::getInstance()->getTcpSocket()->write(QString::fromStdString(strRequest).toLocal8Bit());
-    if (len == -1)
-    {
-        qDebug() << "send register fail";
-    } 
-    else
-    {
-        qDebug() << "send register success";
-        hide();
-    }*/
     QString Username = m_pUi->UserNameLedit->text();
     QString Password = m_pUi->PasswordLedit->text();
     QString Telephone = m_pUi->PhoneLedit->text();

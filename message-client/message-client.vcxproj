@@ -100,12 +100,15 @@
     <ClCompile Include="1.Login\service\LoginService.cpp" />
     <ClCompile Include="1.Login\service\RegService.cpp" />
     <ClCompile Include="1.Login\service\RegSuccessService.cpp" />
+    <ClCompile Include="2.Home\HomeWidget.cpp" />
+    <ClCompile Include="2.Home\service\HomeService.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui" />
     <QtUic Include="1.Login\ui\RegSuccessWidget.ui" />
     <QtUic Include="1.Login\ui\RegWidget.ui" />
+    <QtUic Include="2.Home\ui\HomeWidget.ui" />
   </ItemGroup>
   <ItemGroup>
     <None Include="0.ui\RegSuccessWidget.css" />
@@ -113,6 +116,8 @@
     <None Include="0.ui\LoginWidget.css" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="2.Home\service\HomeService.h" />
+    <ClInclude Include="2.Home\HomeWidget.h" />
     <QtMoc Include="1.Login\RegSuccessWidget.h" />
     <QtMoc Include="1.Login\service\RegSuccessService.h" />
     <QtMoc Include="1.Login\service\LoginService.h" />

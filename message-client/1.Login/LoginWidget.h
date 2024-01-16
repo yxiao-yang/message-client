@@ -1,5 +1,5 @@
-#ifndef _LOGIN_WIDGET_H
-#define _LOGIN_WIDGET_H
+#ifndef _LOGIN_WIDGET_H_
+#define _LOGIN_WIDGET_H_
 
 #include "ui_LoginWidget.h"
 #include "RegWidget.h"
@@ -25,12 +25,14 @@ public:
     void mouseReleaseEvent(QMouseEvent* event);     // 鼠标释放
 
 signals:
-    void showRegWgt_LoginService();  // 展示注册窗口
+    void showRegWgt_LoginService(); // 展示注册窗口
+    void loginHome_LoginService(QString& Userid, QString& Password);  // 登录业务
 
 private slots:
     void onTbMinus();       // 最小化窗口
     void onTbClose();       // 关闭窗口
     void onPbReg();         // 注册按钮
+    void onPbLogin();       // 登录按钮
 
 private:
     Ui::LoginWgt* m_pUi = nullptr;

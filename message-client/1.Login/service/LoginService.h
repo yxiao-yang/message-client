@@ -23,6 +23,7 @@ signals:
 
 public slots:
 	void showRegWgt_LoginService();
+	void loginHome_LoginService(QString& Userid, QString& Password);
 
 private:
 	LoginWidget* m_pLoginWgt = nullptr;
