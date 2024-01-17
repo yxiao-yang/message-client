@@ -22,4 +22,10 @@ enum enLoginType
 	LOGIN_ERR_WRONG     // 登录失败，用户名或密码错误
 };
 
+enum enHomeStackedWidgetId
+{
+	MESSAGE_WIDGET = 0,
+	FRIEND_WIDGET
+};
+
 #endif

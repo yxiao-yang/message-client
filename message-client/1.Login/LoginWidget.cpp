@@ -51,7 +51,6 @@ void LoginWidget::setStyle()
 
 void LoginWidget::setSlots()
 {
-    // 最小化、关闭、登录槽函数
     connect(m_pUi->MinusTb, &QToolButton::clicked, this, &LoginWidget::onTbMinus);
     connect(m_pUi->CloseTb, &QToolButton::clicked, this, &LoginWidget::onTbClose);
     connect(m_pUi->RegPb, &QPushButton::clicked, this, &LoginWidget::onPbReg);

@@ -2,7 +2,6 @@
 #define _LOGIN_WIDGET_H_
 
 #include "ui_LoginWidget.h"
-#include "RegWidget.h"
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE

@@ -11,7 +11,6 @@ QT_END_NAMESPACE
 class RegWidget : public QWidget
 {
 	Q_OBJECT
-
 public:
     explicit RegWidget(QWidget* parent = nullptr);
     ~RegWidget();

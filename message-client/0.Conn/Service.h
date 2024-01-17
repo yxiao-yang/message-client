@@ -6,6 +6,7 @@
 #include "RegService.h"
 #include "LoginService.h"
 #include "RegSuccessService.h"
+#include "HomeService.h"
 
 using json = nlohmann::json;
 
@@ -27,6 +28,7 @@ public slots:
 	void showRegWgt_Service();
 	void showLoginWgt_Service();
 	void showRegSuccessWgt_Service(std::string& Userid);
+	void showHomeWgt_Service();
 
 private:
 	Service();
@@ -37,6 +39,7 @@ private:
 	RegService* m_pRegService = nullptr;
 	LoginService* m_pLoginService = nullptr;
 	RegSuccessService* m_pRegSuccessService = nullptr;
+	HomeService* m_pHomeService = nullptr;
 };
 
 #endif

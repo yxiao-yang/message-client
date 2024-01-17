@@ -3,5 +3,7 @@
         <file>0.ui/img/poweroff.png</file>
         <file>0.ui/img/minus.png</file>
         <file>0.ui/img/rollback.png</file>
+        <file>0.ui/img/message.png</file>
+        <file>0.ui/img/user.png</file>
     </qresource>
 </RCC>

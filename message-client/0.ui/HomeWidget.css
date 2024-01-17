@@ -1,0 +1,13 @@
+QFrame#LeftFrame {
+    background-color: white;
+    border-radius: 15px;
+}
+
+QFrame#TopFrame {
+    background-color: white;
+}
+
+QToolButton {
+    background-color: transparent;
+}
+

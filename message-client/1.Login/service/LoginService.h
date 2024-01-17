@@ -20,6 +20,7 @@ public:
 
 signals:
 	void showRegWgt_Service();
+	void showHomeWgt_Service();
 
 public slots:
 	void showRegWgt_LoginService();

@@ -61,7 +61,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
-    <IncludePath>D:\Code\qt\message-client\message-client\1.Login\service;D:\Code\qt\message-client\message-client\0.Conn;D:\Code\qt\message-client\message-client\0.pub;D:\Code\qt\message-client\message-client\1.Login;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Code\qt\message-client\message-client\4.Friend\service;D:\Code\qt\message-client\message-client\4.Friend;D:\Code\qt\message-client\message-client\3.Message\service;D:\Code\qt\message-client\message-client\3.Message;D:\Code\qt\message-client\message-client\2.Home\service;D:\Code\qt\message-client\message-client\2.Home;D:\Code\qt\message-client\message-client\1.Login\service;D:\Code\qt\message-client\message-client\0.Conn;D:\Code\qt\message-client\message-client\0.pub;D:\Code\qt\message-client\message-client\1.Login;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
   </PropertyGroup>
@@ -102,6 +102,10 @@
     <ClCompile Include="1.Login\service\RegSuccessService.cpp" />
     <ClCompile Include="2.Home\HomeWidget.cpp" />
     <ClCompile Include="2.Home\service\HomeService.cpp" />
+    <ClCompile Include="3.Message\MessageWidget.cpp" />
+    <ClCompile Include="3.Message\service\MessageService.cpp" />
+    <ClCompile Include="4.Friend\FriendWidget.cpp" />
+    <ClCompile Include="4.Friend\service\FriendService.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -109,15 +113,22 @@
     <QtUic Include="1.Login\ui\RegSuccessWidget.ui" />
     <QtUic Include="1.Login\ui\RegWidget.ui" />
     <QtUic Include="2.Home\ui\HomeWidget.ui" />
+    <QtUic Include="3.Message\ui\MessageWidget.ui" />
+    <QtUic Include="4.Friend\ui\FriendWidget.ui" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="0.ui\HomeWidget.css" />
     <None Include="0.ui\RegSuccessWidget.css" />
     <None Include="0.ui\RegWidget.css" />
     <None Include="0.ui\LoginWidget.css" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="2.Home\service\HomeService.h" />
-    <ClInclude Include="2.Home\HomeWidget.h" />
+    <QtMoc Include="4.Friend\FriendWidget.h" />
+    <ClInclude Include="4.Friend\service\FriendService.h" />
+    <QtMoc Include="3.Message\MessageWidget.h" />
+    <ClInclude Include="3.Message\service\MessageService.h" />
+    <QtMoc Include="2.Home\service\HomeService.h" />
+    <QtMoc Include="2.Home\HomeWidget.h" />
     <QtMoc Include="1.Login\RegSuccessWidget.h" />
     <QtMoc Include="1.Login\service\RegSuccessService.h" />
     <QtMoc Include="1.Login\service\LoginService.h" />

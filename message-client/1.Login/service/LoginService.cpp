@@ -21,7 +21,8 @@ void LoginService::login(json& js)
 		std::string phone = js["Telephone"];
 		std::string time = js["Time"];
 		qDebug() << "µÇÂ¼³É¹¦";
-		//emit showRegSuccessWgt_Service(Userid);
+		emit showHomeWgt_Service();
+		m_pLoginWgt->hide();
 	}
 	else if (errnoType == LOGIN_ERR_REPEAT)
 	{
