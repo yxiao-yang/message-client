@@ -1,38 +1,151 @@
+/*HomeWidget*/
 QWidget#HomeWgt {
-    background-color: rgb(187,117,124);
+    background-color: rgb(179,177,170);
 }
 
 QFrame#LeftFrame {
-    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(136,97,100), stop:1 rgb(148,110,117));
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(203,203,195), stop:1 rgb(213,211,211));
     border-radius: 15px;
 }
 
 QFrame#TopFrame {
-    background-color: rgb(148, 110, 117);
+    background-color: rgb(215, 213, 212);
     border-radius: 15px;
 }
 
-QToolButton {
+QToolButton#MinusTb {
     background-color: transparent;
 }
 
+QToolButton#CloseTb {
+    background-color: transparent;
+}
+
+QToolButton#UserTb {
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+    QToolButton#UserTb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QToolButton#UserTb:pressed {
+        background-color: rgb(115,110,95);
+    }
+
+QToolButton#MessageTb {
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+    QToolButton#MessageTb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QToolButton#MessageTb:pressed {
+        background-color: rgb(115,110,95);
+    }
+
+QToolButton#FriendTb {
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+    QToolButton#FriendTb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QToolButton#FriendTb:pressed {
+        background-color: rgb(115,110,95);
+    }
+
+/*MessageWidget*/
 QWidget#MessageWgt {
     background-color: rgb(162, 136, 136);
 }
 
 QPushButton#AddPb {
-    background-color: rgb(159,119,126);
-    /*border: none;*/
+    background-color: rgb(203,203,203);
     border-radius: 15px;
 }
+
+    QPushButton#AddPb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QPushButton#AddPb:pressed {
+        background-color: rgb(115,110,95);
+    }
 
 QPushButton#CreateGroupPb {
-    background-color: rgb(159,119,126);
+    background-color: rgb(203,203,203);
     /*border: none;*/
     border-radius: 15px;
 }
 
+    QPushButton#CreateGroupPb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QPushButton#CreateGroupPb:pressed {
+        background-color: rgb(115,110,95);
+    }
+
 QListWidget#MessageLstWgt {
-    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(125,82,83), stop:1 rgb(153,111,118));
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(180,179,172), stop:1 rgb(217,215,214));
+    border-radius: 8px;
+}
+
+QWidget#MessageSWgt {
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(180,179,172), stop:1 rgb(217,215,214));
+    border-radius: 8px;
+}
+
+/*AddFriendWidget*/
+QLineEdit#SearchLedit {
+    font: 25 14pt 'Î¢ÈíÑÅºÚ Light';
+    color: rgb(31,31,31);
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(20,196,188);
+}
+
+QToolButton#SearchTb {
+    background-color: transparent;
     border-radius: 15px;
 }
+
+    QToolButton#SearchTb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QToolButton#SearchTb:pressed {
+        background-color: rgb(115,110,95);
+    }
+
+QPushButton#UserPb {
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+    QPushButton#UserPb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QPushButton#UserPb:pressed {
+        background-color: rgb(115,110,95);
+    }
+
+QPushButton#GroupPb {
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+    QPushButton#GroupPb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QPushButton#GroupPb:pressed {
+        background-color: rgb(115,110,95);
+    }

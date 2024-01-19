@@ -11,6 +11,9 @@ AddFriendWgt::AddFriendWgt(QWidget* parent)
 {
 	m_pUi->setupUi(this);
 	//setSlots();
+
+	m_pUi->SearchTb->setIcon(QIcon(":/0.ui/img/search.png"));
+	m_pUi->SearchLedit->setPlaceholderText("«Î ‰»Î–≈œ¢");
 }
 
 AddFriendWgt::~AddFriendWgt()
