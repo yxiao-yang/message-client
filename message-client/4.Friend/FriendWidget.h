@@ -17,10 +17,6 @@ public:
 
 private:
 	Ui::FriendWgt* m_pUi = nullptr;
-
-	/*鼠标事件*/
-	QPoint last;                    // 窗口拖动用变量
-	bool isPressedWidget = false;   // 鼠标是否按压widget
 };
 
 #endif

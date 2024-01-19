@@ -10,7 +10,10 @@ MessageWgt::MessageWgt(QWidget* parent)
 	, m_pUi(new Ui::MessageWgt())
 {
 	m_pUi->setupUi(this);
-	//setSlots();
+
+	m_pAddFriendWgt = new AddFriendWgt;
+
+	m_pUi->MessageSWgt->insertWidget(0, m_pAddFriendWgt);
 }
 
 MessageWgt::~MessageWgt()

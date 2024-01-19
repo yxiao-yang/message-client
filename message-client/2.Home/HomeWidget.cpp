@@ -46,6 +46,7 @@ void HomeWidget::setStyle()
 
     // 其它设置
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());    // 去窗口边框
+    //setAttribute(Qt::WA_TranslucentBackground);   // 背景透明
 
     m_pUi->MinusTb->setIcon(QIcon(":/0.ui/img/minus.png"));
     m_pUi->CloseTb->setIcon(QIcon(":/0.ui/img/poweroff.png"));

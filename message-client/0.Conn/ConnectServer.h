@@ -41,7 +41,7 @@ private:
 	bool m_bConnected = false;
 
 	QString m_strIPAddress = "192.168.25.129";
-	quint16 m_iPort = 6000;
+	quint16 m_iPort = 8000;
 
 	ConnectServer();
 	~ConnectServer();

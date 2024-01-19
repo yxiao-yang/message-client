@@ -1,13 +1,38 @@
+QWidget#HomeWgt {
+    background-color: rgb(187,117,124);
+}
+
 QFrame#LeftFrame {
-    background-color: white;
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(136,97,100), stop:1 rgb(148,110,117));
     border-radius: 15px;
 }
 
 QFrame#TopFrame {
-    background-color: white;
+    background-color: rgb(148, 110, 117);
+    border-radius: 15px;
 }
 
 QToolButton {
     background-color: transparent;
 }
 
+QWidget#MessageWgt {
+    background-color: rgb(162, 136, 136);
+}
+
+QPushButton#AddPb {
+    background-color: rgb(159,119,126);
+    /*border: none;*/
+    border-radius: 15px;
+}
+
+QPushButton#CreateGroupPb {
+    background-color: rgb(159,119,126);
+    /*border: none;*/
+    border-radius: 15px;
+}
+
+QListWidget#MessageLstWgt {
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(125,82,83), stop:1 rgb(153,111,118));
+    border-radius: 15px;
+}
