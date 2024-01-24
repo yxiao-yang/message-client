@@ -40,7 +40,7 @@ private:
 	QTcpSocket* m_pTcpSocket = nullptr;
 	bool m_bConnected = false;
 
-	QString m_strIPAddress = "192.168.25.129";
+	QString m_strIPAddress = "172.20.10.5";
 	quint16 m_iPort = 8000;
 
 	ConnectServer();

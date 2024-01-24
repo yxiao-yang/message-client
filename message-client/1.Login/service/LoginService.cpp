@@ -1,6 +1,7 @@
 #include "LoginService.h"
 #include "pub.const.h"
 #include "ConnectServer.h"
+#include "pub.cache.h"
 
 #pragma execution_character_set("utf-8")
 
@@ -13,13 +14,14 @@ LoginService::LoginService()
 
 void LoginService::login(json& js)
 {
-	enMsgType errnoType = js["errno"];
+	enLoginType errnoType = js["errno"];
 	if (errnoType == LOGIN_SUCCESS)
 	{
 		std::string Userid = js["Userid"];
 		std::string Username = js["Username"];
 		std::string phone = js["Telephone"];
 		std::string time = js["Time"];
+		PubCache::getInstance()->setUser(Userid, Username, phone, time);
 		qDebug() << "µÇÂ¼³É¹¦";
 		emit showHomeWgt_Service();
 		m_pLoginWgt->hide();

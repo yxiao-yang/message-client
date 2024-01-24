@@ -79,6 +79,15 @@
     <ClCompile Include="4.Friend\AddFriendWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="4.Friend\service\AddFriendService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="0.pub\pub.cache.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="4.Friend\SearchResWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui">
@@ -102,6 +111,9 @@
     <QtUic Include="4.Friend\ui\AddFriendWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="4.Friend\ui\SearchResWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <None Include="0.ui\LoginWidget.css" />
@@ -119,10 +131,10 @@
     <ClInclude Include="0.pub\pub.const.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="3.Message\service\MessageService.h">
+    <ClInclude Include="0.pub\pub.cache.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="4.Friend\service\FriendService.h">
+    <ClInclude Include="0.pub\user.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -161,6 +173,18 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="4.Friend\AddFriendWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="3.Message\service\MessageService.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="4.Friend\service\FriendService.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="4.Friend\service\AddFriendService.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="4.Friend\SearchResWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

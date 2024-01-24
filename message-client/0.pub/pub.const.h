@@ -3,10 +3,14 @@
 
 enum enMsgType
 {
-	LOGIN_MSG = 0,  // 登录消息
-	LOGIN_MSG_ACK,  // 登录响应消息
-	REG_MSG,        // 注册消息
-	REG_MSG_ACK     // 注册响应消息
+	LOGIN_MSG = 0,       // 登录消息
+	LOGIN_MSG_ACK,       // 登录响应消息
+	REG_MSG,             // 注册消息
+	REG_MSG_ACK,         // 注册响应消息
+	ONE_CHAT_MSG,        // 聊天消息
+	ADD_FRIEND_MSG,      // 添加好友
+	SEARCH_USER_MSG,     // 搜索用户
+	SEARCH_USER_MSG_ACK  // 搜索用户响应
 };
 
 enum enRegType
@@ -20,6 +24,13 @@ enum enLoginType
 	LOGIN_SUCCESS = 0,  // 登录成功
 	LOGIN_ERR_REPEAT,   // 登录失败，已经在线
 	LOGIN_ERR_WRONG     // 登录失败，用户名或密码错误
+};
+
+enum enSearchType
+{
+	SEARCH_SUCCESS = 0, // 搜索成功
+	SEARCH_ERR_NONE,    // 搜索失败，无结果
+	SEARCH_ERR_WRONG    // 搜索失败
 };
 
 enum enHomeStackedWidgetId

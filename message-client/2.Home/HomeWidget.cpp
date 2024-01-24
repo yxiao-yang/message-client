@@ -11,7 +11,6 @@ HomeWidget::HomeWidget(QWidget* parent)
 	, m_pUi(new Ui::HomeWgt())
 {
 	m_pUi->setupUi(this);
-    setSlots();
 
     m_pMessageWgt = new MessageWgt;
     m_pFriendWgt = new FriendWgt;
@@ -19,6 +18,8 @@ HomeWidget::HomeWidget(QWidget* parent)
     m_pUi->stackedWidget->insertWidget(FRIEND_WIDGET, m_pFriendWgt);
 
     m_pUi->stackedWidget->setCurrentIndex(MESSAGE_WIDGET);
+
+    setSlots();
 }
 
 HomeWidget::~HomeWidget()
@@ -64,6 +65,7 @@ void HomeWidget::setSlots()
     connect(m_pUi->FriendTb, &QToolButton::clicked, [=]() {
         m_pUi->stackedWidget->setCurrentIndex(FRIEND_WIDGET);
 	});
+    connect(m_pMessageWgt, &MessageWgt::searchUser_Home_Wgt, this, &HomeWidget::searchUser_Home_Wgt);
 }
 
 void HomeWidget::onTbMinus()
@@ -102,4 +104,12 @@ void HomeWidget::mouseReleaseEvent(QMouseEvent* event)
     isPressedWidget = false; // 鼠标松开时，置为false
 }
 
+void HomeWidget::searchUser_Home_Wgt(QString& Userid, QString& Searchid)
+{
+    emit searchUser_Home_Service(Userid, Searchid);
+}
 
+void HomeWidget::showSearchRes(std::vector<User>& arrUser)
+{
+    m_pMessageWgt->showSearchRes(arrUser);
+}

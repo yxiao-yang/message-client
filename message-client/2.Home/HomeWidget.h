@@ -4,6 +4,7 @@
 #include "ui_HomeWidget.h"
 #include "MessageWidget.h"
 #include "FriendWidget.h"
+#include "user.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class HomeWgt; };
@@ -16,12 +17,21 @@ public:
 	HomeWidget(QWidget* parent = nullptr);
 	~HomeWidget();
 
+	// 添加好友界面 展示搜索结果
+	void showSearchRes(std::vector<User>& arrUser);
+
 	// 设置风格
 	void setStyle();
 
 	void mousePressEvent(QMouseEvent* event);       // 鼠标点击
 	void mouseMoveEvent(QMouseEvent* event);        // 鼠标移动
 	void mouseReleaseEvent(QMouseEvent* event);     // 鼠标释放
+
+signals:
+	void searchUser_Home_Service(QString& Userid, QString& Searchid);
+
+public slots:
+	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
 
 private slots:
 	void onTbMinus();       // 最小化窗口

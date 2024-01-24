@@ -11,7 +11,7 @@ RegService::RegService()
 
 void RegService::reg(json& js)
 {
-	enMsgType errnoType = js["errno"];
+	enRegType errnoType = js["errno"];
 	if (errnoType == REG_SUCCESS)
 	{
 		std::string Userid = js["Userid"];

@@ -2,7 +2,10 @@
 #define _ADD_FRIEND_WIDGET_H_
 
 #include "ui_AddFriendWidget.h"
+#include "SearchResWidget.h"
+#include "user.hpp"
 #include <QWidget>
+#include <QScrollArea>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class AddFriendWgt; };
@@ -15,8 +18,24 @@ public:
 	AddFriendWgt(QWidget* parent = nullptr);
 	~AddFriendWgt();
 
+	// 添加好友界面 展示搜索结果
+	void showSearchRes(std::vector<User>& arrUser);
+
+signals:
+	void searchUser_Message_Friend_Wgt(QString& Userid, QString& Searchid);
+
+private slots:
+	void onTbSearch();
+
 private:
 	Ui::AddFriendWgt* m_pUi = nullptr;
+	QVBoxLayout* layoutUserPage = nullptr;
+	QVBoxLayout* layoutScrollUserPage = nullptr;
+	QScrollArea* scrollUserPage = nullptr;
+	QWidget* widgetScrollUserPage = nullptr;
+	QSpacerItem* spacerScrollUserPage = nullptr;
+
+	void setSlots();
 };
 
 #endif

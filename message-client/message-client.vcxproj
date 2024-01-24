@@ -94,6 +94,7 @@
     <QtMoc Include="1.Login\LoginWidget.h" />
     <ClCompile Include="0.Conn\ConnectServer.cpp" />
     <ClCompile Include="0.Conn\Service.cpp" />
+    <ClCompile Include="0.pub\pub.cache.cpp" />
     <ClCompile Include="1.Login\LoginWidget.cpp" />
     <ClCompile Include="1.Login\RegSuccessWidget.cpp" />
     <ClCompile Include="1.Login\RegWidget.cpp" />
@@ -106,6 +107,8 @@
     <ClCompile Include="3.Message\service\MessageService.cpp" />
     <ClCompile Include="4.Friend\AddFriendWidget.cpp" />
     <ClCompile Include="4.Friend\FriendWidget.cpp" />
+    <ClCompile Include="4.Friend\SearchResWidget.cpp" />
+    <ClCompile Include="4.Friend\service\AddFriendService.cpp" />
     <ClCompile Include="4.Friend\service\FriendService.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -117,6 +120,7 @@
     <QtUic Include="3.Message\ui\MessageWidget.ui" />
     <QtUic Include="4.Friend\ui\AddFriendWidget.ui" />
     <QtUic Include="4.Friend\ui\FriendWidget.ui" />
+    <QtUic Include="4.Friend\ui\SearchResWidget.ui" />
   </ItemGroup>
   <ItemGroup>
     <None Include="0.ui\HomeWidget.css" />
@@ -125,11 +129,14 @@
     <None Include="0.ui\LoginWidget.css" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="0.pub\user.hpp" />
+    <QtMoc Include="4.Friend\SearchResWidget.h" />
     <QtMoc Include="4.Friend\FriendWidget.h" />
     <QtMoc Include="4.Friend\AddFriendWidget.h" />
-    <ClInclude Include="4.Friend\service\FriendService.h" />
+    <QtMoc Include="4.Friend\service\AddFriendService.h" />
+    <QtMoc Include="4.Friend\service\FriendService.h" />
     <QtMoc Include="3.Message\MessageWidget.h" />
-    <ClInclude Include="3.Message\service\MessageService.h" />
+    <QtMoc Include="3.Message\service\MessageService.h" />
     <QtMoc Include="2.Home\service\HomeService.h" />
     <QtMoc Include="2.Home\HomeWidget.h" />
     <QtMoc Include="1.Login\RegSuccessWidget.h" />
@@ -139,6 +146,7 @@
     <QtMoc Include="0.Conn\ConnectServer.h" />
     <QtMoc Include="0.Conn\Service.h" />
     <ClInclude Include="0.pub\json.hpp" />
+    <ClInclude Include="0.pub\pub.cache.h" />
     <ClInclude Include="0.pub\pub.const.h" />
     <ClInclude Include="0.pub\pub_func.hpp" />
     <QtMoc Include="1.Login\RegWidget.h" />

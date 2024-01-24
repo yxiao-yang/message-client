@@ -22,6 +22,7 @@ Service::Service()
     // 注册消息和对应Handler回调
     m_mapMsgHandler.insert({ REG_MSG_ACK, std::bind(&RegService::reg, m_pRegService, std::placeholders::_1) });
     m_mapMsgHandler.insert({ LOGIN_MSG_ACK, std::bind(&LoginService::login, m_pLoginService, std::placeholders::_1) });
+    m_mapMsgHandler.insert({ SEARCH_USER_MSG_ACK, std::bind(&HomeService::search_ack, m_pHomeService, std::placeholders::_1) });
 }
 
 MsgHandler Service::getHandler(enMsgType iMsgId)

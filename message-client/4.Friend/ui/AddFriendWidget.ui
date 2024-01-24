@@ -69,9 +69,15 @@
       </widget>
      </item>
      <item>
-      <widget class="QStackedWidget" name="stackedWidget">
-       <widget class="QWidget" name="page"/>
-       <widget class="QWidget" name="page_2"/>
+      <widget class="QStackedWidget" name="SearchAnsSWgt">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="UserPage"/>
+       <widget class="QWidget" name="GroupPage"/>
       </widget>
      </item>
     </layout>
