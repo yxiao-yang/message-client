@@ -16,31 +16,12 @@ AddFriendWgt::AddFriendWgt(QWidget* parent)
 	m_pUi->SearchTb->setIcon(QIcon(":/0.ui/img/search.png"));
 	m_pUi->SearchLedit->setPlaceholderText("请输入信息");
 
-	// 设置UserPage布局
-	layoutUserPage = new QVBoxLayout;
-	m_pUi->UserPage->setLayout(layoutUserPage);
-
-	// 在UserPage中添加scrollUserPage
-	scrollUserPage = new QScrollArea;
-	layoutUserPage->addWidget(scrollUserPage);
-
-	// 在scrollUserPage中添加layoutScrollUserPage
-	layoutScrollUserPage = new QVBoxLayout;
-	scrollUserPage->setLayout(layoutScrollUserPage);
-
-	// 滚动区域透明背景+无边框
-	QPalette pa = scrollUserPage->palette();
-	pa.setBrush(QPalette::Window, Qt::transparent);
-	scrollUserPage->setPalette(pa);
-	scrollUserPage->setFrameShape(QFrame::NoFrame);
-
-	// 初始化弹簧
-	spacerScrollUserPage = new QSpacerItem(0, 50, QSizePolicy::Preferred, QSizePolicy::Preferred);
+	m_pUserLayout = new QVBoxLayout;
+	m_pUi->UserSearchWgt->setLayout(m_pUserLayout);
 }
 
 AddFriendWgt::~AddFriendWgt()
 {
-	qDebug() << "消息窗口析构";
 	delete m_pUi;
 }
 
@@ -51,8 +32,14 @@ void AddFriendWgt::setSlots()
 
 void AddFriendWgt::onTbSearch()
 {
-	// 清空已有结果
-	
+	// 清空搜索结果
+	for (int i = 0; i < m_arrSearchResWgt.size(); ++i)
+	{
+		m_pUserLayout->removeWidget(m_arrSearchResWgt[i]);
+
+		delete m_arrSearchResWgt[i]; // 如果元素是 QWidget 类型
+	}
+	m_arrSearchResWgt.clear();
 
 	// 发送搜索信号
 	QString search = m_pUi->SearchLedit->text();
@@ -71,7 +58,7 @@ void AddFriendWgt::showSearchRes(std::vector<User>& arrUser)
 		QString username = QString::fromStdString(arrUser[i].getName());
 		UserWgt->setUserid(userid);
 		UserWgt->setUsername(username);
-		layoutScrollUserPage->addWidget(UserWgt);
+		m_pUserLayout->addWidget(UserWgt);
+		m_arrSearchResWgt.push_back(UserWgt);
 	}
-	layoutScrollUserPage->addItem(spacerScrollUserPage);
 }

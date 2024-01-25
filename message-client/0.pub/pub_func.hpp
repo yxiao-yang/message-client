@@ -29,6 +29,36 @@ public:
         }
         return false;
     }
+
+	void pub_func::deleteAllInLayout(QLayout* layout)
+	{
+		if (nullptr == layout)
+		{
+			return;
+		}
+		QLayoutItem* child;
+		while ((child = layout->takeAt(0)) != nullptr)
+		{
+			QLayout* pLayout = child->layout();
+			if (nullptr != pLayout)
+			{
+				deleteAllInLayout(pLayout);
+			}
+			else
+			{
+				QWidget* pCWidget = child->widget();
+				if (nullptr != pCWidget)
+				{
+					//setParent为NULL，防止删除之后界面不消失
+					pCWidget->setParent(nullptr);
+					delete pCWidget;
+					pCWidget = nullptr;
+				}
+			}
+			delete child;
+			child = nullptr;
+		}
+	}
 };
 
 #endif

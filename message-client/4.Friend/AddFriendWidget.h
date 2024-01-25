@@ -29,11 +29,9 @@ private slots:
 
 private:
 	Ui::AddFriendWgt* m_pUi = nullptr;
-	QVBoxLayout* layoutUserPage = nullptr;
-	QVBoxLayout* layoutScrollUserPage = nullptr;
-	QScrollArea* scrollUserPage = nullptr;
-	QWidget* widgetScrollUserPage = nullptr;
-	QSpacerItem* spacerScrollUserPage = nullptr;
+	QVBoxLayout* m_pUserLayout = nullptr;
+
+	std::vector<SearchResWgt*> m_arrSearchResWgt;
 
 	void setSlots();
 };

@@ -172,9 +172,6 @@
     <QtMoc Include="4.Friend\FriendWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="4.Friend\AddFriendWidget.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="3.Message\service\MessageService.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -185,6 +182,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="4.Friend\SearchResWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="4.Friend\AddFriendWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
