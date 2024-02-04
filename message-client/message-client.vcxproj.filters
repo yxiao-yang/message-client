@@ -88,6 +88,12 @@
     <ClCompile Include="4.Friend\SearchResWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="5.ChatAi\ChatAiWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="4.Friend\FriendNoticeWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui">
@@ -112,6 +118,12 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="4.Friend\ui\SearchResWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="5.ChatAi\ui\ChatAiWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="4.Friend\ui\FriendNoticeWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -185,6 +197,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="4.Friend\AddFriendWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="5.ChatAi\ChatAiWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="4.Friend\FriendNoticeWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

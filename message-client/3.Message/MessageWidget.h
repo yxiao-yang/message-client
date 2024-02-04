@@ -28,8 +28,12 @@ signals:
 public slots:
 	void searchUser_Message_Friend_Wgt(QString& Userid, QString& Searchid);
 
+private slots:
+	void onAddPb();
+
 private:
 	Ui::MessageWgt* m_pUi = nullptr;
+	QWidget* m_pEmptyWgt = nullptr;
 	AddFriendWgt* m_pAddFriendWgt = nullptr;
 
 	void setSlots();

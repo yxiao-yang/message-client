@@ -1,5 +1,6 @@
 #include "FriendWidget.h"
 #include "pub_func.hpp"
+#include "pub.const.h"
 #include <QDebug>
 #include <QMouseEvent>
 
@@ -10,11 +11,31 @@ FriendWgt::FriendWgt(QWidget* parent)
 	, m_pUi(new Ui::FriendWgt())
 {
 	m_pUi->setupUi(this);
-	//setSlots();
+	setSlots();
+
+	m_pEmptyWgt = new QWidget;
+	m_pFriendNoticeWgt = new FriendNoticeWgt;
+
+	m_pUi->FriendSWgt->insertWidget(FRIEND_EMPTY_WIDGET, m_pEmptyWgt);
+	m_pUi->FriendSWgt->insertWidget(FRIENDNOTICE_WIDGET, m_pFriendNoticeWgt);
 }
 
 FriendWgt::~FriendWgt()
 {
-	qDebug() << "消息窗口析构";
 	delete m_pUi;
+}
+
+void FriendWgt::switchFriendSWgt(int idx)
+{
+	m_pUi->FriendSWgt->setCurrentIndex(idx);
+}
+
+void FriendWgt::setSlots()
+{
+	connect(m_pUi->NoticePb, &QPushButton::clicked, this, &FriendWgt::onNoticePb);
+}
+
+void FriendWgt::onNoticePb()
+{
+	switchFriendSWgt(FRIENDNOTICE_WIDGET);
 }

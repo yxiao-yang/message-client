@@ -4,6 +4,7 @@
 #include "ui_HomeWidget.h"
 #include "MessageWidget.h"
 #include "FriendWidget.h"
+#include "ChatAiWidget.h"
 #include "user.hpp"
 
 QT_BEGIN_NAMESPACE
@@ -41,6 +42,7 @@ private:
 	Ui::HomeWgt* m_pUi = nullptr;
 	MessageWgt* m_pMessageWgt = nullptr;
 	FriendWgt* m_pFriendWgt = nullptr;
+	ChatAiWgt* m_pChatAiWgt = nullptr;
 
 	/*鼠标事件*/
 	QPoint last;                    // 窗口拖动用变量

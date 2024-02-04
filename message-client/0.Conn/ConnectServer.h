@@ -41,7 +41,7 @@ private:
 	bool m_bConnected = false;
 
 	QString m_strIPAddress = "172.20.10.5";
-	quint16 m_iPort = 8000;
+	quint16 m_iPort = 6002;
 
 	ConnectServer();
 	~ConnectServer();

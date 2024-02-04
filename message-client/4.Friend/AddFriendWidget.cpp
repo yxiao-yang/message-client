@@ -18,6 +18,11 @@ AddFriendWgt::AddFriendWgt(QWidget* parent)
 
 	m_pUserLayout = new QVBoxLayout;
 	m_pUi->UserSearchWgt->setLayout(m_pUserLayout);
+
+	// ¹ö¶¯ÇøÓòÍ¸Ã÷±³¾°+ÎÞ±ß¿ò
+	m_pUi->UserScroll->setFrameShape(QFrame::NoFrame);
+	m_pUi->UserScroll->setStyleSheet("QScrollArea{background-color:transparent;margin:0px;}");
+	m_pUi->UserScroll->viewport()->setStyleSheet("background-color:transparent;margin:0px;");
 }
 
 AddFriendWgt::~AddFriendWgt()

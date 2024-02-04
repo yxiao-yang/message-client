@@ -2,6 +2,7 @@
 #define _FRIEND_WIDGET_H_
 
 #include "ui_FriendWidget.h"
+#include "FriendNoticeWidget.h"
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -15,8 +16,17 @@ public:
 	FriendWgt(QWidget* parent = nullptr);
 	~FriendWgt();
 
+	void switchFriendSWgt(int idx);
+
+private slots:
+	void onNoticePb();
+
 private:
 	Ui::FriendWgt* m_pUi = nullptr;
+	QWidget* m_pEmptyWgt = nullptr;
+	FriendNoticeWgt* m_pFriendNoticeWgt = nullptr;
+
+	void setSlots();
 };
 
 #endif

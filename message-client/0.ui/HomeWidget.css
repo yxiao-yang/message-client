@@ -60,6 +60,19 @@ QToolButton#FriendTb {
         background-color: rgb(115,110,95);
     }
 
+QToolButton#ChatAiTb {
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+    QToolButton#ChatAiTb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QToolButton#ChatAiTb:pressed {
+        background-color: rgb(115,110,95);
+    }
+
 /*MessageWidget*/
 QWidget#MessageWgt {
     background-color: rgb(162, 136, 136);
@@ -149,3 +162,37 @@ QPushButton#GroupPb {
     QPushButton#GroupPb:pressed {
         background-color: rgb(115,110,95);
     }
+
+QTabWidget#tabWidget:pane {
+    border-top: 0px solid #e8f3f9;
+    background: transparent;
+}
+
+/*FiendWidget*/
+QPushButton#NoticePb {
+    background-color: rgb(203,203,203);
+    border-radius: 15px;
+}
+
+    QPushButton#NoticePb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QPushButton#NoticePb:pressed {
+        background-color: rgb(115,110,95);
+    }
+
+QListWidget#FriendLstWgt {
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(180,179,172), stop:1 rgb(217,215,214));
+    border-radius: 8px;
+}
+
+QWidget#FriendSWgt {
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(180,179,172), stop:1 rgb(217,215,214));
+    border-radius: 8px;
+}
+
+QLabel#FriendNoticeLb {
+    font: 25 14pt 'Î¢ÈíÑÅºÚ Light';
+    color: black;
+}

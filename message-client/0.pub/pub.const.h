@@ -36,7 +36,20 @@ enum enSearchType
 enum enHomeStackedWidgetId
 {
 	MESSAGE_WIDGET = 0,
-	FRIEND_WIDGET
+	FRIEND_WIDGET,
+	CHATAI_WIDGET
+};
+
+enum enMessageStackedWidgetId
+{
+	MESSAGE_EMPTY_WIDGET = 0,
+	ADDFRIEND_WIDGET
+};
+
+enum enFriendStackedWidgetId
+{
+	FRIEND_EMPTY_WIDGET = 0,
+	FRIENDNOTICE_WIDGET
 };
 
 #endif

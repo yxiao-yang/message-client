@@ -13,26 +13,29 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,3">
+  <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,5">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,10">
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="NoticePb">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
-        <string>添加好友/群</string>
+        <string>好友通知</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QListWidget" name="listWidget"/>
+      <widget class="QListWidget" name="FriendLstWgt"/>
      </item>
     </layout>
    </item>
    <item>
-    <widget class="QStackedWidget" name="stackedWidget">
-     <widget class="QWidget" name="page"/>
-     <widget class="QWidget" name="page_2"/>
-    </widget>
+    <widget class="QStackedWidget" name="FriendSWgt"/>
    </item>
   </layout>
  </widget>

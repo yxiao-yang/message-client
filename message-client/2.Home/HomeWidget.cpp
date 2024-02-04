@@ -14,8 +14,10 @@ HomeWidget::HomeWidget(QWidget* parent)
 
     m_pMessageWgt = new MessageWgt;
     m_pFriendWgt = new FriendWgt;
+    m_pChatAiWgt = new ChatAiWgt;
     m_pUi->stackedWidget->insertWidget(MESSAGE_WIDGET, m_pMessageWgt);
     m_pUi->stackedWidget->insertWidget(FRIEND_WIDGET, m_pFriendWgt);
+    m_pUi->stackedWidget->insertWidget(CHATAI_WIDGET, m_pChatAiWgt);
 
     m_pUi->stackedWidget->setCurrentIndex(MESSAGE_WIDGET);
 
@@ -53,6 +55,7 @@ void HomeWidget::setStyle()
     m_pUi->CloseTb->setIcon(QIcon(":/0.ui/img/poweroff.png"));
     m_pUi->MessageTb->setIcon(QIcon(":/0.ui/img/message.png"));
     m_pUi->FriendTb->setIcon(QIcon(":/0.ui/img/user.png"));
+    m_pUi->ChatAiTb->setIcon(QIcon(":/0.ui/img/reddit.png"));
 }
 
 void HomeWidget::setSlots()
@@ -65,6 +68,10 @@ void HomeWidget::setSlots()
     connect(m_pUi->FriendTb, &QToolButton::clicked, [=]() {
         m_pUi->stackedWidget->setCurrentIndex(FRIEND_WIDGET);
 	});
+    connect(m_pUi->ChatAiTb, &QToolButton::clicked, [=]()
+    {
+        m_pUi->stackedWidget->setCurrentIndex(CHATAI_WIDGET);
+    });
     connect(m_pMessageWgt, &MessageWgt::searchUser_Home_Wgt, this, &HomeWidget::searchUser_Home_Wgt);
 }
 

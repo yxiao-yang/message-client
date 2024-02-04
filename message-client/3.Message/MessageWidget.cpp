@@ -1,5 +1,6 @@
 #include "MessageWidget.h"
 #include "pub_func.hpp"
+#include "pub.const.h"
 #include <QDebug>
 #include <QMouseEvent>
 
@@ -11,9 +12,11 @@ MessageWgt::MessageWgt(QWidget* parent)
 {
 	m_pUi->setupUi(this);
 
+	m_pEmptyWgt = new QWidget;
 	m_pAddFriendWgt = new AddFriendWgt;
 
-	m_pUi->MessageSWgt->insertWidget(0, m_pAddFriendWgt);
+	m_pUi->MessageSWgt->insertWidget(MESSAGE_EMPTY_WIDGET, m_pEmptyWgt);
+	m_pUi->MessageSWgt->insertWidget(ADDFRIEND_WIDGET, m_pAddFriendWgt);
 
 	setSlots();
 }
@@ -37,9 +40,15 @@ void MessageWgt::searchUser_Message_Friend_Wgt(QString& Userid, QString& Searchi
 void MessageWgt::setSlots()
 {
 	connect(m_pAddFriendWgt, &AddFriendWgt::searchUser_Message_Friend_Wgt, this, &MessageWgt::searchUser_Message_Friend_Wgt);
+	connect(m_pUi->AddPb, &QPushButton::clicked, this, &MessageWgt::onAddPb);
 }
 
 void MessageWgt::showSearchRes(std::vector<User>& arrUser)
 {
 	m_pAddFriendWgt->showSearchRes(arrUser);
+}
+
+void MessageWgt::onAddPb()
+{
+	switchMessageSWgt(ADDFRIEND_WIDGET);
 }
