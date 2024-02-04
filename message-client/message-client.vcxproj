@@ -110,6 +110,7 @@
     <ClCompile Include="4.Friend\FriendWidget.cpp" />
     <ClCompile Include="4.Friend\SearchResWidget.cpp" />
     <ClCompile Include="4.Friend\service\AddFriendService.cpp" />
+    <ClCompile Include="4.Friend\service\FriendNoticeService.cpp" />
     <ClCompile Include="4.Friend\service\FriendService.cpp" />
     <ClCompile Include="5.ChatAi\ChatAiWidget.cpp" />
     <ClCompile Include="main.cpp" />
@@ -134,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="0.pub\user.hpp" />
+    <QtMoc Include="4.Friend\service\FriendNoticeService.h" />
     <QtMoc Include="4.Friend\FriendNoticeWidget.h" />
     <QtMoc Include="5.ChatAi\ChatAiWidget.h" />
     <QtMoc Include="4.Friend\SearchResWidget.h" />

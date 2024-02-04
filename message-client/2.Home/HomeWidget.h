@@ -30,9 +30,11 @@ public:
 
 signals:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
+	void getFriendNotice_Home_Service();
 
 public slots:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
+	void getFriendNotice_Home_Wgt();
 
 private slots:
 	void onTbMinus();       // 最小化窗口

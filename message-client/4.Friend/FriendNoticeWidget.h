@@ -14,6 +14,11 @@ public:
 	FriendNoticeWgt(QWidget* parent = nullptr);
 	~FriendNoticeWgt();
 
+	void getFriendNotice();
+
+signals:
+	void getFriendNotice_Friend_Wgt();
+
 private:
 	Ui::FriendNoticeWgt* m_pUi = nullptr;
 

@@ -11,13 +11,14 @@ FriendWgt::FriendWgt(QWidget* parent)
 	, m_pUi(new Ui::FriendWgt())
 {
 	m_pUi->setupUi(this);
-	setSlots();
 
 	m_pEmptyWgt = new QWidget;
 	m_pFriendNoticeWgt = new FriendNoticeWgt;
 
 	m_pUi->FriendSWgt->insertWidget(FRIEND_EMPTY_WIDGET, m_pEmptyWgt);
 	m_pUi->FriendSWgt->insertWidget(FRIENDNOTICE_WIDGET, m_pFriendNoticeWgt);
+
+	setSlots();
 }
 
 FriendWgt::~FriendWgt()
@@ -28,14 +29,24 @@ FriendWgt::~FriendWgt()
 void FriendWgt::switchFriendSWgt(int idx)
 {
 	m_pUi->FriendSWgt->setCurrentIndex(idx);
+	if (idx == FRIENDNOTICE_WIDGET)
+	{
+		m_pFriendNoticeWgt->getFriendNotice();
+	}
 }
 
 void FriendWgt::setSlots()
 {
 	connect(m_pUi->NoticePb, &QPushButton::clicked, this, &FriendWgt::onNoticePb);
+	connect(m_pFriendNoticeWgt, &FriendNoticeWgt::getFriendNotice_Friend_Wgt, this, &FriendWgt::getFriendNotice_Friend_Wgt);
 }
 
 void FriendWgt::onNoticePb()
 {
 	switchFriendSWgt(FRIENDNOTICE_WIDGET);
+}
+
+void FriendWgt::getFriendNotice_Friend_Wgt()
+{
+	emit getFriendNotice_Home_Wgt();
 }

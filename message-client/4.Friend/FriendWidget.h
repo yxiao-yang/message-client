@@ -18,6 +18,12 @@ public:
 
 	void switchFriendSWgt(int idx);
 
+signals:
+	void getFriendNotice_Home_Wgt();
+
+public slots:
+	void getFriendNotice_Friend_Wgt();
+
 private slots:
 	void onNoticePb();
 

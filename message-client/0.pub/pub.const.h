@@ -3,14 +3,16 @@
 
 enum enMsgType
 {
-	LOGIN_MSG = 0,       // 登录消息
-	LOGIN_MSG_ACK,       // 登录响应消息
-	REG_MSG,             // 注册消息
-	REG_MSG_ACK,         // 注册响应消息
-	ONE_CHAT_MSG,        // 聊天消息
-	ADD_FRIEND_MSG,      // 添加好友
-	SEARCH_USER_MSG,     // 搜索用户
-	SEARCH_USER_MSG_ACK  // 搜索用户响应
+	LOGIN_MSG = 0,			// 登录消息
+	LOGIN_MSG_ACK,			// 登录响应消息
+	REG_MSG,				// 注册消息
+	REG_MSG_ACK,			// 注册响应消息
+	ONE_CHAT_MSG,			// 聊天消息
+	ADD_FRIEND_MSG,			// 添加好友
+	SEARCH_USER_MSG,		// 搜索用户
+	SEARCH_USER_MSG_ACK,	// 搜索用户响应
+	FRIEND_NOTICE_MSG,		// 好友通知消息
+	FRIEND_NOTICE_MSG_ACK	// 好友通知消息响应
 };
 
 enum enRegType

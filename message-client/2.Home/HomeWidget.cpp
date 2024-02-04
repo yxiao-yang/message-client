@@ -73,6 +73,7 @@ void HomeWidget::setSlots()
         m_pUi->stackedWidget->setCurrentIndex(CHATAI_WIDGET);
     });
     connect(m_pMessageWgt, &MessageWgt::searchUser_Home_Wgt, this, &HomeWidget::searchUser_Home_Wgt);
+    connect(m_pFriendWgt, &FriendWgt::getFriendNotice_Home_Wgt, this, &HomeWidget::getFriendNotice_Home_Wgt);
 }
 
 void HomeWidget::onTbMinus()
@@ -119,4 +120,9 @@ void HomeWidget::searchUser_Home_Wgt(QString& Userid, QString& Searchid)
 void HomeWidget::showSearchRes(std::vector<User>& arrUser)
 {
     m_pMessageWgt->showSearchRes(arrUser);
+}
+
+void HomeWidget::getFriendNotice_Home_Wgt()
+{
+    emit getFriendNotice_Home_Service();
 }

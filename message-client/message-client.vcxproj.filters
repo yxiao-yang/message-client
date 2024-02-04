@@ -94,6 +94,9 @@
     <ClCompile Include="4.Friend\FriendNoticeWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="4.Friend\service\FriendNoticeService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui">
@@ -203,6 +206,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="4.Friend\FriendNoticeWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="4.Friend\service\FriendNoticeService.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

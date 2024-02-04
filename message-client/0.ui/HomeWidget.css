@@ -192,7 +192,21 @@ QWidget#FriendSWgt {
     border-radius: 8px;
 }
 
+/*FriendNoticeWidget*/
 QLabel#FriendNoticeLb {
     font: 25 14pt 'Î¢ÈíÑÅºÚ Light';
     color: black;
 }
+
+QToolButton#DelAllTb {
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+    QToolButton#DelAllTb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QToolButton#DelAllTb:pressed {
+        background-color: rgb(115,110,95);
+    }

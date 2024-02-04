@@ -7,5 +7,6 @@
         <file>0.ui/img/user.png</file>
         <file>0.ui/img/search.png</file>
         <file>0.ui/img/reddit.png</file>
+        <file>0.ui/img/delete.png</file>
     </qresource>
 </RCC>
