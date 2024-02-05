@@ -4,6 +4,7 @@
 #include "MessageWidget.h"
 #include "json.hpp"
 #include "user.hpp"
+#include "pub.const.h"
 
 using json = nlohmann::json;
 
@@ -17,7 +18,9 @@ public:
 	void searchUser(QString& Userid, QString& Searchid);
 	void searchUserAns(json& js);
 	void addFriend(QString& userid);
+	void addFriendAns(json& js);
 signals:
 	void showSearchRes_Home_Service(std::vector<User>& arrUser);
+	void addFriendAns_Home_Service(enAddFriendType errnoType);
 };
 #endif

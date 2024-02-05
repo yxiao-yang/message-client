@@ -40,3 +40,8 @@ void SearchResWgt::onAddPb()
 	QString username = m_pUi->UsernameLb->text();
 	emit addFriend_AddFriend_Wgt(userid, username);
 }
+
+void SearchResWgt::changeAddPb()
+{
+	m_pUi->AddSearchResPb->setText("·¢ÏûÏ¢");
+}

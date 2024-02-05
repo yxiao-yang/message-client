@@ -50,3 +50,8 @@ void FriendWgt::getFriendNotice_Friend_Wgt()
 {
 	emit getFriendNotice_Home_Wgt();
 }
+
+void FriendWgt::getFriendship()
+{
+	emit getFriendship_Home_Wgt();
+}

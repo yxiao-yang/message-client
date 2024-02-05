@@ -4,6 +4,7 @@
 #include "ui_AddFriendWidget.h"
 #include "SearchResWidget.h"
 #include "user.hpp"
+#include "pub.const.h"
 #include <QWidget>
 #include <QScrollArea>
 
@@ -20,6 +21,9 @@ public:
 
 	// 添加好友界面 展示搜索结果
 	void showSearchRes(std::vector<User>& arrUser);
+
+	// 弹窗
+	void showAddFriendAns(enAddFriendType errnoType);
 
 signals:
 	void searchUser_Message_Friend_Wgt(QString& Userid, QString& Searchid);

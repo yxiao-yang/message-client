@@ -66,6 +66,7 @@ void HomeWidget::setSlots()
         m_pUi->stackedWidget->setCurrentIndex(MESSAGE_WIDGET);
 	});
     connect(m_pUi->FriendTb, &QToolButton::clicked, [=]() {
+        m_pFriendWgt->getFriendship();
         m_pUi->stackedWidget->setCurrentIndex(FRIEND_WIDGET);
 	});
     connect(m_pUi->ChatAiTb, &QToolButton::clicked, [=]()
@@ -131,4 +132,14 @@ void HomeWidget::getFriendNotice_Home_Wgt()
 void HomeWidget::addFriend_Home_Wgt(QString& userid)
 {
     emit addFriend_Home_Service(userid);
+}
+
+void HomeWidget::getFriendship_Home_Wgt()
+{
+    emit getFriendship_Home_Service();
+}
+
+void HomeWidget::showAddFriendAns(enAddFriendType errnoType)
+{
+    m_pMessageWgt->showAddFriendAns(errnoType);
 }

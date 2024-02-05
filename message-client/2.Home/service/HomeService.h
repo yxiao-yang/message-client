@@ -7,6 +7,7 @@
 #include "FriendService.h"
 #include "AddFriendService.h"
 #include "FriendNoticeService.h"
+#include "pub.const.h"
 
 using json = nlohmann::json;
 
@@ -18,12 +19,15 @@ public:
 
 	void showHomeWgt();
 	void search_ack(json& js);
+	void addFriendAns(json& js);
 
 public slots:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
 	void showSearchRes_Home_Service(std::vector<User>& arrUser);
 	void getFriendNotice_Home_Service();
 	void addFriend_Home_Service(QString& userid);
+	void getFriendship_Home_Service();
+	void addFriendAns_Home_Service(enAddFriendType errnoType);
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;

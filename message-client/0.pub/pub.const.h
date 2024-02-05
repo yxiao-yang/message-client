@@ -3,17 +3,18 @@
 
 enum enMsgType
 {
-	LOGIN_MSG = 0,			// 登录消息
-	LOGIN_MSG_ACK,			// 登录响应消息
-	REG_MSG,				// 注册消息
-	REG_MSG_ACK,			// 注册响应消息
-	ONE_CHAT_MSG,			// 聊天消息
-	ADD_FRIEND_MSG,			// 添加好友
-	SEARCH_USER_MSG,		// 搜索用户
-	SEARCH_USER_MSG_ACK,	// 搜索用户响应
-	FRIEND_NOTICE_MSG,		// 好友通知消息
-	FRIEND_NOTICE_MSG_ACK,	// 好友通知消息响应
-	CHAT_AI_MSG				// Ai对话
+	LOGIN_MSG = 0,          // 登录消息
+	LOGIN_MSG_ACK,          // 登录响应消息
+	REG_MSG,                // 注册消息
+	REG_MSG_ACK,            // 注册响应消息
+	ONE_CHAT_MSG,           // 聊天消息
+	ADD_FRIEND_MSG,         // 添加好友
+	ADD_FRIEND_MSG_ACK,     // 添加好友响应消息
+	SEARCH_USER_MSG,        // 搜索用户
+	SEARCH_USER_MSG_ACK,    // 搜索用户响应
+	FRIEND_NOTICE_MSG,      // 好友通知消息
+	FRIEND_NOTICE_MSG_ACK,  // 好友通知消息响应
+	CHAT_AI_MSG             // Ai对话
 };
 
 enum enRegType
@@ -34,6 +35,13 @@ enum enSearchType
 	SEARCH_SUCCESS = 0, // 搜索成功
 	SEARCH_ERR_NONE,    // 搜索失败，无结果
 	SEARCH_ERR_WRONG    // 搜索失败
+};
+
+enum enAddFriendType
+{
+	APPLY_SUCCESS = 0,  // 申请好友成功
+	APPLY_ERR_REPEAT,   // 申请好友失败，重复申请
+	APPLT_ERR_WRONG     // 申请好友失败
 };
 
 enum enHomeStackedWidgetId

@@ -83,3 +83,9 @@ void AddFriendService::addFriend(QString& userid)
 		qDebug() << "send ADD_FRIEND_MSG success";
 	}
 }
+
+void AddFriendService::addFriendAns(json& js)
+{
+	enAddFriendType errnoType = js["errno"];
+	emit addFriendAns_Home_Service(errnoType);
+}

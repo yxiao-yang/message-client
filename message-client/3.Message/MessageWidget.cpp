@@ -58,3 +58,8 @@ void MessageWgt::addFriend_Message_Friend_Wgt(QString& userid)
 {
 	emit addFriend_Home_Wgt(userid);
 }
+
+void MessageWgt::showAddFriendAns(enAddFriendType errnoType)
+{
+	m_pAddFriendWgt->showAddFriendAns(errnoType);
+}

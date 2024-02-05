@@ -16,10 +16,14 @@ public:
 	FriendWgt(QWidget* parent = nullptr);
 	~FriendWgt();
 
+	// 切换右侧tackedwidget
 	void switchFriendSWgt(int idx);
+	// 刷新联系人界面
+	void getFriendship();
 
 signals:
 	void getFriendNotice_Home_Wgt();
+	void getFriendship_Home_Wgt();
 
 public slots:
 	void getFriendNotice_Friend_Wgt();

@@ -21,6 +21,8 @@ public:
 	// 添加好友界面 展示搜索结果
 	void showSearchRes(std::vector<User>& arrUser);
 
+	void showAddFriendAns(enAddFriendType errnoType);
+
 	// 设置风格
 	void setStyle();
 
@@ -32,11 +34,13 @@ signals:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
 	void getFriendNotice_Home_Service();
 	void addFriend_Home_Service(QString& userid);
+	void getFriendship_Home_Service();
 
 public slots:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
 	void getFriendNotice_Home_Wgt();
 	void addFriend_Home_Wgt(QString& userid);
+	void getFriendship_Home_Wgt();
 
 private slots:
 	void onTbMinus();       // 最小化窗口

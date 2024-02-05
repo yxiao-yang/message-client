@@ -12,5 +12,7 @@ class FriendService : public QObject
 public:
 	FriendService();
 	~FriendService();
+
+	void getFriendship();
 };
 #endif

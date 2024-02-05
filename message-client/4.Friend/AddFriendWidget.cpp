@@ -74,3 +74,8 @@ void AddFriendWgt::addFriend_AddFriend_Wgt(QString& userid, QString& username)
 {
 	emit addFriend_Message_Friend_Wgt(userid);
 }
+
+void AddFriendWgt::showAddFriendAns(enAddFriendType errnoType)
+{
+	
+}

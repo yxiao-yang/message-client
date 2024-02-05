@@ -22,6 +22,8 @@ public:
 	// 添加好友界面 展示搜索结果
 	void showSearchRes(std::vector<User>& arrUser);
 
+	void showAddFriendAns(enAddFriendType errnoType);
+
 signals:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
 	void addFriend_Home_Wgt(QString& userid);

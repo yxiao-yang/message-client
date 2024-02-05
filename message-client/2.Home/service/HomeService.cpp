@@ -30,6 +30,8 @@ void HomeService::setSlots()
 	connect(m_pAddFriendService, &AddFriendService::showSearchRes_Home_Service, this, &HomeService::showSearchRes_Home_Service);
 	connect(m_pHomeWgt, &HomeWidget::getFriendNotice_Home_Service, this, &HomeService::getFriendNotice_Home_Service);
 	connect(m_pHomeWgt, &HomeWidget::addFriend_Home_Service, this, &HomeService::addFriend_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::getFriendship_Home_Service, this, &HomeService::getFriendship_Home_Service);
+	connect(m_pAddFriendService, &AddFriendService::addFriendAns_Home_Service, this, &HomeService::addFriendAns_Home_Service);
 }
 
 void HomeService::search_ack(json& js)
@@ -50,4 +52,19 @@ void HomeService::getFriendNotice_Home_Service()
 void HomeService::addFriend_Home_Service(QString& userid)
 {
 	m_pAddFriendService->addFriend(userid);
+}
+
+void HomeService::getFriendship_Home_Service()
+{
+	m_pFriendService->getFriendship();
+}
+
+void HomeService::addFriendAns(json& js)
+{
+	m_pAddFriendService->addFriendAns(js);
+}
+
+void HomeService::addFriendAns_Home_Service(enAddFriendType errnoType)
+{
+	m_pHomeWgt->showAddFriendAns(errnoType);
 }
