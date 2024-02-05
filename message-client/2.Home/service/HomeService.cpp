@@ -29,6 +29,7 @@ void HomeService::setSlots()
 	connect(m_pHomeWgt, &HomeWidget::searchUser_Home_Service, this, &HomeService::searchUser_Home_Service);
 	connect(m_pAddFriendService, &AddFriendService::showSearchRes_Home_Service, this, &HomeService::showSearchRes_Home_Service);
 	connect(m_pHomeWgt, &HomeWidget::getFriendNotice_Home_Service, this, &HomeService::getFriendNotice_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::addFriend_Home_Service, this, &HomeService::addFriend_Home_Service);
 }
 
 void HomeService::search_ack(json& js)
@@ -44,4 +45,9 @@ void HomeService::showSearchRes_Home_Service(std::vector<User>& arrUser)
 void HomeService::getFriendNotice_Home_Service()
 {
 	m_pFriendNoticeService->getFriendNotice();
+}
+
+void HomeService::addFriend_Home_Service(QString& userid)
+{
+	m_pAddFriendService->addFriend(userid);
 }

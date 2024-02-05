@@ -24,9 +24,11 @@ public:
 
 signals:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
+	void addFriend_Home_Wgt(QString& userid);
 
 public slots:
 	void searchUser_Message_Friend_Wgt(QString& Userid, QString& Searchid);
+	void addFriend_Message_Friend_Wgt(QString& userid);
 
 private slots:
 	void onAddPb();

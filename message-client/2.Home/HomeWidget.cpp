@@ -74,6 +74,7 @@ void HomeWidget::setSlots()
     });
     connect(m_pMessageWgt, &MessageWgt::searchUser_Home_Wgt, this, &HomeWidget::searchUser_Home_Wgt);
     connect(m_pFriendWgt, &FriendWgt::getFriendNotice_Home_Wgt, this, &HomeWidget::getFriendNotice_Home_Wgt);
+    connect(m_pMessageWgt, &MessageWgt::addFriend_Home_Wgt, this, &HomeWidget::addFriend_Home_Wgt);
 }
 
 void HomeWidget::onTbMinus()
@@ -125,4 +126,9 @@ void HomeWidget::showSearchRes(std::vector<User>& arrUser)
 void HomeWidget::getFriendNotice_Home_Wgt()
 {
     emit getFriendNotice_Home_Service();
+}
+
+void HomeWidget::addFriend_Home_Wgt(QString& userid)
+{
+    emit addFriend_Home_Service(userid);
 }

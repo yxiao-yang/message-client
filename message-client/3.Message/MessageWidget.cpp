@@ -41,6 +41,7 @@ void MessageWgt::setSlots()
 {
 	connect(m_pAddFriendWgt, &AddFriendWgt::searchUser_Message_Friend_Wgt, this, &MessageWgt::searchUser_Message_Friend_Wgt);
 	connect(m_pUi->AddPb, &QPushButton::clicked, this, &MessageWgt::onAddPb);
+	connect(m_pAddFriendWgt, &AddFriendWgt::addFriend_Message_Friend_Wgt, this, &MessageWgt::addFriend_Message_Friend_Wgt);
 }
 
 void MessageWgt::showSearchRes(std::vector<User>& arrUser)
@@ -51,4 +52,9 @@ void MessageWgt::showSearchRes(std::vector<User>& arrUser)
 void MessageWgt::onAddPb()
 {
 	switchMessageSWgt(ADDFRIEND_WIDGET);
+}
+
+void MessageWgt::addFriend_Message_Friend_Wgt(QString& userid)
+{
+	emit addFriend_Home_Wgt(userid);
 }

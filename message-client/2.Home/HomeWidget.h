@@ -31,10 +31,12 @@ public:
 signals:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
 	void getFriendNotice_Home_Service();
+	void addFriend_Home_Service(QString& userid);
 
 public slots:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
 	void getFriendNotice_Home_Wgt();
+	void addFriend_Home_Wgt(QString& userid);
 
 private slots:
 	void onTbMinus();       // 最小化窗口

@@ -63,7 +63,14 @@ void AddFriendWgt::showSearchRes(std::vector<User>& arrUser)
 		QString username = QString::fromStdString(arrUser[i].getName());
 		UserWgt->setUserid(userid);
 		UserWgt->setUsername(username);
+
+		connect(UserWgt, &SearchResWgt::addFriend_AddFriend_Wgt, this, &AddFriendWgt::addFriend_AddFriend_Wgt);
 		m_pUserLayout->addWidget(UserWgt);
 		m_arrSearchResWgt.push_back(UserWgt);
 	}
+}
+
+void AddFriendWgt::addFriend_AddFriend_Wgt(QString& userid, QString& username)
+{
+	emit addFriend_Message_Friend_Wgt(userid);
 }

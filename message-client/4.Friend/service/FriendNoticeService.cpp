@@ -3,6 +3,7 @@
 #include "pub.cache.h"
 #include "user.hpp"
 #include "ConnectServer.h"
+#include <QDebug>
 
 #pragma execution_character_set("utf-8")
 

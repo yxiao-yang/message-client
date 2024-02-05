@@ -12,7 +12,8 @@ enum enMsgType
 	SEARCH_USER_MSG,		// 搜索用户
 	SEARCH_USER_MSG_ACK,	// 搜索用户响应
 	FRIEND_NOTICE_MSG,		// 好友通知消息
-	FRIEND_NOTICE_MSG_ACK	// 好友通知消息响应
+	FRIEND_NOTICE_MSG_ACK,	// 好友通知消息响应
+	CHAT_AI_MSG				// Ai对话
 };
 
 enum enRegType

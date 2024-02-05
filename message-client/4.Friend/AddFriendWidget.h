@@ -23,6 +23,10 @@ public:
 
 signals:
 	void searchUser_Message_Friend_Wgt(QString& Userid, QString& Searchid);
+	void addFriend_Message_Friend_Wgt(QString& userid);
+
+public slots:
+	void addFriend_AddFriend_Wgt(QString& userid, QString& username);
 
 private slots:
 	void onTbSearch();

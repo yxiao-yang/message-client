@@ -23,6 +23,7 @@ public slots:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
 	void showSearchRes_Home_Service(std::vector<User>& arrUser);
 	void getFriendNotice_Home_Service();
+	void addFriend_Home_Service(QString& userid);
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;

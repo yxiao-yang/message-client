@@ -9,7 +9,9 @@ SearchResWgt::SearchResWgt(QWidget* parent)
 {
 	m_pUi->setupUi(this);
 
-	setAttribute(Qt::WA_TranslucentBackground, true);	// ÉèÖÃ´°¿Ú±³¾°Í¸Ã÷
+	setSlots();
+
+	//setAttribute(Qt::WA_TranslucentBackground, true);	// ÉèÖÃ´°¿Ú±³¾°Í¸Ã÷
 }
 
 SearchResWgt::~SearchResWgt()
@@ -25,4 +27,16 @@ void SearchResWgt::setUserid(QString& userid)
 void SearchResWgt::setUsername(QString& username)
 {
 	m_pUi->UsernameLb->setText(username);
+}
+
+void SearchResWgt::setSlots()
+{
+	connect(m_pUi->AddSearchResPb, &QPushButton::clicked, this, &SearchResWgt::onAddPb);
+}
+
+void SearchResWgt::onAddPb()
+{
+	QString userid = m_pUi->UseridLb->text();
+	QString username = m_pUi->UsernameLb->text();
+	emit addFriend_AddFriend_Wgt(userid, username);
 }

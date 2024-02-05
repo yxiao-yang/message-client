@@ -15,11 +15,30 @@ QFrame#TopFrame {
 
 QToolButton#MinusTb {
     background-color: transparent;
+    border-radius: 15px;
 }
+
+    QToolButton#MinusTb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QToolButton#MinusTb:pressed {
+        background-color: rgb(115,110,95);
+    }
 
 QToolButton#CloseTb {
     background-color: transparent;
+    border-radius: 15px;
 }
+
+    QToolButton#CloseTb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QToolButton#CloseTb:pressed {
+        background-color: rgb(115,110,95);
+    }
+
 
 QToolButton#UserTb {
     background-color: transparent;
@@ -81,6 +100,8 @@ QWidget#MessageWgt {
 QPushButton#AddPb {
     background-color: rgb(203,203,203);
     border-radius: 15px;
+    font: 25 12pt 'Î¢ÈíÑÅºÚ Light';
+    color: rgb(31,31,31);
 }
 
     QPushButton#AddPb:hover {
@@ -95,6 +116,8 @@ QPushButton#CreateGroupPb {
     background-color: rgb(203,203,203);
     /*border: none;*/
     border-radius: 15px;
+    font: 25 12pt 'Î¢ÈíÑÅºÚ Light';
+    color: rgb(31,31,31);
 }
 
     QPushButton#CreateGroupPb:hover {
@@ -163,15 +186,25 @@ QPushButton#GroupPb {
         background-color: rgb(115,110,95);
     }
 
+QTabWidget#tabWidget {
+    font: 25 14pt 'Î¢ÈíÑÅºÚ Light';
+}
+
 QTabWidget#tabWidget:pane {
     border-top: 0px solid #e8f3f9;
     background: transparent;
+}
+
+QTabBar::tab {
+    color: rgb(31,31,31);
 }
 
 /*FiendWidget*/
 QPushButton#NoticePb {
     background-color: rgb(203,203,203);
     border-radius: 15px;
+    font: 25 12pt 'Î¢ÈíÑÅºÚ Light';
+    color: rgb(31,31,31);
 }
 
     QPushButton#NoticePb:hover {
@@ -210,3 +243,17 @@ QToolButton#DelAllTb {
     QToolButton#DelAllTb:pressed {
         background-color: rgb(115,110,95);
     }
+
+/*SearchResWidget*/
+/*QPushButton#AddSearchResPb {
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+    QPushButton#AddSearchResPb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QPushButton#AddSearchResPb:pressed {
+        background-color: rgb(115,110,95);
+    }*/

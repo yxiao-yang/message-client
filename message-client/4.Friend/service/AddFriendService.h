@@ -16,6 +16,7 @@ public:
 
 	void searchUser(QString& Userid, QString& Searchid);
 	void searchUserAns(json& js);
+	void addFriend(QString& userid);
 signals:
 	void showSearchRes_Home_Service(std::vector<User>& arrUser);
 };

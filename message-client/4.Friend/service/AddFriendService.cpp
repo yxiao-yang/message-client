@@ -1,5 +1,6 @@
 #include "AddFriendService.h"
 #include "pub.const.h"
+#include "pub.cache.h"
 #include "user.hpp"
 #include "ConnectServer.h"
 
@@ -26,11 +27,11 @@ void AddFriendService::searchUser(QString& Userid, QString& Searchid)
 	int len = ConnectServer::getInstance()->getTcpSocket()->write(QString::fromStdString(strRequest).toLocal8Bit());
 	if (len == -1)
 	{
-		qDebug() << "send search msg fail";
+		qDebug() << "send SEARCH_USER_MSG fail";
 	}
 	else
 	{
-		qDebug() << "send search msg success";
+		qDebug() << "send SEARCH_USER_MSG success";
 	}
 }
 
@@ -57,5 +58,28 @@ void AddFriendService::searchUserAns(json& js)
 	else
 	{
 		qDebug() << "search_fail";
+	}
+}
+
+void AddFriendService::addFriend(QString& userid)
+{
+	json js;
+	js["msgid"] = ADD_FRIEND_MSG;
+	std::string user1id;
+	if (PubCache::getInstance()->getUserid(user1id))
+	{
+		js["User1ID"] = user1id;
+	}
+	js["User2ID"] = userid.toStdString();
+	std::string strRequest = js.dump();
+
+	int len = ConnectServer::getInstance()->getTcpSocket()->write(QString::fromStdString(strRequest).toLocal8Bit());
+	if (len == -1)
+	{
+		qDebug() << "send ADD_FRIEND_MSG fail";
+	}
+	else
+	{
+		qDebug() << "send ADD_FRIEND_MSG success";
 	}
 }

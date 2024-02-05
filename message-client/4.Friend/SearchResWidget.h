@@ -18,8 +18,16 @@ public:
 	void setUserid(QString& userid);
 	void setUsername(QString& username);
 
+signals:
+	void addFriend_AddFriend_Wgt(QString& userid, QString& username);
+
+private slots:
+	void onAddPb();
+
 private:
 	Ui::SearchResWgt* m_pUi = nullptr;
+
+	void setSlots();
 };
 
 #endif
