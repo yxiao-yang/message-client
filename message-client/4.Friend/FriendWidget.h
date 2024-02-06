@@ -3,6 +3,7 @@
 
 #include "ui_FriendWidget.h"
 #include "FriendNoticeWidget.h"
+#include "user.hpp"
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -18,8 +19,11 @@ public:
 
 	// 切换右侧tackedwidget
 	void switchFriendSWgt(int idx);
+
 	// 刷新联系人界面
 	void getFriendship();
+
+	void showFriendNotice(std::vector<User>& arrUser);
 
 signals:
 	void getFriendNotice_Home_Wgt();

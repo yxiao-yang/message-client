@@ -105,6 +105,7 @@
     <ClCompile Include="2.Home\service\HomeService.cpp" />
     <ClCompile Include="3.Message\MessageWidget.cpp" />
     <ClCompile Include="3.Message\service\MessageService.cpp" />
+    <ClCompile Include="4.Friend\AddFriendAnsWidget.cpp" />
     <ClCompile Include="4.Friend\AddFriendWidget.cpp" />
     <ClCompile Include="4.Friend\FriendNoticeWidget.cpp" />
     <ClCompile Include="4.Friend\FriendWidget.cpp" />
@@ -121,6 +122,7 @@
     <QtUic Include="1.Login\ui\RegWidget.ui" />
     <QtUic Include="2.Home\ui\HomeWidget.ui" />
     <QtUic Include="3.Message\ui\MessageWidget.ui" />
+    <QtUic Include="4.Friend\ui\AddFriendAnsWidget.ui" />
     <QtUic Include="4.Friend\ui\AddFriendWidget.ui" />
     <QtUic Include="4.Friend\ui\FriendNoticeWidget.ui" />
     <QtUic Include="4.Friend\ui\FriendWidget.ui" />
@@ -135,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="0.pub\user.hpp" />
+    <QtMoc Include="4.Friend\AddFriendAnsWidget.h" />
     <QtMoc Include="4.Friend\service\FriendNoticeService.h" />
     <QtMoc Include="4.Friend\FriendNoticeWidget.h" />
     <QtMoc Include="5.ChatAi\ChatAiWidget.h" />

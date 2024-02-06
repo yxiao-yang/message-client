@@ -55,3 +55,8 @@ void FriendWgt::getFriendship()
 {
 	emit getFriendship_Home_Wgt();
 }
+
+void FriendWgt::showFriendNotice(std::vector<User>& arrUser)
+{
+	m_pFriendNoticeWgt->showFriendNotice(arrUser);
+}

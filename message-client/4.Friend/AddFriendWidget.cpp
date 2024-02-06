@@ -77,5 +77,11 @@ void AddFriendWgt::addFriend_AddFriend_Wgt(QString& userid, QString& username)
 
 void AddFriendWgt::showAddFriendAns(enAddFriendType errnoType)
 {
+	m_pAddFriendAnsWgt = new AddFriendAnsWgt;
+	m_pAddFriendAnsWgt->setWindowFlags(m_pAddFriendAnsWgt->windowFlags() | Qt::Dialog);
+	m_pAddFriendAnsWgt->setWindowModality(Qt::ApplicationModal); // 阻塞除当前窗体之外的所有的窗体
+	m_pAddFriendAnsWgt->setWindowFlags(Qt::FramelessWindowHint | windowFlags());    // 去窗口边框
+	m_pAddFriendAnsWgt->setAns(errnoType);
 	
+	m_pAddFriendAnsWgt->show();
 }

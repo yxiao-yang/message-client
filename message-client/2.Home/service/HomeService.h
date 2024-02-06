@@ -20,6 +20,7 @@ public:
 	void showHomeWgt();
 	void search_ack(json& js);
 	void addFriendAns(json& js);
+	void showFriendNotice(json& js);
 
 public slots:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
@@ -28,6 +29,7 @@ public slots:
 	void addFriend_Home_Service(QString& userid);
 	void getFriendship_Home_Service();
 	void addFriendAns_Home_Service(enAddFriendType errnoType);
+	void showFriendNotice_Home_Service(std::vector<User>& arrUser);
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;

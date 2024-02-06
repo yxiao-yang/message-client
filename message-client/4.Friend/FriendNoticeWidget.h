@@ -2,6 +2,8 @@
 #define _FRIEND_NOTICE_WIDGET_H_
 
 #include "ui_FriendNoticeWidget.h"
+#include "SearchResWidget.h"
+#include "user.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class FriendNoticeWgt; };
@@ -16,11 +18,16 @@ public:
 
 	void getFriendNotice();
 
+	void showFriendNotice(std::vector<User>& arrUser);
+
 signals:
 	void getFriendNotice_Friend_Wgt();
 
 private:
 	Ui::FriendNoticeWgt* m_pUi = nullptr;
+
+	QVBoxLayout* m_pUserLayout = nullptr;
+	std::vector<SearchResWgt*> m_arrSearchResWgt;
 
 	void setSlots();
 };

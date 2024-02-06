@@ -3,6 +3,7 @@
 
 #include "ui_AddFriendWidget.h"
 #include "SearchResWidget.h"
+#include "AddFriendAnsWidget.h"
 #include "user.hpp"
 #include "pub.const.h"
 #include <QWidget>
@@ -40,6 +41,7 @@ private:
 	QVBoxLayout* m_pUserLayout = nullptr;
 
 	std::vector<SearchResWgt*> m_arrSearchResWgt;
+	AddFriendAnsWgt* m_pAddFriendAnsWgt = nullptr;
 
 	void setSlots();
 };

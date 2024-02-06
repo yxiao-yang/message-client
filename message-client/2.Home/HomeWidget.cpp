@@ -143,3 +143,8 @@ void HomeWidget::showAddFriendAns(enAddFriendType errnoType)
 {
     m_pMessageWgt->showAddFriendAns(errnoType);
 }
+
+void HomeWidget::showFriendNotice(std::vector<User>& arrUser)
+{
+    m_pFriendWgt->showFriendNotice(arrUser);
+}

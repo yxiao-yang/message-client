@@ -23,6 +23,8 @@ public:
 
 	void showAddFriendAns(enAddFriendType errnoType);
 
+	void showFriendNotice(std::vector<User>& arrUser);
+
 	// …Ë÷√∑Á∏Ò
 	void setStyle();
 

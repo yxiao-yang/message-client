@@ -35,3 +35,20 @@ void FriendNoticeService::getFriendNotice()
 		qDebug() << "send FRIEND_NOTICE_MSG success";
 	}
 }
+
+void FriendNoticeService::showFriendNotice(json& js)
+{
+	std::vector<User> arrUser;
+	std::vector<std::string> arrUserJson;
+	arrUserJson = js["users"];
+	for (int i = 0; i < arrUserJson.size(); ++i)
+	{
+		json js = json::parse(arrUserJson[i]);
+		User user;
+		user.setId(js["Userid"]);
+		user.setName(js["Username"]);
+		arrUser.push_back(user);
+	}
+
+	emit showFriendNotice_Home_Service(arrUser);
+}

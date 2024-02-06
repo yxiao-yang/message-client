@@ -15,5 +15,9 @@ public:
 	~FriendNoticeService();
 
 	void getFriendNotice();
+	void showFriendNotice(json& js);
+
+signals:
+	void showFriendNotice_Home_Service(std::vector<User>& arrUser);
 };
 #endif
