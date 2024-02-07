@@ -100,6 +100,9 @@
     <ClCompile Include="4.Friend\AddFriendAnsWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="4.Friend\FriendNoticeResWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui">
@@ -133,6 +136,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="4.Friend\ui\AddFriendAnsWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="4.Friend\ui\FriendNoticeResWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -218,6 +224,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="4.Friend\AddFriendAnsWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="4.Friend\FriendNoticeResWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

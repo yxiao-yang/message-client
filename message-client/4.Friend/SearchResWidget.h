@@ -18,6 +18,7 @@ public:
 	void setUserid(QString& userid);
 	void setUsername(QString& username);
 	void changeAddPb();
+	void changeAgreePb();
 
 signals:
 	void addFriend_AddFriend_Wgt(QString& userid, QString& username);

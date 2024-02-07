@@ -29,7 +29,7 @@ public slots:
 	void addFriend_Home_Service(QString& userid);
 	void getFriendship_Home_Service();
 	void addFriendAns_Home_Service(enAddFriendType errnoType);
-	void showFriendNotice_Home_Service(std::vector<User>& arrUser);
+	void showFriendNotice_Home_Service(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime);
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;

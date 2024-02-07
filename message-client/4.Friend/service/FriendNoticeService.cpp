@@ -38,17 +38,35 @@ void FriendNoticeService::getFriendNotice()
 
 void FriendNoticeService::showFriendNotice(json& js)
 {
-	std::vector<User> arrUser;
-	std::vector<std::string> arrUserJson;
-	arrUserJson = js["users"];
-	for (int i = 0; i < arrUserJson.size(); ++i)
+	std::vector<User> arrApplyUser;
+	std::vector<User> arrAppliedUser;
+	std::vector<std::string> arrApplyTime;
+	std::vector<std::string> arrAppliedTime;
+	std::vector<std::string> arrUserApplyJson;
+	std::vector<std::string> arrUserAppliedJson;
+	arrUserApplyJson = js["ApplyUsers"];
+	arrUserAppliedJson = js["AppliedUsers"];
+	for (int i = 0; i < arrUserApplyJson.size(); ++i)
 	{
-		json js = json::parse(arrUserJson[i]);
+		json js = json::parse(arrUserApplyJson[i]);
 		User user;
 		user.setId(js["Userid"]);
 		user.setName(js["Username"]);
-		arrUser.push_back(user);
+		arrApplyUser.push_back(user);
+		std::string applyTime = js["ApplyTime"];
+		arrApplyTime.push_back(applyTime);
 	}
 
-	emit showFriendNotice_Home_Service(arrUser);
+	for (int i = 0; i < arrUserAppliedJson.size(); ++i)
+	{
+		json js = json::parse(arrUserAppliedJson[i]);
+		User user;
+		user.setId(js["Userid"]);
+		user.setName(js["Username"]);
+		arrAppliedUser.push_back(user);
+		std::string applyTime = js["ApplyTime"];
+		arrAppliedTime.push_back(applyTime);
+	}
+
+	emit showFriendNotice_Home_Service(arrApplyUser, arrAppliedUser, arrApplyTime, arrAppliedTime);
 }

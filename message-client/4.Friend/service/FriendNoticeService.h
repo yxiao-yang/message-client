@@ -18,6 +18,6 @@ public:
 	void showFriendNotice(json& js);
 
 signals:
-	void showFriendNotice_Home_Service(std::vector<User>& arrUser);
+	void showFriendNotice_Home_Service(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime);
 };
 #endif

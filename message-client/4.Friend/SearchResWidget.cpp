@@ -45,3 +45,8 @@ void SearchResWgt::changeAddPb()
 {
 	m_pUi->AddSearchResPb->setText("发消息");
 }
+
+void SearchResWgt::changeAgreePb()
+{
+	m_pUi->AddSearchResPb->setText("同意");
+}

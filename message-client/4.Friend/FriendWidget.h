@@ -23,7 +23,7 @@ public:
 	// 刷新联系人界面
 	void getFriendship();
 
-	void showFriendNotice(std::vector<User>& arrUser);
+	void showFriendNotice(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime);
 
 signals:
 	void getFriendNotice_Home_Wgt();

@@ -75,7 +75,7 @@ void HomeService::showFriendNotice(json& js)
 	m_pFriendNoticeService->showFriendNotice(js);
 }
 
-void HomeService::showFriendNotice_Home_Service(std::vector<User>& arrUser)
+void HomeService::showFriendNotice_Home_Service(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime)
 {
-	m_pHomeWgt->showFriendNotice(arrUser);
+	m_pHomeWgt->showFriendNotice(arrApplyUser, arrAppliedUser, arrApplyTime, arrAppliedTime);
 }

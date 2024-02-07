@@ -144,7 +144,7 @@ void HomeWidget::showAddFriendAns(enAddFriendType errnoType)
     m_pMessageWgt->showAddFriendAns(errnoType);
 }
 
-void HomeWidget::showFriendNotice(std::vector<User>& arrUser)
+void HomeWidget::showFriendNotice(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime)
 {
-    m_pFriendWgt->showFriendNotice(arrUser);
+    m_pFriendWgt->showFriendNotice(arrApplyUser, arrAppliedUser, arrApplyTime, arrAppliedTime);
 }

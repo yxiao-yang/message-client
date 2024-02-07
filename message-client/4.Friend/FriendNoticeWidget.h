@@ -2,7 +2,7 @@
 #define _FRIEND_NOTICE_WIDGET_H_
 
 #include "ui_FriendNoticeWidget.h"
-#include "SearchResWidget.h"
+#include "FriendNoticeResWidget.h"
 #include "user.hpp"
 
 QT_BEGIN_NAMESPACE
@@ -18,7 +18,7 @@ public:
 
 	void getFriendNotice();
 
-	void showFriendNotice(std::vector<User>& arrUser);
+	void showFriendNotice(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime);
 
 signals:
 	void getFriendNotice_Friend_Wgt();
@@ -27,7 +27,7 @@ private:
 	Ui::FriendNoticeWgt* m_pUi = nullptr;
 
 	QVBoxLayout* m_pUserLayout = nullptr;
-	std::vector<SearchResWgt*> m_arrSearchResWgt;
+	std::vector<FriendNoticeResWgt*> m_arrSearchResWgt;
 
 	void setSlots();
 };

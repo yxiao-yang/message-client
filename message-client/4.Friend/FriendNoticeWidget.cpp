@@ -45,15 +45,36 @@ void FriendNoticeWgt::getFriendNotice()
 	emit getFriendNotice_Friend_Wgt();
 }
 
-void FriendNoticeWgt::showFriendNotice(std::vector<User>& arrUser)
+void FriendNoticeWgt::showFriendNotice(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime)
 {
-	for (int i = 0; i < arrUser.size(); ++i)
+	for (int i = 0; i < arrApplyUser.size(); ++i)
 	{
-		SearchResWgt* UserWgt = new SearchResWgt;
-		QString userid = QString::fromStdString(arrUser[i].getId());
-		QString username = QString::fromStdString(arrUser[i].getName());
+		FriendNoticeResWgt* UserWgt = new FriendNoticeResWgt;
+		QString userid = QString::fromStdString(arrApplyUser[i].getId());
+		QString username = QString::fromStdString(arrApplyUser[i].getName());
+		QString time = QString::fromStdString(arrApplyTime[i]);
+		QString message = QString::fromStdString("正在验证你的邀请");
 		UserWgt->setUserid(userid);
 		UserWgt->setUsername(username);
+		UserWgt->setTime(time);
+		UserWgt->setMessage(message);
+
+		//connect(UserWgt, &SearchResWgt::addFriend_AddFriend_Wgt, this, &AddFriendWgt::addFriend_AddFriend_Wgt);
+		m_pUserLayout->addWidget(UserWgt);
+		m_arrSearchResWgt.push_back(UserWgt);
+	}
+
+	for (int i = 0; i < arrAppliedUser.size(); ++i)
+	{
+		FriendNoticeResWgt* UserWgt = new FriendNoticeResWgt;
+		QString userid = QString::fromStdString(arrAppliedUser[i].getId());
+		QString username = QString::fromStdString(arrAppliedUser[i].getName());
+		QString time = QString::fromStdString(arrAppliedTime[i]);
+		QString message = QString::fromStdString("想要添加你为好友");
+		UserWgt->setUserid(userid);
+		UserWgt->setUsername(username);
+		UserWgt->setTime(time);
+		UserWgt->setMessage(message);
 
 		//connect(UserWgt, &SearchResWgt::addFriend_AddFriend_Wgt, this, &AddFriendWgt::addFriend_AddFriend_Wgt);
 		m_pUserLayout->addWidget(UserWgt);
