@@ -25,6 +25,8 @@ public:
 
 	void showFriendNotice(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime);
 
+	void showAcceptFriendApplyAns(enAcceptApplyType errnoType);
+
 	// 设置风格
 	void setStyle();
 
@@ -37,12 +39,14 @@ signals:
 	void getFriendNotice_Home_Service();
 	void addFriend_Home_Service(QString& userid);
 	void getFriendship_Home_Service();
+	void acceptFriendApply_Home_Service(QString& userid);
 
 public slots:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
 	void getFriendNotice_Home_Wgt();
 	void addFriend_Home_Wgt(QString& userid);
 	void getFriendship_Home_Wgt();
+	void acceptFriendApply_Home_Wgt(QString& userid);
 
 private slots:
 	void onTbMinus();       // 最小化窗口

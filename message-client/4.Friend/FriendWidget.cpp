@@ -39,6 +39,7 @@ void FriendWgt::setSlots()
 {
 	connect(m_pUi->NoticePb, &QPushButton::clicked, this, &FriendWgt::onNoticePb);
 	connect(m_pFriendNoticeWgt, &FriendNoticeWgt::getFriendNotice_Friend_Wgt, this, &FriendWgt::getFriendNotice_Friend_Wgt);
+	connect(m_pFriendNoticeWgt, &FriendNoticeWgt::acceptFriendApply_Friend_Wgt, this, &FriendWgt::acceptFriendApply_Friend_Wgt);
 }
 
 void FriendWgt::onNoticePb()
@@ -59,4 +60,14 @@ void FriendWgt::getFriendship()
 void FriendWgt::showFriendNotice(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime)
 {
 	m_pFriendNoticeWgt->showFriendNotice(arrApplyUser, arrAppliedUser, arrApplyTime, arrAppliedTime);
+}
+
+void FriendWgt::acceptFriendApply_Friend_Wgt(QString& userid)
+{
+	emit acceptFriendApply_Home_Wgt(userid);
+}
+
+void FriendWgt::showAcceptFriendApplyAns(enAcceptApplyType errnoType)
+{
+	m_pFriendNoticeWgt->showAcceptFriendApplyAns(errnoType);
 }

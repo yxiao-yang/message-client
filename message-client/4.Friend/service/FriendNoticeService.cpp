@@ -70,3 +70,32 @@ void FriendNoticeService::showFriendNotice(json& js)
 
 	emit showFriendNotice_Home_Service(arrApplyUser, arrAppliedUser, arrApplyTime, arrAppliedTime);
 }
+
+void FriendNoticeService::acceptFriendApply(QString& userid)
+{
+	json js;
+	js["msgid"] = ACCEPT_APPLY_MSG;
+	std::string user1id;
+	if (PubCache::getInstance()->getUserid(user1id))
+	{
+		js["User1ID"] = user1id;
+	}
+	js["User2ID"] = userid.toStdString();
+	std::string strRequest = js.dump();
+
+	int len = ConnectServer::getInstance()->getTcpSocket()->write(QString::fromStdString(strRequest).toLocal8Bit());
+	if (len == -1)
+	{
+		qDebug() << "send ACCEPT_APPLY_MSG fail";
+	}
+	else
+	{
+		qDebug() << "send ACCEPT_APPLY_MSG success";
+	}
+}
+
+void FriendNoticeService::showAcceptFriendApplyAns(json& js)
+{
+	enAcceptApplyType errnoType = js["errno"];
+	emit showAcceptFriendApplyAns_Home_Service(errnoType);
+}

@@ -1,5 +1,6 @@
 #include "FriendNoticeWidget.h"
 #include "pub.const.h"
+#include <QDebug>
 
 #pragma execution_character_set("utf-8")
 
@@ -28,7 +29,6 @@ FriendNoticeWgt::~FriendNoticeWgt()
 
 void FriendNoticeWgt::setSlots()
 {
-	
 }
 
 void FriendNoticeWgt::getFriendNotice()
@@ -54,10 +54,13 @@ void FriendNoticeWgt::showFriendNotice(std::vector<User>& arrApplyUser, std::vec
 		QString username = QString::fromStdString(arrApplyUser[i].getName());
 		QString time = QString::fromStdString(arrApplyTime[i]);
 		QString message = QString::fromStdString("正在验证你的邀请");
+		QString buttonname = QString::fromStdString("等待验证");
 		UserWgt->setUserid(userid);
 		UserWgt->setUsername(username);
 		UserWgt->setTime(time);
 		UserWgt->setMessage(message);
+		UserWgt->setButtonName(buttonname);
+		UserWgt->disableButton();
 
 		//connect(UserWgt, &SearchResWgt::addFriend_AddFriend_Wgt, this, &AddFriendWgt::addFriend_AddFriend_Wgt);
 		m_pUserLayout->addWidget(UserWgt);
@@ -71,13 +74,37 @@ void FriendNoticeWgt::showFriendNotice(std::vector<User>& arrApplyUser, std::vec
 		QString username = QString::fromStdString(arrAppliedUser[i].getName());
 		QString time = QString::fromStdString(arrAppliedTime[i]);
 		QString message = QString::fromStdString("想要添加你为好友");
+		QString buttonname = QString::fromStdString("同意");
 		UserWgt->setUserid(userid);
 		UserWgt->setUsername(username);
 		UserWgt->setTime(time);
 		UserWgt->setMessage(message);
+		UserWgt->setButtonName(buttonname);
 
-		//connect(UserWgt, &SearchResWgt::addFriend_AddFriend_Wgt, this, &AddFriendWgt::addFriend_AddFriend_Wgt);
+		connect(UserWgt, &FriendNoticeResWgt::acceptFriendApply_FriendNotice_Wgt, this, &FriendNoticeWgt::acceptFriendApply_FriendNotice_Wgt);
 		m_pUserLayout->addWidget(UserWgt);
 		m_arrSearchResWgt.push_back(UserWgt);
 	}
+}
+
+void FriendNoticeWgt::acceptFriendApply_FriendNotice_Wgt(QString& userid)
+{
+	emit acceptFriendApply_Friend_Wgt(userid);
+}
+
+void FriendNoticeWgt::showAcceptFriendApplyAns(enAcceptApplyType errnoType)
+{
+	m_pAcceptFriendApplyAnsWgt = new AcceptFriendApplyAnsWgt;
+	connect(m_pAcceptFriendApplyAnsWgt, &AcceptFriendApplyAnsWgt::updateFriendNotice_FriendNotice_Wgt, this, &FriendNoticeWgt::updateFriendNotice_FriendNotice_Wgt);
+	m_pAcceptFriendApplyAnsWgt->setWindowFlags(m_pAcceptFriendApplyAnsWgt->windowFlags() | Qt::Dialog);
+	m_pAcceptFriendApplyAnsWgt->setWindowModality(Qt::ApplicationModal); // 阻塞除当前窗体之外的所有的窗体
+	m_pAcceptFriendApplyAnsWgt->setWindowFlags(Qt::FramelessWindowHint | windowFlags());    // 去窗口边框
+	m_pAcceptFriendApplyAnsWgt->setAns(errnoType);
+
+	m_pAcceptFriendApplyAnsWgt->show();
+}
+
+void FriendNoticeWgt::updateFriendNotice_FriendNotice_Wgt()
+{
+	getFriendNotice();
 }

@@ -14,6 +14,8 @@ enum enMsgType
 	SEARCH_USER_MSG_ACK,    // 搜索用户响应
 	FRIEND_NOTICE_MSG,      // 好友通知消息
 	FRIEND_NOTICE_MSG_ACK,  // 好友通知消息响应
+	ACCEPT_APPLY_MSG,		// 同意好友申请
+	ACCEPT_APPLY_MSG_ACK,	// 同意好友申请响应
 	CHAT_AI_MSG             // Ai对话
 };
 
@@ -42,6 +44,12 @@ enum enAddFriendType
 	APPLY_SUCCESS = 0,  // 申请好友成功
 	APPLY_ERR_REPEAT,   // 申请好友失败，重复申请
 	APPLT_ERR_WRONG     // 申请好友失败
+};
+
+enum enAcceptApplyType
+{
+	ACCEPT_APPLY_SUCCESS = 0, // 接受好友申请成功
+	ACCEPT_APPLY_WRONG        // 接受好友申请失败
 };
 
 enum enHomeStackedWidgetId

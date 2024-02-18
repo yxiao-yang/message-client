@@ -19,6 +19,14 @@ public:
 	void setUsername(QString& username);
 	void setTime(QString& time);
 	void setMessage(QString& message);
+	void setButtonName(QString& button);
+	void disableButton();
+
+signals:
+	void acceptFriendApply_FriendNotice_Wgt(QString& userid);
+
+private slots:
+	void onNoticePb();
 
 private:
 	Ui::FriendNoticeResWgt* m_pUi = nullptr;

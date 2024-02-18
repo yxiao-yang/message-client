@@ -124,7 +124,7 @@ QLabel {
     </spacer>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="NoticePb">
      <property name="styleSheet">
       <string notr="true">QPushButton {
     background-color: transparent;

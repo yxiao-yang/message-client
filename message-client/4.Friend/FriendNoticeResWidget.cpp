@@ -19,7 +19,7 @@ FriendNoticeResWgt::~FriendNoticeResWgt()
 
 void FriendNoticeResWgt::setSlots()
 {
-	
+	connect(m_pUi->NoticePb, &QPushButton::clicked, this, &FriendNoticeResWgt::onNoticePb);
 }
 
 void FriendNoticeResWgt::setUserid(QString& userid)
@@ -40,4 +40,20 @@ void FriendNoticeResWgt::setTime(QString& time)
 void FriendNoticeResWgt::setMessage(QString& message)
 {
 	m_pUi->MessageLb->setText(message);
+}
+
+void FriendNoticeResWgt::setButtonName(QString& button)
+{
+	m_pUi->NoticePb->setText(button);
+}
+
+void FriendNoticeResWgt::disableButton()
+{
+	m_pUi->NoticePb->setDisabled(false);
+}
+
+void FriendNoticeResWgt::onNoticePb()
+{
+	QString userid = m_pUi->UseridLb->text();
+	emit acceptFriendApply_FriendNotice_Wgt(userid);
 }

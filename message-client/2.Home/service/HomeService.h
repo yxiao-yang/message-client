@@ -21,6 +21,7 @@ public:
 	void search_ack(json& js);
 	void addFriendAns(json& js);
 	void showFriendNotice(json& js);
+	void showAcceptFriendApplyAns(json& js);
 
 public slots:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
@@ -30,6 +31,8 @@ public slots:
 	void getFriendship_Home_Service();
 	void addFriendAns_Home_Service(enAddFriendType errnoType);
 	void showFriendNotice_Home_Service(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime);
+	void acceptFriendApply_Home_Service(QString& userid);
+	void showAcceptFriendApplyAns_Home_Service(enAcceptApplyType errnoType);
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;
