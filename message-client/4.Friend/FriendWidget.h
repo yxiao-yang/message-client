@@ -4,6 +4,7 @@
 #include "ui_FriendWidget.h"
 #include "FriendNoticeWidget.h"
 #include "FriendshipItemWidget.h"
+#include "FriendInformationWidget.h"
 #include "user.hpp"
 #include <QWidget>
 
@@ -41,12 +42,15 @@ public slots:
 
 private slots:
 	void onNoticePb();
+	void onFriendshipItemWgt(QString& friendUserid);
 
 private:
 	Ui::FriendWgt* m_pUi = nullptr;
 	QWidget* m_pEmptyWgt = nullptr;
 	FriendNoticeWgt* m_pFriendNoticeWgt = nullptr;
+	FriendInformationWgt* m_pFriendInformationWgt = nullptr;
 	std::vector<QListWidgetItem*> m_arrFriendshipItemWgt;
+	std::vector<User> m_arrUser;
 
 	void setSlots();
 };

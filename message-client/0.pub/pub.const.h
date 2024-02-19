@@ -70,7 +70,8 @@ enum enMessageStackedWidgetId
 enum enFriendStackedWidgetId
 {
 	FRIEND_EMPTY_WIDGET = 0,
-	FRIENDNOTICE_WIDGET
+	FRIEND_NOTICE_WIDGET,
+	FRIEND_INFORMATION_WIDGET
 };
 
 #endif

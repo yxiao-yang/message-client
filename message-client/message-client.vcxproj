@@ -108,6 +108,7 @@
     <ClCompile Include="4.Friend\AcceptFriendApplyAnsWidget.cpp" />
     <ClCompile Include="4.Friend\AddFriendAnsWidget.cpp" />
     <ClCompile Include="4.Friend\AddFriendWidget.cpp" />
+    <ClCompile Include="4.Friend\FriendInformationWidget.cpp" />
     <ClCompile Include="4.Friend\FriendNoticeResWidget.cpp" />
     <ClCompile Include="4.Friend\FriendNoticeWidget.cpp" />
     <ClCompile Include="4.Friend\FriendshipItemWidget.cpp" />
@@ -128,6 +129,7 @@
     <QtUic Include="4.Friend\ui\AcceptFriendApplyAnsWidget.ui" />
     <QtUic Include="4.Friend\ui\AddFriendAnsWidget.ui" />
     <QtUic Include="4.Friend\ui\AddFriendWidget.ui" />
+    <QtUic Include="4.Friend\ui\FriendInformationWidget.ui" />
     <QtUic Include="4.Friend\ui\FriendNoticeResWidget.ui" />
     <QtUic Include="4.Friend\ui\FriendNoticeWidget.ui" />
     <QtUic Include="4.Friend\ui\FriendshipItemWidget.ui" />
@@ -143,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="0.pub\user.hpp" />
+    <QtMoc Include="4.Friend\FriendInformationWidget.h" />
     <QtMoc Include="4.Friend\FriendshipItemWidget.h" />
     <QtMoc Include="4.Friend\AcceptFriendApplyAnsWidget.h" />
     <QtMoc Include="4.Friend\FriendNoticeResWidget.h" />

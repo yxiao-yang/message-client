@@ -4,6 +4,7 @@
 #include "ui_FriendshipItemWidget.h"
 #include <QWidget>
 #include <QListWidgetItem>
+#include <QMouseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class FriendshipItemWgt; };
@@ -18,10 +19,17 @@ public:
 
 	void setFriendUsername(QString& username);
 	void setFriendState(QString& state);
+	void setFriendUserid(QString& userid);
+
+	void mousePressEvent(QMouseEvent* event);
+
+signals:
+	void listItemClicked(QString& friendUserid);
 
 private:
 	Ui::FriendshipItemWgt* m_pUi = nullptr;
 	QListWidgetItem* m_pItem;
+	QString m_strFriendUserid;
 };
 
 #endif

@@ -32,3 +32,16 @@ void FriendshipItemWgt::setFriendState(QString& state)
 		m_pUi->FriendState->setText("ÀëÏß");
 	}
 }
+
+void FriendshipItemWgt::setFriendUserid(QString& userid)
+{
+	m_strFriendUserid = userid;
+}
+
+void FriendshipItemWgt::mousePressEvent(QMouseEvent* event)
+{
+	if (event->button() == Qt::LeftButton)
+	{
+		emit this->listItemClicked(m_strFriendUserid);
+	}
+}

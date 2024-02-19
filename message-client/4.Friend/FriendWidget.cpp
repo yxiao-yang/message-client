@@ -14,9 +14,11 @@ FriendWgt::FriendWgt(QWidget* parent)
 
 	m_pEmptyWgt = new QWidget;
 	m_pFriendNoticeWgt = new FriendNoticeWgt;
+	m_pFriendInformationWgt = new FriendInformationWgt;
 
 	m_pUi->FriendSWgt->insertWidget(FRIEND_EMPTY_WIDGET, m_pEmptyWgt);
-	m_pUi->FriendSWgt->insertWidget(FRIENDNOTICE_WIDGET, m_pFriendNoticeWgt);
+	m_pUi->FriendSWgt->insertWidget(FRIEND_NOTICE_WIDGET, m_pFriendNoticeWgt);
+	m_pUi->FriendSWgt->insertWidget(FRIEND_INFORMATION_WIDGET, m_pFriendInformationWgt);
 
 	setSlots();
 }
@@ -29,7 +31,7 @@ FriendWgt::~FriendWgt()
 void FriendWgt::switchFriendSWgt(int idx)
 {
 	m_pUi->FriendSWgt->setCurrentIndex(idx);
-	if (idx == FRIENDNOTICE_WIDGET)
+	if (idx == FRIEND_NOTICE_WIDGET)
 	{
 		m_pFriendNoticeWgt->getFriendNotice();
 	}
@@ -44,7 +46,7 @@ void FriendWgt::setSlots()
 
 void FriendWgt::onNoticePb()
 {
-	switchFriendSWgt(FRIENDNOTICE_WIDGET);
+	switchFriendSWgt(FRIEND_NOTICE_WIDGET);
 }
 
 void FriendWgt::getFriendNotice_Friend_Wgt()
@@ -83,6 +85,7 @@ void FriendWgt::showAcceptFriendApplyAns(enAcceptApplyType errnoType)
 
 void FriendWgt::showFriendship(std::vector<User>& arrUser)
 {
+	m_arrUser = arrUser;
 	for (int i = 0; i < arrUser.size(); ++i)
 	{
 		// ´´½¨item
@@ -97,9 +100,29 @@ void FriendWgt::showFriendship(std::vector<User>& arrUser)
 
 		QString friendUsername = QString::fromStdString(arrUser[i].getName());
 		QString friendState = QString::fromStdString(arrUser[i].getState());
+		QString friendUserid = QString::fromStdString(arrUser[i].getId());
 		pCustomItem->setFriendUsername(friendUsername);
 		pCustomItem->setFriendState(friendState);
+		pCustomItem->setFriendUserid(friendUserid);
+
+		connect(pCustomItem, &FriendshipItemWgt::listItemClicked, this, &FriendWgt::onFriendshipItemWgt);
 
 		m_arrFriendshipItemWgt.push_back(pItem);
 	}
+}
+
+void FriendWgt::onFriendshipItemWgt(QString& friendUserid)
+{
+	m_pFriendInformationWgt->setFriendUserid(friendUserid);
+	for (int i = 0; i < m_arrUser.size(); ++i)
+	{
+		if (QString::fromStdString(m_arrUser[i].getId()) == friendUserid)
+		{
+			QString username = QString::fromStdString(m_arrUser[i].getName());
+			QString phone = QString::fromStdString(m_arrUser[i].getPhone());
+			m_pFriendInformationWgt->setFriendUsername(username);
+			m_pFriendInformationWgt->setFriendPhone(phone);
+		}
+	}
+	switchFriendSWgt(FRIEND_INFORMATION_WIDGET);
 }
