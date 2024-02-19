@@ -3,6 +3,7 @@
 
 #include "ui_FriendWidget.h"
 #include "FriendNoticeWidget.h"
+#include "FriendshipItemWidget.h"
 #include "user.hpp"
 #include <QWidget>
 
@@ -27,6 +28,8 @@ public:
 
 	void showAcceptFriendApplyAns(enAcceptApplyType errnoType);
 
+	void showFriendship(std::vector<User>& arrUser);
+
 signals:
 	void getFriendNotice_Home_Wgt();
 	void getFriendship_Home_Wgt();
@@ -43,6 +46,7 @@ private:
 	Ui::FriendWgt* m_pUi = nullptr;
 	QWidget* m_pEmptyWgt = nullptr;
 	FriendNoticeWgt* m_pFriendNoticeWgt = nullptr;
+	std::vector<QListWidgetItem*> m_arrFriendshipItemWgt;
 
 	void setSlots();
 };

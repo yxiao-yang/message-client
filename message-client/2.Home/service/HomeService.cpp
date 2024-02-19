@@ -35,6 +35,7 @@ void HomeService::setSlots()
 	connect(m_pFriendNoticeService, &FriendNoticeService::showFriendNotice_Home_Service, this, &HomeService::showFriendNotice_Home_Service);
 	connect(m_pHomeWgt, &HomeWidget::acceptFriendApply_Home_Service, this, &HomeService::acceptFriendApply_Home_Service);
 	connect(m_pFriendNoticeService, &FriendNoticeService::showAcceptFriendApplyAns_Home_Service, this, &HomeService::showAcceptFriendApplyAns_Home_Service);
+	connect(m_pFriendService, &FriendService::showFriendship_Home_Service, this, &HomeService::showFriendship_Home_Service);
 }
 
 void HomeService::search_ack(json& js)
@@ -95,4 +96,14 @@ void HomeService::showAcceptFriendApplyAns(json& js)
 void HomeService::showAcceptFriendApplyAns_Home_Service(enAcceptApplyType errnoType)
 {
 	m_pHomeWgt->showAcceptFriendApplyAns(errnoType);
+}
+
+void HomeService::showFriendship(json& js)
+{
+	m_pFriendService->showFriendship(js);
+}
+
+void HomeService::showFriendship_Home_Service(std::vector<User>& arrUser)
+{
+	m_pHomeWgt->showFriendship(arrUser);
 }

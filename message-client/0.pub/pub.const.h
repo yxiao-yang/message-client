@@ -16,7 +16,9 @@ enum enMsgType
 	FRIEND_NOTICE_MSG_ACK,  // 好友通知消息响应
 	ACCEPT_APPLY_MSG,		// 同意好友申请
 	ACCEPT_APPLY_MSG_ACK,	// 同意好友申请响应
-	CHAT_AI_MSG             // Ai对话
+	CHAT_AI_MSG,            // Ai对话
+	GET_FRIENDSHIP_MSG,		// 获取联系人消息
+	GET_FRIENDSHIP_MSG_ACK	// 获取联系人消息响应
 };
 
 enum enRegType

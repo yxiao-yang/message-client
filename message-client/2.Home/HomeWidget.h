@@ -27,6 +27,8 @@ public:
 
 	void showAcceptFriendApplyAns(enAcceptApplyType errnoType);
 
+	void showFriendship(std::vector<User>& arrUser);
+
 	// …Ë÷√∑Á∏Ò
 	void setStyle();
 

@@ -77,6 +77,7 @@ void HomeWidget::setSlots()
     connect(m_pFriendWgt, &FriendWgt::getFriendNotice_Home_Wgt, this, &HomeWidget::getFriendNotice_Home_Wgt);
     connect(m_pMessageWgt, &MessageWgt::addFriend_Home_Wgt, this, &HomeWidget::addFriend_Home_Wgt);
     connect(m_pFriendWgt, &FriendWgt::acceptFriendApply_Home_Wgt, this, &HomeWidget::acceptFriendApply_Home_Wgt);
+    connect(m_pFriendWgt, &FriendWgt::getFriendship_Home_Wgt, this, &HomeWidget::getFriendship_Home_Wgt);
 }
 
 void HomeWidget::onTbMinus()
@@ -158,4 +159,9 @@ void HomeWidget::acceptFriendApply_Home_Wgt(QString& userid)
 void HomeWidget::showAcceptFriendApplyAns(enAcceptApplyType errnoType)
 {
     m_pFriendWgt->showAcceptFriendApplyAns(errnoType);
+}
+
+void HomeWidget::showFriendship(std::vector<User>& arrUser)
+{
+    m_pFriendWgt->showFriendship(arrUser);
 }

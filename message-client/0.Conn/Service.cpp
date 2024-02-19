@@ -26,6 +26,7 @@ Service::Service()
     m_mapMsgHandler.insert({ ADD_FRIEND_MSG_ACK, std::bind(&HomeService::addFriendAns, m_pHomeService, std::placeholders::_1) });
     m_mapMsgHandler.insert({ FRIEND_NOTICE_MSG_ACK, std::bind(&HomeService::showFriendNotice, m_pHomeService, std::placeholders::_1) });
     m_mapMsgHandler.insert({ ACCEPT_APPLY_MSG_ACK, std::bind(&HomeService::showAcceptFriendApplyAns, m_pHomeService, std::placeholders::_1) });
+    m_mapMsgHandler.insert({ GET_FRIENDSHIP_MSG_ACK, std::bind(&HomeService::showFriendship, m_pHomeService, std::placeholders::_1) });
 }
 
 MsgHandler Service::getHandler(enMsgType iMsgId)

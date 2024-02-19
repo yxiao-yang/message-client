@@ -54,6 +54,15 @@ void FriendWgt::getFriendNotice_Friend_Wgt()
 
 void FriendWgt::getFriendship()
 {
+	// 清空搜索结果
+	for (int i = 0; i < m_arrFriendshipItemWgt.size(); ++i)
+	{
+		m_pUi->FriendLstWgt->removeItemWidget(m_arrFriendshipItemWgt[i]);
+
+		delete m_arrFriendshipItemWgt[i]; // 如果元素是 QWidget 类型
+	}
+	m_arrFriendshipItemWgt.clear();
+
 	emit getFriendship_Home_Wgt();
 }
 
@@ -70,4 +79,27 @@ void FriendWgt::acceptFriendApply_Friend_Wgt(QString& userid)
 void FriendWgt::showAcceptFriendApplyAns(enAcceptApplyType errnoType)
 {
 	m_pFriendNoticeWgt->showAcceptFriendApplyAns(errnoType);
+}
+
+void FriendWgt::showFriendship(std::vector<User>& arrUser)
+{
+	for (int i = 0; i < arrUser.size(); ++i)
+	{
+		// 创建item
+		QListWidgetItem* pItem = new QListWidgetItem("");
+		m_pUi->FriendLstWgt->addItem(pItem);
+
+		// 创建自定义widget
+		FriendshipItemWgt* pCustomItem = new FriendshipItemWgt(pItem);
+		pCustomItem->adjustSize();
+		pItem->setSizeHint(pCustomItem->size());
+		m_pUi->FriendLstWgt->setItemWidget(pItem, pCustomItem);
+
+		QString friendUsername = QString::fromStdString(arrUser[i].getName());
+		QString friendState = QString::fromStdString(arrUser[i].getState());
+		pCustomItem->setFriendUsername(friendUsername);
+		pCustomItem->setFriendState(friendState);
+
+		m_arrFriendshipItemWgt.push_back(pItem);
+	}
 }

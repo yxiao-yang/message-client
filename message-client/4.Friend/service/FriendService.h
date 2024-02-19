@@ -14,5 +14,10 @@ public:
 	~FriendService();
 
 	void getFriendship();
+
+	void showFriendship(json& js);
+
+signals:
+	void showFriendship_Home_Service(std::vector<User>& arrUser);
 };
 #endif
