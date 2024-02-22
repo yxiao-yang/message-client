@@ -18,8 +18,8 @@ HomeWidget::HomeWidget(QWidget* parent)
     m_pUi->stackedWidget->insertWidget(MESSAGE_WIDGET, m_pMessageWgt);
     m_pUi->stackedWidget->insertWidget(FRIEND_WIDGET, m_pFriendWgt);
     m_pUi->stackedWidget->insertWidget(CHATAI_WIDGET, m_pChatAiWgt);
-
-    m_pUi->stackedWidget->setCurrentIndex(MESSAGE_WIDGET);
+    
+    //showMessageWgt();
 
     setSlots();
 }
@@ -63,6 +63,7 @@ void HomeWidget::setSlots()
     connect(m_pUi->MinusTb, &QToolButton::clicked, this, &HomeWidget::onTbMinus);
     connect(m_pUi->CloseTb, &QToolButton::clicked, this, &HomeWidget::onTbClose);
     connect(m_pUi->MessageTb, &QToolButton::clicked, [=]() {
+        m_pMessageWgt->getMessageLst();
         m_pUi->stackedWidget->setCurrentIndex(MESSAGE_WIDGET);
 	});
     connect(m_pUi->FriendTb, &QToolButton::clicked, [=]() {
@@ -78,6 +79,8 @@ void HomeWidget::setSlots()
     connect(m_pMessageWgt, &MessageWgt::addFriend_Home_Wgt, this, &HomeWidget::addFriend_Home_Wgt);
     connect(m_pFriendWgt, &FriendWgt::acceptFriendApply_Home_Wgt, this, &HomeWidget::acceptFriendApply_Home_Wgt);
     connect(m_pFriendWgt, &FriendWgt::getFriendship_Home_Wgt, this, &HomeWidget::getFriendship_Home_Wgt);
+    connect(m_pFriendWgt, &FriendWgt::sendMessage_Home_Wgt, this, &HomeWidget::sendMessage_Home_Wgt);
+    connect(m_pMessageWgt, &MessageWgt::getMessageLst_Home_Wgt, this, &HomeWidget::getMessageLst_Home_Wgt);
 }
 
 void HomeWidget::onTbMinus()
@@ -141,7 +144,7 @@ void HomeWidget::getFriendship_Home_Wgt()
     emit getFriendship_Home_Service();
 }
 
-void HomeWidget::showAddFriendAns(enAddFriendType errnoType)
+void HomeWidget::showAddFriendAns(enApplyType errnoType)
 {
     m_pMessageWgt->showAddFriendAns(errnoType);
 }
@@ -164,4 +167,25 @@ void HomeWidget::showAcceptFriendApplyAns(enAcceptApplyType errnoType)
 void HomeWidget::showFriendship(std::vector<User>& arrUser)
 {
     m_pFriendWgt->showFriendship(arrUser);
+}
+
+void HomeWidget::sendMessage_Home_Wgt(QString& userid)
+{
+    emit sendMessage_Home_Service(userid);
+}
+
+void HomeWidget::showMessageWgt()
+{
+    m_pMessageWgt->getMessageLst();
+    m_pUi->stackedWidget->setCurrentIndex(MESSAGE_WIDGET);
+}
+
+void HomeWidget::getMessageLst_Home_Wgt()
+{
+    emit getMessageLst_Home_Service();
+}
+
+void HomeWidget::showMessageLst(std::map<std::string, User>& mapTimeUser)
+{
+    m_pMessageWgt->showMessageLst(mapTimeUser);
 }

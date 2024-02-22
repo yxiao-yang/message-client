@@ -86,6 +86,6 @@ void AddFriendService::addFriend(QString& userid)
 
 void AddFriendService::addFriendAns(json& js)
 {
-	enAddFriendType errnoType = js["errno"];
+	enApplyType errnoType = js["errno"];
 	emit addFriendAns_Home_Service(errnoType);
 }

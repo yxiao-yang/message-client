@@ -42,6 +42,7 @@ void FriendWgt::setSlots()
 	connect(m_pUi->NoticePb, &QPushButton::clicked, this, &FriendWgt::onNoticePb);
 	connect(m_pFriendNoticeWgt, &FriendNoticeWgt::getFriendNotice_Friend_Wgt, this, &FriendWgt::getFriendNotice_Friend_Wgt);
 	connect(m_pFriendNoticeWgt, &FriendNoticeWgt::acceptFriendApply_Friend_Wgt, this, &FriendWgt::acceptFriendApply_Friend_Wgt);
+	connect(m_pFriendInformationWgt, &FriendInformationWgt::sendMessage_Friend_Wgt, this, &FriendWgt::sendMessage_Friend_Wgt);
 }
 
 void FriendWgt::onNoticePb()
@@ -125,4 +126,9 @@ void FriendWgt::onFriendshipItemWgt(QString& friendUserid)
 		}
 	}
 	switchFriendSWgt(FRIEND_INFORMATION_WIDGET);
+}
+
+void FriendWgt::sendMessage_Friend_Wgt(QString& userid)
+{
+	emit sendMessage_Home_Wgt(userid);
 }

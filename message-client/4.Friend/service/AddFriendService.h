@@ -21,6 +21,6 @@ public:
 	void addFriendAns(json& js);
 signals:
 	void showSearchRes_Home_Service(std::vector<User>& arrUser);
-	void addFriendAns_Home_Service(enAddFriendType errnoType);
+	void addFriendAns_Home_Service(enApplyType errnoType);
 };
 #endif

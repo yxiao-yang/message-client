@@ -112,6 +112,12 @@
     <ClCompile Include="4.Friend\FriendInformationWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="0.Conn\SqliteOperator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="3.Message\MessageLstItemWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui">
@@ -157,6 +163,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="4.Friend\ui\FriendInformationWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="3.Message\ui\MessageLstItemWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -254,6 +263,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="4.Friend\FriendInformationWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="0.Conn\SqliteOperator.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="3.Message\MessageLstItemWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

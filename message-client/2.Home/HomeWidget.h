@@ -21,13 +21,17 @@ public:
 	// 添加好友界面 展示搜索结果
 	void showSearchRes(std::vector<User>& arrUser);
 
-	void showAddFriendAns(enAddFriendType errnoType);
+	void showAddFriendAns(enApplyType errnoType);
 
 	void showFriendNotice(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime);
 
 	void showAcceptFriendApplyAns(enAcceptApplyType errnoType);
 
 	void showFriendship(std::vector<User>& arrUser);
+
+	void showMessageWgt();
+
+	void showMessageLst(std::map<std::string, User>& mapTimeUser);
 
 	// 设置风格
 	void setStyle();
@@ -42,6 +46,8 @@ signals:
 	void addFriend_Home_Service(QString& userid);
 	void getFriendship_Home_Service();
 	void acceptFriendApply_Home_Service(QString& userid);
+	void sendMessage_Home_Service(QString& userid);
+	void getMessageLst_Home_Service();
 
 public slots:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
@@ -49,6 +55,8 @@ public slots:
 	void addFriend_Home_Wgt(QString& userid);
 	void getFriendship_Home_Wgt();
 	void acceptFriendApply_Home_Wgt(QString& userid);
+	void sendMessage_Home_Wgt(QString& userid);
+	void getMessageLst_Home_Wgt();
 
 private slots:
 	void onTbMinus();       // 最小化窗口

@@ -21,8 +21,17 @@ public:
 	void setFriendUserid(QString& userid);
 	void setFriendPhone(QString& phone);
 
+	void setSlots();
+
+signals:
+	void sendMessage_Friend_Wgt(QString& userid);
+
+private slots:
+	void onSendMessagePb();
+
 private:
 	Ui::FriendInformationWgt* m_pUi = nullptr;
+	QString m_strUserid;
 };
 
 #endif

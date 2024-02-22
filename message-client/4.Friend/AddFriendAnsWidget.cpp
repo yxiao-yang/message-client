@@ -18,7 +18,7 @@ AddFriendAnsWgt::~AddFriendAnsWgt()
 
 }
 
-void AddFriendAnsWgt::setAns(enAddFriendType errnoType)
+void AddFriendAnsWgt::setAns(enApplyType errnoType)
 {
 	if (errnoType == APPLY_SUCCESS)
 	{

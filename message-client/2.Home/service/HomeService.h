@@ -23,6 +23,8 @@ public:
 	void showFriendNotice(json& js);
 	void showAcceptFriendApplyAns(json& js);
 	void showFriendship(json& js);
+	void sendMessageApplyAck(json& js);
+	void getMessageLstAck(json& js);
 
 public slots:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
@@ -30,11 +32,15 @@ public slots:
 	void getFriendNotice_Home_Service();
 	void addFriend_Home_Service(QString& userid);
 	void getFriendship_Home_Service();
-	void addFriendAns_Home_Service(enAddFriendType errnoType);
+	void addFriendAns_Home_Service(enApplyType errnoType);
 	void showFriendNotice_Home_Service(std::vector<User>& arrApplyUser, std::vector<User>& arrAppliedUser, std::vector<std::string>& arrApplyTime, std::vector<std::string>& arrAppliedTime);
 	void acceptFriendApply_Home_Service(QString& userid);
 	void showAcceptFriendApplyAns_Home_Service(enAcceptApplyType errnoType);
 	void showFriendship_Home_Service(std::vector<User>& arrUser);
+	void sendMessage_Home_Service(QString& userid);
+	void sendMessageApply_Home_Service();
+	void getMessageLst_Home_Service();
+	void showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser);
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;

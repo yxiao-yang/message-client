@@ -18,7 +18,11 @@ enum enMsgType
 	ACCEPT_APPLY_MSG_ACK,	// 同意好友申请响应
 	CHAT_AI_MSG,            // Ai对话
 	GET_FRIENDSHIP_MSG,		// 获取联系人消息
-	GET_FRIENDSHIP_MSG_ACK	// 获取联系人消息响应
+	GET_FRIENDSHIP_MSG_ACK,	// 获取联系人消息响应
+	SEND_MESSAGE_MSG,		// 发送聊天请求消息
+	SEND_MESSAGE_MSG_ACK,	// 发送聊天请求消息
+	GET_MESSAGELST_MSG,		// 获取消息列表消息
+	GET_MESSAGELST_MSG_ACK	// 获取聊天列表消息响应
 };
 
 enum enRegType
@@ -41,11 +45,11 @@ enum enSearchType
 	SEARCH_ERR_WRONG    // 搜索失败
 };
 
-enum enAddFriendType
+enum enApplyType
 {
 	APPLY_SUCCESS = 0,  // 申请好友成功
 	APPLY_ERR_REPEAT,   // 申请好友失败，重复申请
-	APPLT_ERR_WRONG     // 申请好友失败
+	APPLY_ERR_WRONG     // 申请好友失败
 };
 
 enum enAcceptApplyType

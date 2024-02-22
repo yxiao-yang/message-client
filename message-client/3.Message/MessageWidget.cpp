@@ -1,4 +1,5 @@
 #include "MessageWidget.h"
+#include "MessageLstItemWidget.h"
 #include "pub_func.hpp"
 #include "pub.const.h"
 #include <QDebug>
@@ -59,7 +60,47 @@ void MessageWgt::addFriend_Message_Friend_Wgt(QString& userid)
 	emit addFriend_Home_Wgt(userid);
 }
 
-void MessageWgt::showAddFriendAns(enAddFriendType errnoType)
+void MessageWgt::showAddFriendAns(enApplyType errnoType)
 {
 	m_pAddFriendWgt->showAddFriendAns(errnoType);
+}
+
+void MessageWgt::getMessageLst()
+{
+	// 清空结果
+	for (int i = 0; i < m_arrMessageLstItemWgt.size(); ++i)
+	{
+		m_pUi->MessageLstWgt->removeItemWidget(m_arrMessageLstItemWgt[i]);
+
+		delete m_arrMessageLstItemWgt[i]; // 如果元素是 QWidget 类型
+	}
+	m_arrMessageLstItemWgt.clear();
+
+	emit getMessageLst_Home_Wgt();
+}
+
+void MessageWgt::showMessageLst(std::map<std::string, User>& mapTimeUser)
+{
+	m_mapTimeUser = mapTimeUser;
+	for (auto it : mapTimeUser)
+	{
+		// 创建item
+		QListWidgetItem* pItem = new QListWidgetItem("");
+		m_pUi->MessageLstWgt->addItem(pItem);
+
+		// 创建自定义widget
+		MessageLstItemWgt* pCustomItem = new MessageLstItemWgt(pItem);
+		pCustomItem->adjustSize();
+		pItem->setSizeHint(pCustomItem->size());
+		m_pUi->MessageLstWgt->setItemWidget(pItem, pCustomItem);
+
+		QString friendUsername = QString::fromStdString(it.second.getName());
+		QString time = QString::fromStdString(it.first);
+		pCustomItem->setFriendUsername(friendUsername);
+		pCustomItem->setLastTime(time);
+
+		//connect(pCustomItem, &FriendshipItemWgt::listItemClicked, this, &FriendWgt::onFriendshipItemWgt);
+
+		m_arrMessageLstItemWgt.push_back(pItem);
+	}
 }

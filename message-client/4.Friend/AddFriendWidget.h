@@ -24,7 +24,7 @@ public:
 	void showSearchRes(std::vector<User>& arrUser);
 
 	// µ¯´°
-	void showAddFriendAns(enAddFriendType errnoType);
+	void showAddFriendAns(enApplyType errnoType);
 
 signals:
 	void searchUser_Message_Friend_Wgt(QString& Userid, QString& Searchid);

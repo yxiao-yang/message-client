@@ -16,7 +16,7 @@ public:
 	AddFriendAnsWgt(QWidget* parent = nullptr);
 	~AddFriendAnsWgt();
 
-	void setAns(enAddFriendType errnoType);
+	void setAns(enApplyType errnoType);
 
 	void mousePressEvent(QMouseEvent* event);       // 鼠标点击
 	void mouseMoveEvent(QMouseEvent* event);        // 鼠标移动

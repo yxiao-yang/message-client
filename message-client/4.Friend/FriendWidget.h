@@ -35,10 +35,12 @@ signals:
 	void getFriendNotice_Home_Wgt();
 	void getFriendship_Home_Wgt();
 	void acceptFriendApply_Home_Wgt(QString& userid);
+	void sendMessage_Home_Wgt(QString& userid);
 
 public slots:
 	void getFriendNotice_Friend_Wgt();
 	void acceptFriendApply_Friend_Wgt(QString& userid);
+	void sendMessage_Friend_Wgt(QString& userid);
 
 private slots:
 	void onNoticePb();

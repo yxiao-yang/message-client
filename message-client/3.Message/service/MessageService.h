@@ -12,5 +12,11 @@ class MessageService : public QObject
 public:
 	MessageService();
 	~MessageService();
+
+	void getMessageLst();
+	void getMessageLstAck(json& js);
+
+signals:
+	void showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser);
 };
 #endif

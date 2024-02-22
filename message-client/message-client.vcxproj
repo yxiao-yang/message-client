@@ -93,6 +93,7 @@
     <QtRcc Include="MessageClient.qrc" />
     <QtMoc Include="1.Login\LoginWidget.h" />
     <ClCompile Include="0.Conn\ConnectServer.cpp" />
+    <ClCompile Include="0.Conn\SqliteOperator.cpp" />
     <ClCompile Include="0.Conn\Service.cpp" />
     <ClCompile Include="0.pub\pub.cache.cpp" />
     <ClCompile Include="1.Login\LoginWidget.cpp" />
@@ -103,6 +104,7 @@
     <ClCompile Include="1.Login\service\RegSuccessService.cpp" />
     <ClCompile Include="2.Home\HomeWidget.cpp" />
     <ClCompile Include="2.Home\service\HomeService.cpp" />
+    <ClCompile Include="3.Message\MessageLstItemWidget.cpp" />
     <ClCompile Include="3.Message\MessageWidget.cpp" />
     <ClCompile Include="3.Message\service\MessageService.cpp" />
     <ClCompile Include="4.Friend\AcceptFriendApplyAnsWidget.cpp" />
@@ -125,6 +127,7 @@
     <QtUic Include="1.Login\ui\RegSuccessWidget.ui" />
     <QtUic Include="1.Login\ui\RegWidget.ui" />
     <QtUic Include="2.Home\ui\HomeWidget.ui" />
+    <QtUic Include="3.Message\ui\MessageLstItemWidget.ui" />
     <QtUic Include="3.Message\ui\MessageWidget.ui" />
     <QtUic Include="4.Friend\ui\AcceptFriendApplyAnsWidget.ui" />
     <QtUic Include="4.Friend\ui\AddFriendAnsWidget.ui" />
@@ -144,6 +147,8 @@
     <None Include="0.ui\LoginWidget.css" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="3.Message\MessageLstItemWidget.h" />
+    <QtMoc Include="0.Conn\SqliteOperator.h" />
     <ClInclude Include="0.pub\user.hpp" />
     <QtMoc Include="4.Friend\FriendInformationWidget.h" />
     <QtMoc Include="4.Friend\FriendshipItemWidget.h" />

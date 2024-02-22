@@ -55,3 +55,41 @@ void FriendService::showFriendship(json& js)
 	}
 	emit showFriendship_Home_Service(arrUser);
 }
+
+void FriendService::sendMessage(QString& userid)
+{
+	// 发送服务端，在消息列表最上方插入新聊天
+	json js;
+	js["msgid"] = SEND_MESSAGE_MSG;
+	std::string userID;
+	if (PubCache::getInstance()->getUserid(userID))
+	{
+		js["UserID"] = userID;
+	}
+	js["FriendID"] = userid.toStdString();
+	std::string strRequest = js.dump();
+
+	int len = ConnectServer::getInstance()->getTcpSocket()->write(QString::fromStdString(strRequest).toLocal8Bit());
+	if (len == -1)
+	{
+		qDebug() << "send SEND_MESSAGE_MSG fail";
+	}
+	else
+	{
+		qDebug() << "send SEND_MESSAGE_MSG success";
+	}
+}
+
+void FriendService::sendMessageApplyAck(json& js)
+{
+	enApplyType errnoType = js["errno"];
+	if (errnoType == APPLY_SUCCESS)
+	{
+		// 切换到消息页面
+		emit sendMessageApply_Home_Service();
+	}
+	else
+	{
+		qDebug() << "sendMessageApplyAck fail";
+	}
+}

@@ -75,7 +75,7 @@ void AddFriendWgt::addFriend_AddFriend_Wgt(QString& userid, QString& username)
 	emit addFriend_Message_Friend_Wgt(userid);
 }
 
-void AddFriendWgt::showAddFriendAns(enAddFriendType errnoType)
+void AddFriendWgt::showAddFriendAns(enApplyType errnoType)
 {
 	m_pAddFriendAnsWgt = new AddFriendAnsWgt;
 	m_pAddFriendAnsWgt->setWindowFlags(m_pAddFriendAnsWgt->windowFlags() | Qt::Dialog);

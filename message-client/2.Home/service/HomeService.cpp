@@ -12,6 +12,7 @@ HomeService::HomeService()
 void HomeService::showHomeWgt()
 {
 	m_pHomeWgt->setStyle();
+	m_pHomeWgt->showMessageWgt();
 	m_pHomeWgt->show();
 }
 
@@ -36,6 +37,10 @@ void HomeService::setSlots()
 	connect(m_pHomeWgt, &HomeWidget::acceptFriendApply_Home_Service, this, &HomeService::acceptFriendApply_Home_Service);
 	connect(m_pFriendNoticeService, &FriendNoticeService::showAcceptFriendApplyAns_Home_Service, this, &HomeService::showAcceptFriendApplyAns_Home_Service);
 	connect(m_pFriendService, &FriendService::showFriendship_Home_Service, this, &HomeService::showFriendship_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::sendMessage_Home_Service, this, &HomeService::sendMessage_Home_Service);
+	connect(m_pFriendService, &FriendService::sendMessageApply_Home_Service, this, &HomeService::sendMessageApply_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::getMessageLst_Home_Service, this, &HomeService::getMessageLst_Home_Service);
+	connect(m_pMessageService, &MessageService::showMessageLst_Home_Service, this, &HomeService::showMessageLst_Home_Service);
 }
 
 void HomeService::search_ack(json& js)
@@ -68,7 +73,7 @@ void HomeService::addFriendAns(json& js)
 	m_pAddFriendService->addFriendAns(js);
 }
 
-void HomeService::addFriendAns_Home_Service(enAddFriendType errnoType)
+void HomeService::addFriendAns_Home_Service(enApplyType errnoType)
 {
 	m_pHomeWgt->showAddFriendAns(errnoType);
 }
@@ -106,4 +111,34 @@ void HomeService::showFriendship(json& js)
 void HomeService::showFriendship_Home_Service(std::vector<User>& arrUser)
 {
 	m_pHomeWgt->showFriendship(arrUser);
+}
+
+void HomeService::sendMessage_Home_Service(QString& userid)
+{
+	m_pFriendService->sendMessage(userid);
+}
+
+void HomeService::sendMessageApplyAck(json& js)
+{
+	m_pFriendService->sendMessageApplyAck(js);
+}
+
+void HomeService::sendMessageApply_Home_Service()
+{
+	m_pHomeWgt->showMessageWgt();
+}
+
+void HomeService::getMessageLst_Home_Service()
+{
+	m_pMessageService->getMessageLst();
+}
+
+void HomeService::getMessageLstAck(json& js)
+{
+	m_pMessageService->getMessageLstAck(js);
+}
+
+void HomeService::showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser)
+{
+	m_pHomeWgt->showMessageLst(mapTimeUser);
 }

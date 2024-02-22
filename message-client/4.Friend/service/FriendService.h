@@ -17,7 +17,12 @@ public:
 
 	void showFriendship(json& js);
 
+	void sendMessage(QString& userid);
+
+	void sendMessageApplyAck(json& js);
+
 signals:
 	void showFriendship_Home_Service(std::vector<User>& arrUser);
+	void sendMessageApply_Home_Service();
 };
 #endif
