@@ -48,6 +48,7 @@ signals:
 	void acceptFriendApply_Home_Service(QString& userid);
 	void sendMessage_Home_Service(QString& userid);
 	void getMessageLst_Home_Service();
+	void getMessageInformation_Home_Service(QString& friendUserid);
 
 public slots:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
@@ -57,6 +58,7 @@ public slots:
 	void acceptFriendApply_Home_Wgt(QString& userid);
 	void sendMessage_Home_Wgt(QString& userid);
 	void getMessageLst_Home_Wgt();
+	void getMessageInformation_Home_Wgt(QString& friendUserid);
 
 private slots:
 	void onTbMinus();       // 最小化窗口

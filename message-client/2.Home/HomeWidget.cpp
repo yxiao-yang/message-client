@@ -81,6 +81,7 @@ void HomeWidget::setSlots()
     connect(m_pFriendWgt, &FriendWgt::getFriendship_Home_Wgt, this, &HomeWidget::getFriendship_Home_Wgt);
     connect(m_pFriendWgt, &FriendWgt::sendMessage_Home_Wgt, this, &HomeWidget::sendMessage_Home_Wgt);
     connect(m_pMessageWgt, &MessageWgt::getMessageLst_Home_Wgt, this, &HomeWidget::getMessageLst_Home_Wgt);
+    connect(m_pMessageWgt, &MessageWgt::getMessageInformation_Home_Wgt, this, &HomeWidget::getMessageInformation_Home_Wgt);
 }
 
 void HomeWidget::onTbMinus()
@@ -188,4 +189,9 @@ void HomeWidget::getMessageLst_Home_Wgt()
 void HomeWidget::showMessageLst(std::map<std::string, User>& mapTimeUser)
 {
     m_pMessageWgt->showMessageLst(mapTimeUser);
+}
+
+void HomeWidget::getMessageInformation_Home_Wgt(QString& friendUserid)
+{
+    emit getMessageInformation_Home_Service(friendUserid);
 }

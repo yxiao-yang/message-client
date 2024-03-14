@@ -15,9 +15,11 @@ MessageWgt::MessageWgt(QWidget* parent)
 
 	m_pEmptyWgt = new QWidget;
 	m_pAddFriendWgt = new AddFriendWgt;
+	m_pMessageWindowWgt = new MessageWindowWgt;
 
 	m_pUi->MessageSWgt->insertWidget(MESSAGE_EMPTY_WIDGET, m_pEmptyWgt);
 	m_pUi->MessageSWgt->insertWidget(ADDFRIEND_WIDGET, m_pAddFriendWgt);
+	m_pUi->MessageSWgt->insertWidget(MESSAGE_WINDOW_WIDGET, m_pMessageWindowWgt);
 
 	setSlots();
 }
@@ -43,6 +45,7 @@ void MessageWgt::setSlots()
 	connect(m_pAddFriendWgt, &AddFriendWgt::searchUser_Message_Friend_Wgt, this, &MessageWgt::searchUser_Message_Friend_Wgt);
 	connect(m_pUi->AddPb, &QPushButton::clicked, this, &MessageWgt::onAddPb);
 	connect(m_pAddFriendWgt, &AddFriendWgt::addFriend_Message_Friend_Wgt, this, &MessageWgt::addFriend_Message_Friend_Wgt);
+	connect(m_pMessageWindowWgt, &MessageWindowWgt::getMessageInformation_Message_Wgt, this, &MessageWgt::getMessageInformation_Message_Wgt);
 }
 
 void MessageWgt::showSearchRes(std::vector<User>& arrUser)
@@ -96,11 +99,24 @@ void MessageWgt::showMessageLst(std::map<std::string, User>& mapTimeUser)
 
 		QString friendUsername = QString::fromStdString(it.second.getName());
 		QString time = QString::fromStdString(it.first);
+		QString friendUserid = QString::fromStdString(it.second.getId());
 		pCustomItem->setFriendUsername(friendUsername);
 		pCustomItem->setLastTime(time);
+		pCustomItem->setFriendUserid(friendUserid);
 
-		//connect(pCustomItem, &FriendshipItemWgt::listItemClicked, this, &FriendWgt::onFriendshipItemWgt);
+		connect(pCustomItem, &MessageLstItemWgt::listItemClicked, this, &MessageWgt::onMessageLstItemWgt);
 
 		m_arrMessageLstItemWgt.push_back(pItem);
 	}
+}
+
+void MessageWgt::onMessageLstItemWgt(QString& friendUserid)
+{
+	m_pMessageWindowWgt->getMessageInformation(friendUserid);
+	switchMessageSWgt(MESSAGE_WINDOW_WIDGET);
+}
+
+void MessageWgt::getMessageInformation_Message_Wgt(QString& friendUserid)
+{
+	emit getMessageInformation_Home_Wgt(friendUserid);
 }

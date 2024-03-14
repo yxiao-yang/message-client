@@ -138,6 +138,16 @@ QWidget#MessageSWgt {
     border-radius: 8px;
 }
 
+QListWidget#MessageWindowLstWgt {
+    background-color: transparent;
+    border: none;
+}
+
+QPlainTextEdit {
+    background-color: transparent;
+    border: none;
+}
+
 /*AddFriendWidget*/
 QLineEdit#SearchLedit {
     font: 25 14pt 'Î¢ÈíÑÅºÚ Light';

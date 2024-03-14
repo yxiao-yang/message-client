@@ -27,6 +27,7 @@ void HomeService::setSlots()
 	m_pFriendService = new FriendService();
 	m_pAddFriendService = new AddFriendService();
 	m_pFriendNoticeService = new FriendNoticeService();
+	m_pMessageWindowService = new MessageWindowService();
 	connect(m_pHomeWgt, &HomeWidget::searchUser_Home_Service, this, &HomeService::searchUser_Home_Service);
 	connect(m_pAddFriendService, &AddFriendService::showSearchRes_Home_Service, this, &HomeService::showSearchRes_Home_Service);
 	connect(m_pHomeWgt, &HomeWidget::getFriendNotice_Home_Service, this, &HomeService::getFriendNotice_Home_Service);
@@ -41,7 +42,8 @@ void HomeService::setSlots()
 	connect(m_pFriendService, &FriendService::sendMessageApply_Home_Service, this, &HomeService::sendMessageApply_Home_Service);
 	connect(m_pHomeWgt, &HomeWidget::getMessageLst_Home_Service, this, &HomeService::getMessageLst_Home_Service);
 	connect(m_pMessageService, &MessageService::showMessageLst_Home_Service, this, &HomeService::showMessageLst_Home_Service);
-}
+	connect(m_pHomeWgt, &HomeWidget::getMessageInformation_Home_Service, this, &HomeService::getMessageInformation_Home_Service);
+ }
 
 void HomeService::search_ack(json& js)
 {
@@ -141,4 +143,14 @@ void HomeService::getMessageLstAck(json& js)
 void HomeService::showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser)
 {
 	m_pHomeWgt->showMessageLst(mapTimeUser);
+}
+
+void HomeService::getMessageInformation_Home_Service(QString& friendUserid)
+{
+	m_pMessageWindowService->getMessageInformation(friendUserid);
+}
+
+void HomeService::getChatMessageAck(json& js)
+{
+	m_pMessageWindowService->getChatMessageAck(js);
 }

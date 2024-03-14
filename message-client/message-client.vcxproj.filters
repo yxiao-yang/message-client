@@ -118,6 +118,12 @@
     <ClCompile Include="3.Message\MessageLstItemWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="3.Message\MessageWindowWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="3.Message\service\MessageWIndowService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui">
@@ -168,6 +174,9 @@
     <QtUic Include="3.Message\ui\MessageLstItemWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="3.Message\ui\MessageWindowWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <None Include="0.ui\LoginWidget.css" />
@@ -189,6 +198,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="0.pub\user.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="0.pub\message.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -269,6 +281,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="3.Message\MessageLstItemWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="3.Message\MessageWindowWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="3.Message\service\MessageWindowService.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

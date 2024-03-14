@@ -7,6 +7,7 @@
 #include "FriendService.h"
 #include "AddFriendService.h"
 #include "FriendNoticeService.h"
+#include "MessageWindowService.h"
 #include "pub.const.h"
 
 using json = nlohmann::json;
@@ -25,6 +26,7 @@ public:
 	void showFriendship(json& js);
 	void sendMessageApplyAck(json& js);
 	void getMessageLstAck(json& js);
+	void getChatMessageAck(json& js);
 
 public slots:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
@@ -41,6 +43,7 @@ public slots:
 	void sendMessageApply_Home_Service();
 	void getMessageLst_Home_Service();
 	void showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser);
+	void getMessageInformation_Home_Service(QString& friendUserid);
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;
@@ -48,6 +51,7 @@ private:
 	FriendService* m_pFriendService = nullptr;
 	AddFriendService* m_pAddFriendService = nullptr;
 	FriendNoticeService* m_pFriendNoticeService = nullptr;
+	MessageWindowService* m_pMessageWindowService = nullptr;
 
 	void setSlots();
 };
