@@ -43,7 +43,8 @@ void HomeService::setSlots()
 	connect(m_pHomeWgt, &HomeWidget::getMessageLst_Home_Service, this, &HomeService::getMessageLst_Home_Service);
 	connect(m_pMessageService, &MessageService::showMessageLst_Home_Service, this, &HomeService::showMessageLst_Home_Service);
 	connect(m_pHomeWgt, &HomeWidget::getMessageInformation_Home_Service, this, &HomeService::getMessageInformation_Home_Service);
- }
+	connect(m_pMessageWindowService, &MessageWindowService::showChatMessage_Home_Service, this, &HomeService::showChatMessage_Home_Service);
+}
 
 void HomeService::search_ack(json& js)
 {
@@ -153,4 +154,9 @@ void HomeService::getMessageInformation_Home_Service(QString& friendUserid)
 void HomeService::getChatMessageAck(json& js)
 {
 	m_pMessageWindowService->getChatMessageAck(js);
+}
+
+void HomeService::showChatMessage_Home_Service(std::vector<Message*> arrMessage)
+{
+	m_pHomeWgt->showChatMessage(arrMessage);
 }

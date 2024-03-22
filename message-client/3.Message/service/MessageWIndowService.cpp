@@ -54,4 +54,6 @@ void MessageWindowService::getChatMessageAck(json& js)
 		message->setSendTime(js["SendTime"]);
 		arrMessage.push_back(message);
 	}
+
+	emit showChatMessage_Home_Service(arrMessage);
 }

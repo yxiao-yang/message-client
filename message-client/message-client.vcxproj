@@ -106,6 +106,7 @@
     <ClCompile Include="2.Home\service\HomeService.cpp" />
     <ClCompile Include="3.Message\MessageLstItemWidget.cpp" />
     <ClCompile Include="3.Message\MessageWidget.cpp" />
+    <ClCompile Include="3.Message\MessageWindowLstItemWidget.cpp" />
     <ClCompile Include="3.Message\MessageWindowWidget.cpp" />
     <ClCompile Include="3.Message\service\MessageService.cpp" />
     <ClCompile Include="3.Message\service\MessageWIndowService.cpp" />
@@ -131,6 +132,7 @@
     <QtUic Include="2.Home\ui\HomeWidget.ui" />
     <QtUic Include="3.Message\ui\MessageLstItemWidget.ui" />
     <QtUic Include="3.Message\ui\MessageWidget.ui" />
+    <QtUic Include="3.Message\ui\MessageWindowLstItemWidget.ui" />
     <QtUic Include="3.Message\ui\MessageWindowWidget.ui" />
     <QtUic Include="4.Friend\ui\AcceptFriendApplyAnsWidget.ui" />
     <QtUic Include="4.Friend\ui\AddFriendAnsWidget.ui" />
@@ -150,6 +152,7 @@
     <None Include="0.ui\LoginWidget.css" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="3.Message\MessageWindowLstItemWidget.h" />
     <QtMoc Include="3.Message\service\MessageWindowService.h" />
     <QtMoc Include="3.Message\MessageWindowWidget.h" />
     <QtMoc Include="3.Message\MessageLstItemWidget.h" />

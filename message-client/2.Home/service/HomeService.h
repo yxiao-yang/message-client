@@ -9,6 +9,7 @@
 #include "FriendNoticeService.h"
 #include "MessageWindowService.h"
 #include "pub.const.h"
+#include "message.hpp"
 
 using json = nlohmann::json;
 
@@ -44,6 +45,7 @@ public slots:
 	void getMessageLst_Home_Service();
 	void showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser);
 	void getMessageInformation_Home_Service(QString& friendUserid);
+	void showChatMessage_Home_Service(std::vector<Message*> arrMessage);
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;

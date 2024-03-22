@@ -120,3 +120,8 @@ void MessageWgt::getMessageInformation_Message_Wgt(QString& friendUserid)
 {
 	emit getMessageInformation_Home_Wgt(friendUserid);
 }
+
+void MessageWgt::showChatMessage(std::vector<Message*> arrMessage)
+{
+	m_pMessageWindowWgt->showChatMessage(arrMessage);
+}

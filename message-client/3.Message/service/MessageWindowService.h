@@ -2,6 +2,7 @@
 #define _MESSAGE_WINDOW_SERVICE_H_
 
 #include "json.hpp"
+#include "message.hpp"
 #include <QWidget>
 
 using json = nlohmann::json;
@@ -16,5 +17,8 @@ public:
 	void getMessageInformation(QString& friendUserid);
 
 	void getChatMessageAck(json& js);
+
+signals:
+	void showChatMessage_Home_Service(std::vector<Message*> arrMessage);
 };
 #endif

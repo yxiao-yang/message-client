@@ -195,3 +195,8 @@ void HomeWidget::getMessageInformation_Home_Wgt(QString& friendUserid)
 {
     emit getMessageInformation_Home_Service(friendUserid);
 }
+
+void HomeWidget::showChatMessage(std::vector<Message*> arrMessage)
+{
+    m_pMessageWgt->showChatMessage(arrMessage);
+}

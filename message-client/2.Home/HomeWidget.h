@@ -6,6 +6,7 @@
 #include "FriendWidget.h"
 #include "ChatAiWidget.h"
 #include "user.hpp"
+#include "message.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class HomeWgt; };
@@ -32,6 +33,8 @@ public:
 	void showMessageWgt();
 
 	void showMessageLst(std::map<std::string, User>& mapTimeUser);
+
+	void showChatMessage(std::vector<Message*> arrMessage);
 
 	// …Ë÷√∑Á∏Ò
 	void setStyle();

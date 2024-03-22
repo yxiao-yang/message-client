@@ -5,6 +5,7 @@
 #include "AddFriendWidget.h"
 #include "MessageWindowWidget.h"
 #include "user.hpp"
+#include "message.hpp"
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,6 +29,8 @@ public:
 	void getMessageLst();
 
 	void showMessageLst(std::map<std::string, User>& mapTimeUser);
+
+	void showChatMessage(std::vector<Message*> arrMessage);
 
 signals:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);

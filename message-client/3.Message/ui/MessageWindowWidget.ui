@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,8,6">
+  <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,9,5">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
@@ -100,7 +100,7 @@
        <item>
         <widget class="QPushButton" name="pushButton_3">
          <property name="text">
-          <string>PushButton</string>
+          <string>发送</string>
          </property>
         </widget>
        </item>
