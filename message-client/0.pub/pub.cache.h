@@ -20,6 +20,8 @@ public:
 	// 获取用户id
 	bool getUserid(std::string& userid);
 
+	std::string getCurrentDateTimeMySQLFormat();
+
 private:
 	static PubCache* s_pubCache;
 

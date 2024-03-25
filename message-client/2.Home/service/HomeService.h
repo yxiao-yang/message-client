@@ -28,6 +28,8 @@ public:
 	void sendMessageApplyAck(json& js);
 	void getMessageLstAck(json& js);
 	void getChatMessageAck(json& js);
+	void getFriendMessageAck(json& js);
+	void sendFriendMessageAck(json& js);
 
 public slots:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
@@ -46,6 +48,9 @@ public slots:
 	void showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser);
 	void getMessageInformation_Home_Service(QString& friendUserid);
 	void showChatMessage_Home_Service(std::vector<Message*> arrMessage);
+	void sendFriendMessage_Home_Service(QString& msg, QString& userid, QString& friendid);
+	void showFriendMessage_Home_Service(std::string& message, std::string& friendID, std::string& time, std::string& status);
+	void refreshMessageLst_Home_Service();
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;

@@ -70,6 +70,8 @@ void ConnectServer::onReadyRead()
 
 	// 数据反序列化
 	json js = json::parse(buf);
+	enum enMsgType msgid = js["msgid"];
+	qDebug() << msgid;
 
 	// 执行对应事件的回调
 	auto msgHandler =

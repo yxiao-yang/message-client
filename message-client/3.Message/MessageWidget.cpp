@@ -4,6 +4,7 @@
 #include "pub.const.h"
 #include <QDebug>
 #include <QMouseEvent>
+#include <QThread>
 
 #pragma execution_character_set("utf-8")
 
@@ -46,6 +47,7 @@ void MessageWgt::setSlots()
 	connect(m_pUi->AddPb, &QPushButton::clicked, this, &MessageWgt::onAddPb);
 	connect(m_pAddFriendWgt, &AddFriendWgt::addFriend_Message_Friend_Wgt, this, &MessageWgt::addFriend_Message_Friend_Wgt);
 	connect(m_pMessageWindowWgt, &MessageWindowWgt::getMessageInformation_Message_Wgt, this, &MessageWgt::getMessageInformation_Message_Wgt);
+	connect(m_pMessageWindowWgt, &MessageWindowWgt::sendFriendMessage_Message_Wgt, this, &MessageWgt::sendFriendMessage_Message_Wgt);
 }
 
 void MessageWgt::showSearchRes(std::vector<User>& arrUser)
@@ -112,7 +114,8 @@ void MessageWgt::showMessageLst(std::map<std::string, User>& mapTimeUser)
 
 void MessageWgt::onMessageLstItemWgt(QString& friendUserid)
 {
-	m_pMessageWindowWgt->getMessageInformation(friendUserid);
+	m_strCurrentFriendId = friendUserid;
+	m_pMessageWindowWgt->getMessageInformation(m_strCurrentFriendId);
 	switchMessageSWgt(MESSAGE_WINDOW_WIDGET);
 }
 
@@ -124,4 +127,24 @@ void MessageWgt::getMessageInformation_Message_Wgt(QString& friendUserid)
 void MessageWgt::showChatMessage(std::vector<Message*> arrMessage)
 {
 	m_pMessageWindowWgt->showChatMessage(arrMessage);
+}
+
+void MessageWgt::sendFriendMessage_Message_Wgt(QString& msg, QString& userid, QString& friendid)
+{
+	emit sendFriendMessage_Home_Wgt(msg, userid, friendid);
+}
+
+void MessageWgt::getNewFriendMessage(std::string& message, std::string& friendID, std::string& time, std::string& status)
+{
+	getMessageLst();
+	QString friendID_q = QString::fromStdString(friendID);
+	if (m_strCurrentFriendId == friendID_q)
+	{
+		m_pMessageWindowWgt->insertMessage(message, friendID, time, status);
+	}
+}
+
+void MessageWgt::showFriendName(std::string& friendName)
+{
+	//m_pUi->FriendNameLb
 }

@@ -16,7 +16,7 @@ public:
     {
         User_System,    // 系统
         User_Me,        // 自己
-        User_Friend,       // 用户
+        User_Friend,    // 用户
         User_Time,      // 时间
     };
 

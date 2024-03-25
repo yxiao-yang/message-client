@@ -57,3 +57,38 @@ void MessageWindowService::getChatMessageAck(json& js)
 
 	emit showChatMessage_Home_Service(arrMessage);
 }
+
+void MessageWindowService::sendFriendMessage(QString& msg, QString& userid, QString& friendid)
+{
+	json js;
+	js["msgid"] = SEND_FRIEND_MESSAGE_MSG;
+	js["UserID"] = userid.toStdString();
+	js["FriendID"] = friendid.toStdString();
+	js["Message"] = msg.toStdString();
+	std::string strRequest = js.dump();
+
+	int len = ConnectServer::getInstance()->getTcpSocket()->write(QString::fromStdString(strRequest).toLocal8Bit());
+	if (len == -1)
+	{
+		qDebug() << "send SEND_FRIEND_MESSAGE_MSG fail";
+	}
+	else
+	{
+		qDebug() << "send SEND_FRIEND_MESSAGE_MSG success";
+	}
+}
+
+void MessageWindowService::getFriendMessageAck(json& js)
+{
+	std::string message = js["Message"];
+	std::string friendID = js["FriendId"];
+	std::string time = js["Time"];
+	std::string visibleStatus = js["VisibleStatus"];
+
+	emit showFriendMessage_Home_Service(message, friendID, time, visibleStatus);
+}
+
+void MessageWindowService::sendFriendMessageAck(json& js)
+{
+	emit refreshMessageLst_Home_Service();
+}

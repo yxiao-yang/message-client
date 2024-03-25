@@ -11,6 +11,10 @@ MessageWindowWgt::MessageWindowWgt(QWidget* parent)
 	, m_pUi(new Ui::MessageWindowWgt())
 {
 	m_pUi->setupUi(this);
+	setSlots();
+
+	m_pUi->MessageWindowLstWgt->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	m_pUi->MessageWindowLstWgt->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 }
 
 MessageWindowWgt::~MessageWindowWgt()
@@ -18,9 +22,15 @@ MessageWindowWgt::~MessageWindowWgt()
 	delete m_pUi;
 }
 
+void MessageWindowWgt::setSlots()
+{
+	connect(m_pUi->pbSend, &QPushButton::clicked, this, &MessageWindowWgt::onPbSend);
+}
+
 void MessageWindowWgt::getMessageInformation(QString& friendUserid)
 {
 	m_pUi->MessageWindowLstWgt->clear();
+	m_strFriendId = friendUserid;
 	emit getMessageInformation_Message_Wgt(friendUserid);
 }
 
@@ -47,16 +57,21 @@ void MessageWindowWgt::showChatMessage(std::vector<Message*> arrMessage)
 		dealMessageTime(time);
 		QListWidgetItem* pItem = new QListWidgetItem(m_pUi->MessageWindowLstWgt);
 		MessageWindowLstItemWgt* pCustomItem = new MessageWindowLstItemWgt(m_pUi->MessageWindowLstWgt->parentWidget());
-		dealMessage(pCustomItem, pItem, msg, time, type);
+		dealMessage(pCustomItem, pItem, msg, time, type, false);
 	}
+	m_pUi->MessageWindowLstWgt->scrollToBottom();
 }
 
-void MessageWindowWgt::dealMessage(MessageWindowLstItemWgt* messageW, QListWidgetItem* item, QString text, QString time, MessageWindowLstItemWgt::User_Type type)
+void MessageWindowWgt::dealMessage(MessageWindowLstItemWgt* messageW, QListWidgetItem* item, QString text, QString time, MessageWindowLstItemWgt::User_Type type, bool isSending)
 {
 	messageW->setFixedWidth(this->width());
 	QSize size = messageW->fontRect(text);
 	item->setSizeHint(size);
 	messageW->setText(text, time, size, type);
+	if (!isSending)
+	{
+		messageW->setTextSuccess();
+	}
 	m_pUi->MessageWindowLstWgt->setItemWidget(item, messageW);
 }
 
@@ -92,4 +107,38 @@ void MessageWindowWgt::dealMessageTime(QString curMsgTime)
 		messageTime->setText(curMsgTime, curMsgTime, size, MessageWindowLstItemWgt::User_Time);
 		m_pUi->MessageWindowLstWgt->setItemWidget(itemTime, messageTime);
 	}
+}
+
+void MessageWindowWgt::onPbSend()
+{
+	QString msg = m_pUi->InputTedit->toPlainText();
+	m_pUi->InputTedit->setText("");
+	//QString time = QString::number(QDateTime::currentDateTime().toTime_t()); //Ê±¼ä´Á
+	QString time = QString::fromStdString(PubCache::getInstance()->getCurrentDateTimeMySQLFormat());
+	time.append(".000000");
+	if (msg != "")
+	{
+		dealMessageTime(time);
+		MessageWindowLstItemWgt* messageW = new MessageWindowLstItemWgt(m_pUi->MessageWindowLstWgt->parentWidget());
+		QListWidgetItem* item = new QListWidgetItem(m_pUi->MessageWindowLstWgt);
+		dealMessage(messageW, item, msg, time, MessageWindowLstItemWgt::User_Me, false);
+		m_pUi->MessageWindowLstWgt->scrollToBottom();
+
+		std::string id;
+		PubCache::getInstance()->getUserid(id);
+		QString userid = QString::fromStdString(id);
+		emit sendFriendMessage_Message_Wgt(msg, userid, m_strFriendId);
+	}
+}
+
+void MessageWindowWgt::insertMessage(std::string& message, std::string& friendID, std::string& time, std::string& status)
+{
+	QString time_q = QString::fromStdString(time);
+	QString message_q = QString::fromStdString(message);
+	time_q.append(".000000");
+	dealMessageTime(time_q);
+	MessageWindowLstItemWgt* messageW = new MessageWindowLstItemWgt(m_pUi->MessageWindowLstWgt->parentWidget());
+	QListWidgetItem* item = new QListWidgetItem(m_pUi->MessageWindowLstWgt);
+	dealMessage(messageW, item, message_q, time_q, MessageWindowLstItemWgt::User_Friend, true);
+	m_pUi->MessageWindowLstWgt->scrollToBottom();
 }

@@ -3,6 +3,7 @@
 #include "pub_func.hpp"
 #include <QDebug>
 #include <QMouseEvent>
+#include <QThread>
 
 #pragma execution_character_set("utf-8")
 
@@ -82,6 +83,7 @@ void HomeWidget::setSlots()
     connect(m_pFriendWgt, &FriendWgt::sendMessage_Home_Wgt, this, &HomeWidget::sendMessage_Home_Wgt);
     connect(m_pMessageWgt, &MessageWgt::getMessageLst_Home_Wgt, this, &HomeWidget::getMessageLst_Home_Wgt);
     connect(m_pMessageWgt, &MessageWgt::getMessageInformation_Home_Wgt, this, &HomeWidget::getMessageInformation_Home_Wgt);
+    connect(m_pMessageWgt, &MessageWgt::sendFriendMessage_Home_Wgt, this, &HomeWidget::sendFriendMessage_Home_Wgt);
 }
 
 void HomeWidget::onTbMinus()
@@ -199,4 +201,19 @@ void HomeWidget::getMessageInformation_Home_Wgt(QString& friendUserid)
 void HomeWidget::showChatMessage(std::vector<Message*> arrMessage)
 {
     m_pMessageWgt->showChatMessage(arrMessage);
+}
+
+void HomeWidget::sendFriendMessage_Home_Wgt(QString& msg, QString& userid, QString& friendid)
+{
+    emit sendFriendMessage_Home_Service(msg, userid, friendid);
+}
+
+void HomeWidget::getNewFriendMessage(std::string& message, std::string& friendID, std::string& time, std::string& status)
+{
+    m_pMessageWgt->getNewFriendMessage(message, friendID, time, status);
+}
+
+void HomeWidget::getNewMessageLst()
+{
+    m_pMessageWgt->getMessageLst();
 }

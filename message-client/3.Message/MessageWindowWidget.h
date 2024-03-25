@@ -19,17 +19,26 @@ public:
 	MessageWindowWgt(QWidget* parent = nullptr);
 	~MessageWindowWgt();
 
+	void setSlots();
+
 	void getMessageInformation(QString& friendUserid);
 
 	void showChatMessage(std::vector<Message*> arrMessage);
 
+	void insertMessage(std::string& message, std::string& friendID, std::string& time, std::string& status);
+
 signals:
 	void getMessageInformation_Message_Wgt(QString& friendUserid);
+	void sendFriendMessage_Message_Wgt(QString& msg, QString& userid, QString& friendid);
+ 
+private slots:
+	void onPbSend();
 
 private:
 	Ui::MessageWindowWgt* m_pUi = nullptr;
+	QString m_strFriendId;
 
-	void dealMessage(MessageWindowLstItemWgt* messageW, QListWidgetItem* item, QString text, QString time, MessageWindowLstItemWgt::User_Type type);
+	void dealMessage(MessageWindowLstItemWgt* messageW, QListWidgetItem* item, QString text, QString time, MessageWindowLstItemWgt::User_Type type, bool isSending);
 	void dealMessageTime(QString curMsgTime);
 };
 

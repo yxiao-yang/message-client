@@ -2,6 +2,9 @@
 #include "user.hpp"
 
 #include <mutex>
+#include <iomanip>
+#include <iosfwd>
+#include <sstream>
 
 PubCache* PubCache::s_pubCache = new PubCache;
 
@@ -30,4 +33,20 @@ bool PubCache::getUserid(std::string& userid)
 {
 	userid = m_pMainUser->getId();
 	return true;
+}
+
+std::string PubCache::getCurrentDateTimeMySQLFormat()
+{
+	// 获取当前时间点
+	auto now = std::chrono::system_clock::now();
+
+	// 将时间点转换为时间结构体
+	std::time_t time = std::chrono::system_clock::to_time_t(now);
+	std::tm localTime = *std::localtime(&time);
+
+	// 使用put_time进行格式化
+	std::ostringstream oss;
+	oss << std::put_time(&localTime, "%Y-%m-%d %H:%M:%S");
+
+	return oss.str();
 }

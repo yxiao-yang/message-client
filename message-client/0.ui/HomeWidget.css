@@ -143,7 +143,7 @@ QListWidget#MessageWindowLstWgt {
     border: none;
 }
 
-QPlainTextEdit {
+QTextEdit#InputTedit {
     background-color: transparent;
     border: none;
 }

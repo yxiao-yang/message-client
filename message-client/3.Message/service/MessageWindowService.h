@@ -18,7 +18,17 @@ public:
 
 	void getChatMessageAck(json& js);
 
+	void sendFriendMessage(QString& msg, QString& userid, QString& friendid);
+
+	void getFriendMessageAck(json& js);
+
+	void sendFriendMessageAck(json& js);
+
 signals:
 	void showChatMessage_Home_Service(std::vector<Message*> arrMessage);
+
+	void showFriendMessage_Home_Service(std::string& message, std::string& friendID, std::string& time, std::string& status);
+
+	void refreshMessageLst_Home_Service();
 };
 #endif
