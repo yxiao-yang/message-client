@@ -7,6 +7,8 @@
 #include "ChatAiWidget.h"
 #include "user.hpp"
 #include "message.hpp"
+#include "chatai_message.hpp"
+#include <unordered_map>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class HomeWgt; };
@@ -40,6 +42,14 @@ public:
 
 	void getNewMessageLst();
 
+	void showChatAiLst(std::map<std::string, std::string>& mapContentIdTime);
+
+	void showNewAiChat(std::string& contentid);
+
+	void showChatAiMessage(std::vector<ChatAiMessage*>& arrMessage);
+
+	void showNewChatAiMessage(QString& msg, QString& contentid);
+
 	// 设置风格
 	void setStyle();
 
@@ -57,6 +67,10 @@ signals:
 	void getMessageLst_Home_Service();
 	void getMessageInformation_Home_Service(QString& friendUserid);
 	void sendFriendMessage_Home_Service(QString& msg, QString& userid, QString& friendid);
+	void getChatAiLst_Home_Service();
+	void startNewChat_Home_Service();
+	void getChatAiMessageInformation_Home_Service(QString& contentid);
+	void sendChatAiMessage_Home_Service(QString& msg, QString& contentid);
 
 public slots:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
@@ -68,6 +82,10 @@ public slots:
 	void getMessageLst_Home_Wgt();
 	void getMessageInformation_Home_Wgt(QString& friendUserid);
 	void sendFriendMessage_Home_Wgt(QString& msg, QString& userid, QString& friendid);
+	void getChatAiLst_Home_Wgt();
+	void startNewChat_Home_Wgt();
+	void getChatAiMessageInformation_Home_Wgt(QString& contentid);
+	void sendChatAiMessage_Home_Wgt(QString& msg, QString& contentid);
 
 private slots:
 	void onTbMinus();       // 最小化窗口

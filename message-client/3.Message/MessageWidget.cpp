@@ -112,10 +112,11 @@ void MessageWgt::showMessageLst(std::map<std::string, User>& mapTimeUser)
 	}
 }
 
-void MessageWgt::onMessageLstItemWgt(QString& friendUserid)
+void MessageWgt::onMessageLstItemWgt(QString& friendUserid, QString& friendName)
 {
 	m_strCurrentFriendId = friendUserid;
 	m_pMessageWindowWgt->getMessageInformation(m_strCurrentFriendId);
+	m_pMessageWindowWgt->setFriendNameLb(friendName);
 	switchMessageSWgt(MESSAGE_WINDOW_WIDGET);
 }
 

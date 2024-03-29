@@ -109,7 +109,7 @@
     <ClCompile Include="3.Message\MessageWindowLstItemWidget.cpp" />
     <ClCompile Include="3.Message\MessageWindowWidget.cpp" />
     <ClCompile Include="3.Message\service\MessageService.cpp" />
-    <ClCompile Include="3.Message\service\MessageWIndowService.cpp" />
+    <ClCompile Include="3.Message\service\MessageWindowService.cpp" />
     <ClCompile Include="4.Friend\AcceptFriendApplyAnsWidget.cpp" />
     <ClCompile Include="4.Friend\AddFriendAnsWidget.cpp" />
     <ClCompile Include="4.Friend\AddFriendWidget.cpp" />
@@ -123,6 +123,10 @@
     <ClCompile Include="4.Friend\service\FriendNoticeService.cpp" />
     <ClCompile Include="4.Friend\service\FriendService.cpp" />
     <ClCompile Include="5.ChatAi\ChatAiWidget.cpp" />
+    <ClCompile Include="5.ChatAi\ChatAiLstItemWidget.cpp" />
+    <ClCompile Include="5.ChatAi\ChatAIWindowLstItemWidget.cpp" />
+    <ClCompile Include="5.ChatAi\ChatAiWindowWidget.cpp" />
+    <ClCompile Include="5.ChatAi\service\ChatAiService.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -132,7 +136,6 @@
     <QtUic Include="2.Home\ui\HomeWidget.ui" />
     <QtUic Include="3.Message\ui\MessageLstItemWidget.ui" />
     <QtUic Include="3.Message\ui\MessageWidget.ui" />
-    <QtUic Include="3.Message\ui\MessageWindowLstItemWidget.ui" />
     <QtUic Include="3.Message\ui\MessageWindowWidget.ui" />
     <QtUic Include="4.Friend\ui\AcceptFriendApplyAnsWidget.ui" />
     <QtUic Include="4.Friend\ui\AddFriendAnsWidget.ui" />
@@ -144,6 +147,8 @@
     <QtUic Include="4.Friend\ui\FriendWidget.ui" />
     <QtUic Include="4.Friend\ui\SearchResWidget.ui" />
     <QtUic Include="5.ChatAi\ui\ChatAiWidget.ui" />
+    <QtUic Include="5.ChatAi\ui\ChatAiLstItemWidget.ui" />
+    <QtUic Include="5.ChatAi\ui\ChatAiWindowWidget.ui" />
   </ItemGroup>
   <ItemGroup>
     <None Include="0.ui\HomeWidget.css" />
@@ -152,11 +157,16 @@
     <None Include="0.ui\LoginWidget.css" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="5.ChatAi\ChatAIWindowLstItemWidget.h" />
+    <QtMoc Include="5.ChatAi\ChatAiWindowWidget.h" />
+    <QtMoc Include="5.ChatAi\ChatAiLstItemWidget.h" />
+    <QtMoc Include="5.ChatAi\service\ChatAiService.h" />
     <QtMoc Include="3.Message\MessageWindowLstItemWidget.h" />
     <QtMoc Include="3.Message\service\MessageWindowService.h" />
     <QtMoc Include="3.Message\MessageWindowWidget.h" />
     <QtMoc Include="3.Message\MessageLstItemWidget.h" />
     <QtMoc Include="0.Conn\SqliteOperator.h" />
+    <ClInclude Include="0.pub\chatai_message.hpp" />
     <ClInclude Include="0.pub\message.hpp" />
     <ClInclude Include="0.pub\user.hpp" />
     <QtMoc Include="4.Friend\FriendInformationWidget.h" />

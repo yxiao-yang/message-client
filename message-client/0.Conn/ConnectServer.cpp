@@ -1,6 +1,7 @@
 #include "ConnectServer.h"
 #include "json.hpp"
 #include "Service.h"
+#include <QThread>
 
 using json = nlohmann::json;
 
@@ -66,7 +67,16 @@ void ConnectServer::onReadyRead()
 	qDebug() << "ready read";
 
 	// 从缓冲区拿数据
-	std::string buf = m_pTcpSocket->readAll();
+	std::string tmp = m_pTcpSocket->readAll();
+	std::string buf = tmp;
+	while (tmp != "")
+	{
+		tmp = m_pTcpSocket->readAll();
+		buf += tmp;
+	}
+
+	QString buf_q = QString::fromStdString(buf);
+	qDebug() << buf_q;
 
 	// 数据反序列化
 	json js = json::parse(buf);

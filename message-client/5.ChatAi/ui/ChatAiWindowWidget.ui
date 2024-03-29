@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MessageWindowWgt</class>
- <widget class="QWidget" name="MessageWindowWgt">
+ <class>ChatAiWindowWgt</class>
+ <widget class="QWidget" name="ChatAiWindowWgt">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,24 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,9,5">
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="FriendNameLb">
-       <property name="styleSheet">
-        <string notr="true">QLabel#FriendNameLb {
-	font: 25 12pt '微软雅黑 Light';
-    color: rgb(31,31,31);
-}</string>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
+  <layout class="QVBoxLayout" name="verticalLayout_3" stretch="9,5">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
@@ -41,7 +24,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QListWidget" name="MessageWindowLstWgt"/>
+      <widget class="QListWidget" name="ChatAiWindowLstWgt"/>
      </item>
      <item>
       <widget class="Line" name="line_2">

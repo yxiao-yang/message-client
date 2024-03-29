@@ -32,6 +32,10 @@ Service::Service()
     m_mapMsgHandler.insert({ GET_CHAT_MESSAGE_MSG_ACK, std::bind(&HomeService::getChatMessageAck, m_pHomeService, std::placeholders::_1) });
     m_mapMsgHandler.insert({ GET_FRIEND_MESSAGE_ACK, std::bind(&HomeService::getFriendMessageAck, m_pHomeService, std::placeholders::_1) });
     m_mapMsgHandler.insert({ SEND_FRIEND_MESSAGE_MSG_ACK, std::bind(&HomeService::sendFriendMessageAck, m_pHomeService, std::placeholders::_1) });
+    m_mapMsgHandler.insert({ GET_CHAT_AI_LST_MSG_ACK, std::bind(&HomeService::getChatAiLstAck, m_pHomeService, std::placeholders::_1) });
+    m_mapMsgHandler.insert({ START_NEW_AI_CHAT_MSG_ACK, std::bind(&HomeService::startNewChatAck, m_pHomeService, std::placeholders::_1) });
+    m_mapMsgHandler.insert({ GET_CHAT_AI_MESSAGE_INFORMATION_MSG_ACK, std::bind(&HomeService::getChatAiMessageInformationAck, m_pHomeService, std::placeholders::_1) });
+    m_mapMsgHandler.insert({ SEND_CHAT_AI_MSG_ACK, std::bind(&HomeService::sendChatAiMessageAck, m_pHomeService, std::placeholders::_1) });
 }
 
 MsgHandler Service::getHandler(enMsgType iMsgId)

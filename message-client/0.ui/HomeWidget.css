@@ -254,16 +254,23 @@ QToolButton#DelAllTb {
         background-color: rgb(115,110,95);
     }
 
-/*SearchResWidget*/
-/*QPushButton#AddSearchResPb {
-    background-color: transparent;
-    border-radius: 15px;
+/*ChatAiWidget*/
+QListWidget#ChatAiLstWgt {
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(180,179,172), stop:1 rgb(217,215,214));
+    border-radius: 8px;
 }
 
-    QPushButton#AddSearchResPb:hover {
-        background-color: rgb(170,168,159);
-    }
+QWidget#ChatAiSWgt {
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(180,179,172), stop:1 rgb(217,215,214));
+    border-radius: 8px;
+}
 
-    QPushButton#AddSearchResPb:pressed {
-        background-color: rgb(115,110,95);
-    }*/
+QListWidget#ChatAiWindowLstWgt {
+    background-color: transparent;
+    border: none;
+}
+
+QTextEdit#InputTedit {
+    background-color: transparent;
+    border: none;
+}

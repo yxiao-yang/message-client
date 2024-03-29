@@ -8,8 +8,10 @@
 #include "AddFriendService.h"
 #include "FriendNoticeService.h"
 #include "MessageWindowService.h"
+#include "ChatAiService.h"
 #include "pub.const.h"
 #include "message.hpp"
+#include "chatai_message.hpp"
 
 using json = nlohmann::json;
 
@@ -30,6 +32,10 @@ public:
 	void getChatMessageAck(json& js);
 	void getFriendMessageAck(json& js);
 	void sendFriendMessageAck(json& js);
+	void getChatAiLstAck(json& js);
+	void startNewChatAck(json& js);
+	void getChatAiMessageInformationAck(json& js);
+	void sendChatAiMessageAck(json& js);
 
 public slots:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
@@ -51,6 +57,14 @@ public slots:
 	void sendFriendMessage_Home_Service(QString& msg, QString& userid, QString& friendid);
 	void showFriendMessage_Home_Service(std::string& message, std::string& friendID, std::string& time, std::string& status);
 	void refreshMessageLst_Home_Service();
+	void getChatAiLst_Home_Service();
+	void showChatAiLst_Home_Service(std::map<std::string, std::string>& mapContentIdTime);
+	void startNewChat_Home_Service();
+	void showNewAiChat_Home_Service(std::string& contentid);
+	void getChatAiMessageInformation_Home_Service(QString& contentid);
+	void showChatAiMessage_Home_Service(std::vector<ChatAiMessage*>& arrMessage);
+	void sendChatAiMessage_Home_Service(QString& msg, QString& contentid);
+	void showNewChatAiMessage_Home_Service(QString& msg, QString& contentid);
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;
@@ -59,6 +73,7 @@ private:
 	AddFriendService* m_pAddFriendService = nullptr;
 	FriendNoticeService* m_pFriendNoticeService = nullptr;
 	MessageWindowService* m_pMessageWindowService = nullptr;
+	ChatAiService* m_pChatAiService = nullptr;
 
 	void setSlots();
 };

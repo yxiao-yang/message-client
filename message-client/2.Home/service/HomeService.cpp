@@ -28,6 +28,7 @@ void HomeService::setSlots()
 	m_pAddFriendService = new AddFriendService();
 	m_pFriendNoticeService = new FriendNoticeService();
 	m_pMessageWindowService = new MessageWindowService();
+	m_pChatAiService = new ChatAiService();
 	connect(m_pHomeWgt, &HomeWidget::searchUser_Home_Service, this, &HomeService::searchUser_Home_Service);
 	connect(m_pAddFriendService, &AddFriendService::showSearchRes_Home_Service, this, &HomeService::showSearchRes_Home_Service);
 	connect(m_pHomeWgt, &HomeWidget::getFriendNotice_Home_Service, this, &HomeService::getFriendNotice_Home_Service);
@@ -47,6 +48,14 @@ void HomeService::setSlots()
 	connect(m_pHomeWgt, &HomeWidget::sendFriendMessage_Home_Service, this, &HomeService::sendFriendMessage_Home_Service);
 	connect(m_pMessageWindowService, &MessageWindowService::showFriendMessage_Home_Service, this, &HomeService::showFriendMessage_Home_Service);
 	connect(m_pMessageWindowService, &MessageWindowService::refreshMessageLst_Home_Service, this, &HomeService::refreshMessageLst_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::getChatAiLst_Home_Service, this, &HomeService::getChatAiLst_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::startNewChat_Home_Service, this, &HomeService::startNewChat_Home_Service);
+	connect(m_pChatAiService, &ChatAiService::showNewAiChat_Home_Service, this, &HomeService::showNewAiChat_Home_Service);
+	connect(m_pChatAiService, &ChatAiService::showChatAiLst_Home_Service, this, &HomeService::showChatAiLst_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::getChatAiMessageInformation_Home_Service, this, &HomeService::getChatAiMessageInformation_Home_Service);
+	connect(m_pChatAiService, &ChatAiService::showChatAiMessage_Home_Service, this, &HomeService::showChatAiMessage_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::sendChatAiMessage_Home_Service, this, &HomeService::sendChatAiMessage_Home_Service);
+	connect(m_pChatAiService, &ChatAiService::showNewChatAiMessage_Home_Service, this, &HomeService::showNewChatAiMessage_Home_Service);
 }
 
 void HomeService::search_ack(json& js)
@@ -187,4 +196,64 @@ void HomeService::sendFriendMessageAck(json& js)
 void HomeService::refreshMessageLst_Home_Service()
 {
 	m_pHomeWgt->getNewMessageLst();
+}
+
+void HomeService::getChatAiLst_Home_Service()
+{
+	m_pChatAiService->getChatAiLst();
+}
+
+void HomeService::getChatAiLstAck(json& js)
+{
+	m_pChatAiService->getChatAiLstAck(js);
+}
+
+void HomeService::showChatAiLst_Home_Service(std::map<std::string, std::string>& mapContentIdTime)
+{
+	m_pHomeWgt->showChatAiLst(mapContentIdTime);
+}
+
+void HomeService::startNewChat_Home_Service()
+{
+	m_pChatAiService->startNewChat();
+}
+
+void HomeService::startNewChatAck(json& js)
+{
+	m_pChatAiService->startNewChatAck(js);
+}
+
+void HomeService::showNewAiChat_Home_Service(std::string& contentid)
+{
+	m_pHomeWgt->showNewAiChat(contentid);
+}
+
+void HomeService::getChatAiMessageInformation_Home_Service(QString& contentid)
+{
+	m_pChatAiService->getChatAiMessageInformation(contentid);
+}
+
+void HomeService::getChatAiMessageInformationAck(json& js)
+{
+	m_pChatAiService->getChatAiMessageInformationAck(js);
+}
+
+void HomeService::showChatAiMessage_Home_Service(std::vector<ChatAiMessage*>& arrMessage)
+{
+	m_pHomeWgt->showChatAiMessage(arrMessage);
+}
+
+void HomeService::sendChatAiMessage_Home_Service(QString& msg, QString& contentid)
+{
+	m_pChatAiService->sendChatAiMessage(msg, contentid);
+}
+
+void HomeService::sendChatAiMessageAck(json& js)
+{
+	m_pChatAiService->sendChatAiMessageAck(js);
+}
+
+void HomeService::showNewChatAiMessage_Home_Service(QString& msg, QString& contentid)
+{
+	m_pHomeWgt->showNewChatAiMessage(msg, contentid);
 }

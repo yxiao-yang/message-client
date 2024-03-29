@@ -27,6 +27,8 @@ public:
 
 	void insertMessage(std::string& message, std::string& friendID, std::string& time, std::string& status);
 
+	void setFriendNameLb(QString& friendName);
+
 signals:
 	void getMessageInformation_Message_Wgt(QString& friendUserid);
 	void sendFriendMessage_Message_Wgt(QString& msg, QString& userid, QString& friendid);

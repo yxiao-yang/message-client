@@ -19,6 +19,7 @@ MessageLstItemWgt::~MessageLstItemWgt()
 void MessageLstItemWgt::setFriendUsername(QString& username)
 {
 	m_pUi->FriendUsernameLb->setText(username);
+	m_strFriendName = username;
 }
 
 void MessageLstItemWgt::setLastTime(QString& time)
@@ -37,6 +38,6 @@ void MessageLstItemWgt::mousePressEvent(QMouseEvent* event)
 {
 	if (event->button() == Qt::LeftButton)
 	{
-		emit this->listItemClicked(m_strFriendUserid);
+		emit this->listItemClicked(m_strFriendUserid, m_strFriendName);
 	}
 }

@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QMouseEvent>
 #include <QThread>
+#include <unordered_map>
 
 #pragma execution_character_set("utf-8")
 
@@ -71,8 +72,8 @@ void HomeWidget::setSlots()
         m_pFriendWgt->getFriendship();
         m_pUi->stackedWidget->setCurrentIndex(FRIEND_WIDGET);
 	});
-    connect(m_pUi->ChatAiTb, &QToolButton::clicked, [=]()
-    {
+    connect(m_pUi->ChatAiTb, &QToolButton::clicked, [=]() {
+        m_pChatAiWgt->getChatAiLst();
         m_pUi->stackedWidget->setCurrentIndex(CHATAI_WIDGET);
     });
     connect(m_pMessageWgt, &MessageWgt::searchUser_Home_Wgt, this, &HomeWidget::searchUser_Home_Wgt);
@@ -84,6 +85,10 @@ void HomeWidget::setSlots()
     connect(m_pMessageWgt, &MessageWgt::getMessageLst_Home_Wgt, this, &HomeWidget::getMessageLst_Home_Wgt);
     connect(m_pMessageWgt, &MessageWgt::getMessageInformation_Home_Wgt, this, &HomeWidget::getMessageInformation_Home_Wgt);
     connect(m_pMessageWgt, &MessageWgt::sendFriendMessage_Home_Wgt, this, &HomeWidget::sendFriendMessage_Home_Wgt);
+    connect(m_pChatAiWgt, &ChatAiWgt::getChatAiLst_Home_Wgt, this, &HomeWidget::getChatAiLst_Home_Wgt);
+    connect(m_pChatAiWgt, &ChatAiWgt::startNewChat_Home_Wgt, this, &HomeWidget::startNewChat_Home_Wgt);
+    connect(m_pChatAiWgt, &ChatAiWgt::getChatAiMessageInformation_Home_Wgt, this, &HomeWidget::getChatAiMessageInformation_Home_Wgt);
+    connect(m_pChatAiWgt, &ChatAiWgt::sendChatAiMessage_Home_Wgt, this, &HomeWidget::sendChatAiMessage_Home_Wgt);
 }
 
 void HomeWidget::onTbMinus()
@@ -216,4 +221,44 @@ void HomeWidget::getNewFriendMessage(std::string& message, std::string& friendID
 void HomeWidget::getNewMessageLst()
 {
     m_pMessageWgt->getMessageLst();
+}
+
+void HomeWidget::getChatAiLst_Home_Wgt()
+{
+    emit getChatAiLst_Home_Service();
+}
+
+void HomeWidget::showChatAiLst(std::map<std::string, std::string>& mapContentIdTime)
+{
+    m_pChatAiWgt->showChatAiLst(mapContentIdTime);
+}
+
+void HomeWidget::startNewChat_Home_Wgt()
+{
+    emit startNewChat_Home_Service();
+}
+
+void HomeWidget::showNewAiChat(std::string& contentid)
+{
+    m_pChatAiWgt->showNewAiChat(contentid);
+}
+
+void HomeWidget::getChatAiMessageInformation_Home_Wgt(QString& contentid)
+{
+    emit getChatAiMessageInformation_Home_Service(contentid);
+}
+
+void HomeWidget::showChatAiMessage(std::vector<ChatAiMessage*>& arrMessage)
+{
+    m_pChatAiWgt->showChatAiMessage(arrMessage);
+}
+
+void HomeWidget::sendChatAiMessage_Home_Wgt(QString& msg, QString& contentid)
+{
+    emit sendChatAiMessage_Home_Service(msg, contentid);
+}
+
+void HomeWidget::showNewChatAiMessage(QString& msg, QString& contentid)
+{
+    m_pChatAiWgt->showNewChatAiMessage(msg, contentid);
 }

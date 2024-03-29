@@ -1,31 +1,39 @@
 #ifndef _PUB_CONST_H
 #define _PUB_CONST_H
+
 enum enMsgType
 {
-	LOGIN_MSG = 0,                // 登录消息
-	LOGIN_MSG_ACK,                // 登录响应消息
-	REG_MSG,                      // 注册消息
-	REG_MSG_ACK,                  // 注册响应消息
-	ADD_FRIEND_MSG,               // 添加好友
-	ADD_FRIEND_MSG_ACK,           // 添加好友响应消息
-	SEARCH_USER_MSG,              // 搜索用户
-	SEARCH_USER_MSG_ACK,          // 搜索用户响应
-	FRIEND_NOTICE_MSG,            // 好友通知消息
-	FRIEND_NOTICE_MSG_ACK,        // 好友通知消息响应
-	ACCEPT_APPLY_MSG,             // 同意好友申请
-	ACCEPT_APPLY_MSG_ACK,         // 同意好友申请响应
-	CHAT_AI_MSG,                  // Ai对话
-	GET_FRIENDSHIP_MSG,           // 获取联系人消息
-	GET_FRIENDSHIP_MSG_ACK,       // 获取联系人消息响应
-	SEND_MESSAGE_MSG,             // 发送聊天请求消息
-	SEND_MESSAGE_MSG_ACK,         // 发送聊天请求消息
-	GET_MESSAGELST_MSG,           // 获取消息列表消息
-	GET_MESSAGELST_MSG_ACK,       // 获取聊天列表消息响应
-	GET_CHAT_MESSAGE_MSG,         // 好友聊天消息
-	GET_CHAT_MESSAGE_MSG_ACK,     // 好友聊天消息响应
-	SEND_FRIEND_MESSAGE_MSG,      // 给好友发送聊天消息
-	SEND_FRIEND_MESSAGE_MSG_ACK,  // 给好友发送聊天消息响应
-	GET_FRIEND_MESSAGE_ACK        // 获取好友消息响应
+	LOGIN_MSG = 0,                        // 登录消息
+	LOGIN_MSG_ACK,                        // 登录响应消息
+	REG_MSG,                              // 注册消息
+	REG_MSG_ACK,                          // 注册响应消息
+	ADD_FRIEND_MSG,                       // 添加好友
+	ADD_FRIEND_MSG_ACK,                   // 添加好友响应消息
+	SEARCH_USER_MSG,                      // 搜索用户
+	SEARCH_USER_MSG_ACK,                  // 搜索用户响应
+	FRIEND_NOTICE_MSG,                    // 好友通知消息
+	FRIEND_NOTICE_MSG_ACK,                // 好友通知消息响应
+	ACCEPT_APPLY_MSG,                     // 同意好友申请
+	ACCEPT_APPLY_MSG_ACK,                 // 同意好友申请响应
+	SEND_CHAT_AI_MSG,                     // Ai对话
+	SEND_CHAT_AI_MSG_ACK,                 // Ai对话响应
+	GET_CHAT_AI_LST_MSG,                  // 获取AI对话消息列表
+	GET_CHAT_AI_LST_MSG_ACK,              // 获取AI对话消息列表响应
+	START_NEW_AI_CHAT_MSG,                // 开启AI对话新聊天
+	START_NEW_AI_CHAT_MSG_ACK,            // 开启AI对话新聊天响应
+	GET_CHAT_AI_MESSAGE_INFORMATION_MSG,  // 获取AI对话历史聊天消息
+	GET_CHAT_AI_MESSAGE_INFORMATION_MSG_ACK,  // 获取AI对话历史聊天消息响应
+	GET_FRIENDSHIP_MSG,                       // 获取联系人消息
+	GET_FRIENDSHIP_MSG_ACK,                   // 获取联系人消息响应
+	SEND_MESSAGE_MSG,                         // 发送聊天请求消息
+	SEND_MESSAGE_MSG_ACK,                     // 发送聊天请求消息
+	GET_MESSAGELST_MSG,                       // 获取消息列表消息
+	GET_MESSAGELST_MSG_ACK,                   // 获取聊天列表消息响应
+	GET_CHAT_MESSAGE_MSG,                     // 好友聊天消息
+	GET_CHAT_MESSAGE_MSG_ACK,                 // 好友聊天消息响应
+	SEND_FRIEND_MESSAGE_MSG,                  // 给好友发送聊天消息
+	SEND_FRIEND_MESSAGE_MSG_ACK,              // 给好友发送聊天消息响应
+	GET_FRIEND_MESSAGE_ACK                    // 获取好友消息响应
 };
 
 enum enRegType
@@ -80,6 +88,12 @@ enum enFriendStackedWidgetId
 	FRIEND_EMPTY_WIDGET = 0,
 	FRIEND_NOTICE_WIDGET,
 	FRIEND_INFORMATION_WIDGET
+};
+
+enum enChatAiStackedWidgetId
+{
+	CHATAI_EMPTY_WIDGET = 0,
+	CHATAI_WINDOW_WIDGET
 };
 
 #endif

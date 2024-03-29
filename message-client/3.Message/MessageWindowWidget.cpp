@@ -142,3 +142,8 @@ void MessageWindowWgt::insertMessage(std::string& message, std::string& friendID
 	dealMessage(messageW, item, message_q, time_q, MessageWindowLstItemWgt::User_Friend, true);
 	m_pUi->MessageWindowLstWgt->scrollToBottom();
 }
+
+void MessageWindowWgt::setFriendNameLb(QString& friendName)
+{
+	m_pUi->FriendNameLb->setText(friendName);
+}

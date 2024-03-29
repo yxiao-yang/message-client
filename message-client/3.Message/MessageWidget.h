@@ -51,7 +51,7 @@ public slots:
 
 private slots:
 	void onAddPb();
-	void onMessageLstItemWgt(QString& friendUserid);
+	void onMessageLstItemWgt(QString& friendUserid, QString& friendName);
 
 private:
 	Ui::MessageWgt* m_pUi = nullptr;

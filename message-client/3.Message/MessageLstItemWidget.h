@@ -24,12 +24,13 @@ public:
 	void mousePressEvent(QMouseEvent* event);
 
 signals:
-	void listItemClicked(QString& friendUserid);
+	void listItemClicked(QString& friendUserid, QString& friendName);
 
 private:
 	Ui::MessageLstItemWgt* m_pUi = nullptr;
 	QListWidgetItem* m_pItem;
 	QString m_strFriendUserid;
+	QString m_strFriendName;
 };
 
 #endif

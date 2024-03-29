@@ -121,10 +121,22 @@
     <ClCompile Include="3.Message\MessageWindowWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="3.Message\service\MessageWIndowService.cpp">
+    <ClCompile Include="3.Message\service\MessageWindowService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="3.Message\MessageWindowLstItemWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="5.ChatAi\service\ChatAiService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="5.ChatAi\ChatAiLstItemWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="5.ChatAi\ChatAiWindowWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="5.ChatAi\ChatAIWindowLstItemWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -180,7 +192,10 @@
     <QtUic Include="3.Message\ui\MessageWindowWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="3.Message\ui\MessageWindowLstItemWidget.ui">
+    <QtUic Include="5.ChatAi\ui\ChatAiLstItemWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="5.ChatAi\ui\ChatAiWindowWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -207,6 +222,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="0.pub\message.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="0.pub\chatai_message.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -296,6 +314,18 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="3.Message\MessageWindowLstItemWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="5.ChatAi\service\ChatAiService.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="5.ChatAi\ChatAiLstItemWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="5.ChatAi\ChatAiWindowWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="5.ChatAi\ChatAIWindowLstItemWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
