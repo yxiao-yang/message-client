@@ -25,6 +25,9 @@ MessageWindowWgt::~MessageWindowWgt()
 void MessageWindowWgt::setSlots()
 {
 	connect(m_pUi->pbSend, &QPushButton::clicked, this, &MessageWindowWgt::onPbSend);
+	connect(m_pUi->translatePb, &QPushButton::clicked, this, &MessageWindowWgt::onTranslatePb);
+	connect(m_pUi->beautifyPb, &QPushButton::clicked, this, &MessageWindowWgt::onBeautifyPb);
+	connect(m_pUi->restorePb, &QPushButton::clicked, this, &MessageWindowWgt::onRestorePb);
 }
 
 void MessageWindowWgt::getMessageInformation(QString& friendUserid)
@@ -146,4 +149,35 @@ void MessageWindowWgt::insertMessage(std::string& message, std::string& friendID
 void MessageWindowWgt::setFriendNameLb(QString& friendName)
 {
 	m_pUi->FriendNameLb->setText(friendName);
+}
+
+void MessageWindowWgt::onTranslatePb()
+{
+	QString msg = m_pUi->InputTedit->toPlainText();
+	m_strOriginalMessage = msg;
+	emit translateMessage_Message_Wgt(msg);
+}
+
+void MessageWindowWgt::showTranslateRes(std::string& msg)
+{
+	QString message = QString::fromStdString(msg);
+	m_pUi->InputTedit->setText(message);
+}
+
+void MessageWindowWgt::onBeautifyPb()
+{
+	QString msg = m_pUi->InputTedit->toPlainText();
+	m_strOriginalMessage = msg;
+	emit beautifyMessage_Message_Wgt(msg);
+}
+
+void MessageWindowWgt::showBeautifyRes(std::string& msg)
+{
+	QString message = QString::fromStdString(msg);
+	m_pUi->InputTedit->setText(message);
+}
+
+void MessageWindowWgt::onRestorePb()
+{
+	m_pUi->InputTedit->setText(m_strOriginalMessage);
 }

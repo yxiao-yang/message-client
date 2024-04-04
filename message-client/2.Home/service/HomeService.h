@@ -36,6 +36,8 @@ public:
 	void startNewChatAck(json& js);
 	void getChatAiMessageInformationAck(json& js);
 	void sendChatAiMessageAck(json& js);
+	void translateMessageAck(json& js);
+	void beautifyMessageAck(json& js);
 
 public slots:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
@@ -65,6 +67,10 @@ public slots:
 	void showChatAiMessage_Home_Service(std::vector<ChatAiMessage*>& arrMessage);
 	void sendChatAiMessage_Home_Service(QString& msg, QString& contentid);
 	void showNewChatAiMessage_Home_Service(QString& msg, QString& contentid);
+	void translateMessage_Home_Service(QString& msg);
+	void showTranslateRes_Home_Service(std::string& msg);
+	void beautifyMessage_Home_Service(QString& msg);
+	void showBeautifyRes_Home_Service(std::string& msg);
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;

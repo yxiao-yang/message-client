@@ -89,6 +89,8 @@ void HomeWidget::setSlots()
     connect(m_pChatAiWgt, &ChatAiWgt::startNewChat_Home_Wgt, this, &HomeWidget::startNewChat_Home_Wgt);
     connect(m_pChatAiWgt, &ChatAiWgt::getChatAiMessageInformation_Home_Wgt, this, &HomeWidget::getChatAiMessageInformation_Home_Wgt);
     connect(m_pChatAiWgt, &ChatAiWgt::sendChatAiMessage_Home_Wgt, this, &HomeWidget::sendChatAiMessage_Home_Wgt);
+    connect(m_pMessageWgt, &MessageWgt::translateMessage_Home_Wgt, this, &HomeWidget::translateMessage_Home_Wgt);
+    connect(m_pMessageWgt, &MessageWgt::beautifyMessage_Home_Wgt, this, &HomeWidget::beautifyMessage_Home_Wgt);
 }
 
 void HomeWidget::onTbMinus()
@@ -262,3 +264,24 @@ void HomeWidget::showNewChatAiMessage(QString& msg, QString& contentid)
 {
     m_pChatAiWgt->showNewChatAiMessage(msg, contentid);
 }
+
+void HomeWidget::translateMessage_Home_Wgt(QString& msg)
+{
+    emit translateMessage_Home_Service(msg);
+}
+
+void HomeWidget::showTranslateRes(std::string& msg)
+{
+    m_pMessageWgt->showTranslateRes(msg);
+}
+
+void HomeWidget::beautifyMessage_Home_Wgt(QString& msg)
+{
+    emit beautifyMessage_Home_Service(msg);
+}
+
+void HomeWidget::showBeautifyRes(std::string& msg)
+{
+    m_pMessageWgt->showBeautifyRes(msg);
+}
+

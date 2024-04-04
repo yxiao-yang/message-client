@@ -33,7 +33,11 @@ enum enMsgType
 	GET_CHAT_MESSAGE_MSG_ACK,                 // 好友聊天消息响应
 	SEND_FRIEND_MESSAGE_MSG,                  // 给好友发送聊天消息
 	SEND_FRIEND_MESSAGE_MSG_ACK,              // 给好友发送聊天消息响应
-	GET_FRIEND_MESSAGE_ACK                    // 获取好友消息响应
+	GET_FRIEND_MESSAGE_ACK,                   // 获取好友消息响应
+	TRANSLATE_MESSAGE_MSG,                    // 翻译消息
+	TRANSLATE_MESSAGE_MSG_ACK,                // 翻译消息响应
+	BEAUTIFY_MESSAGE_MSG,                     // 美化消息
+	BEAUTIFY_MESSAGE_MSG_ACK                  // 美化消息响应
 };
 
 enum enRegType

@@ -36,6 +36,8 @@ Service::Service()
     m_mapMsgHandler.insert({ START_NEW_AI_CHAT_MSG_ACK, std::bind(&HomeService::startNewChatAck, m_pHomeService, std::placeholders::_1) });
     m_mapMsgHandler.insert({ GET_CHAT_AI_MESSAGE_INFORMATION_MSG_ACK, std::bind(&HomeService::getChatAiMessageInformationAck, m_pHomeService, std::placeholders::_1) });
     m_mapMsgHandler.insert({ SEND_CHAT_AI_MSG_ACK, std::bind(&HomeService::sendChatAiMessageAck, m_pHomeService, std::placeholders::_1) });
+    m_mapMsgHandler.insert({ TRANSLATE_MESSAGE_MSG_ACK, std::bind(&HomeService::translateMessageAck, m_pHomeService, std::placeholders::_1) });
+    m_mapMsgHandler.insert({ BEAUTIFY_MESSAGE_MSG_ACK, std::bind(&HomeService::beautifyMessageAck, m_pHomeService, std::placeholders::_1) });
 }
 
 MsgHandler Service::getHandler(enMsgType iMsgId)

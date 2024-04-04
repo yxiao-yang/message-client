@@ -36,18 +36,26 @@ public:
 
 	void showFriendName(std::string& friendName);
 
+	void showTranslateRes(std::string& msg);
+
+	void showBeautifyRes(std::string& msg);
+
 signals:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
 	void addFriend_Home_Wgt(QString& userid);
 	void getMessageLst_Home_Wgt();
 	void getMessageInformation_Home_Wgt(QString& friendUserid);
 	void sendFriendMessage_Home_Wgt(QString& msg, QString& userid, QString& friendid);
+	void translateMessage_Home_Wgt(QString& msg);
+	void beautifyMessage_Home_Wgt(QString& msg);
 
 public slots:
 	void searchUser_Message_Friend_Wgt(QString& Userid, QString& Searchid);
 	void addFriend_Message_Friend_Wgt(QString& userid);
 	void getMessageInformation_Message_Wgt(QString& friendUserid);
 	void sendFriendMessage_Message_Wgt(QString& msg, QString& userid, QString& friendid);
+	void translateMessage_Message_Wgt(QString& msg);
+	void beautifyMessage_Message_Wgt(QString& msg);
 
 private slots:
 	void onAddPb();

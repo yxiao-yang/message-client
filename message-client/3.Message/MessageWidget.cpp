@@ -48,6 +48,8 @@ void MessageWgt::setSlots()
 	connect(m_pAddFriendWgt, &AddFriendWgt::addFriend_Message_Friend_Wgt, this, &MessageWgt::addFriend_Message_Friend_Wgt);
 	connect(m_pMessageWindowWgt, &MessageWindowWgt::getMessageInformation_Message_Wgt, this, &MessageWgt::getMessageInformation_Message_Wgt);
 	connect(m_pMessageWindowWgt, &MessageWindowWgt::sendFriendMessage_Message_Wgt, this, &MessageWgt::sendFriendMessage_Message_Wgt);
+	connect(m_pMessageWindowWgt, &MessageWindowWgt::translateMessage_Message_Wgt, this, &MessageWgt::translateMessage_Message_Wgt);
+	connect(m_pMessageWindowWgt, &MessageWindowWgt::beautifyMessage_Message_Wgt, this, &MessageWgt::beautifyMessage_Message_Wgt);
 }
 
 void MessageWgt::showSearchRes(std::vector<User>& arrUser)
@@ -149,3 +151,24 @@ void MessageWgt::showFriendName(std::string& friendName)
 {
 	//m_pUi->FriendNameLb
 }
+
+void MessageWgt::translateMessage_Message_Wgt(QString& msg)
+{
+	emit translateMessage_Home_Wgt(msg);
+}
+
+void MessageWgt::showTranslateRes(std::string& msg)
+{
+	m_pMessageWindowWgt->showTranslateRes(msg);
+}
+
+void MessageWgt::beautifyMessage_Message_Wgt(QString& msg)
+{
+	emit beautifyMessage_Home_Wgt(msg);
+}
+
+void MessageWgt::showBeautifyRes(std::string& msg)
+{
+	m_pMessageWindowWgt->showBeautifyRes(msg);
+}
+

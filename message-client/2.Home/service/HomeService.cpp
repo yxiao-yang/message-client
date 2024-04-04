@@ -56,6 +56,10 @@ void HomeService::setSlots()
 	connect(m_pChatAiService, &ChatAiService::showChatAiMessage_Home_Service, this, &HomeService::showChatAiMessage_Home_Service);
 	connect(m_pHomeWgt, &HomeWidget::sendChatAiMessage_Home_Service, this, &HomeService::sendChatAiMessage_Home_Service);
 	connect(m_pChatAiService, &ChatAiService::showNewChatAiMessage_Home_Service, this, &HomeService::showNewChatAiMessage_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::translateMessage_Home_Service, this, &HomeService::translateMessage_Home_Service);
+	connect(m_pMessageWindowService, &MessageWindowService::showTranslateRes_Home_Service, this, &HomeService::showTranslateRes_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::beautifyMessage_Home_Service, this, &HomeService::beautifyMessage_Home_Service);
+	connect(m_pMessageWindowService, &MessageWindowService::showBeautifyRes_Home_Service, this, &HomeService::showBeautifyRes_Home_Service);
 }
 
 void HomeService::search_ack(json& js)
@@ -256,4 +260,34 @@ void HomeService::sendChatAiMessageAck(json& js)
 void HomeService::showNewChatAiMessage_Home_Service(QString& msg, QString& contentid)
 {
 	m_pHomeWgt->showNewChatAiMessage(msg, contentid);
+}
+
+void HomeService::translateMessage_Home_Service(QString& msg)
+{
+	m_pMessageWindowService->translateMessage(msg);
+}
+
+void HomeService::translateMessageAck(json& js)
+{
+	m_pMessageWindowService->translateMessageAck(js);
+}
+
+void HomeService::showTranslateRes_Home_Service(std::string& msg)
+{
+	m_pHomeWgt->showTranslateRes(msg);
+}
+
+void HomeService::beautifyMessage_Home_Service(QString& msg)
+{
+	m_pMessageWindowService->beautifyMessage(msg);
+}
+
+void HomeService::beautifyMessageAck(json& js)
+{
+	m_pMessageWindowService->beautifyMessageAck(js);
+}
+
+void HomeService::showBeautifyRes_Home_Service(std::string& msg)
+{
+	m_pHomeWgt->showBeautifyRes(msg);
 }

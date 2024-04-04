@@ -92,3 +92,53 @@ void MessageWindowService::sendFriendMessageAck(json& js)
 {
 	emit refreshMessageLst_Home_Service();
 }
+
+void MessageWindowService::translateMessage(QString& msg)
+{
+	json js;
+	js["msgid"] = TRANSLATE_MESSAGE_MSG;
+	js["Message"] = msg.toStdString();
+	std::string strRequest = js.dump();
+
+	int len = ConnectServer::getInstance()->getTcpSocket()->write(QString::fromStdString(strRequest).toLocal8Bit());
+	if (len == -1)
+	{
+		qDebug() << "send TRANSLATE_MESSAGE_MSG fail";
+	}
+	else
+	{
+		qDebug() << "send TRANSLATE_MESSAGE_MSG success";
+	}
+}
+
+void MessageWindowService::translateMessageAck(json& js)
+{
+	std::string msg = js["Message"];
+
+	emit showTranslateRes_Home_Service(msg);
+}
+
+void MessageWindowService::beautifyMessage(QString& msg)
+{
+	json js;
+	js["msgid"] = BEAUTIFY_MESSAGE_MSG;
+	js["Message"] = msg.toStdString();;
+	std::string strRequest = js.dump();
+
+	int len = ConnectServer::getInstance()->getTcpSocket()->write(QString::fromStdString(strRequest).toLocal8Bit());
+	if (len == -1)
+	{
+		qDebug() << "send BEAUTIFY_MESSAGE_MSG fail";
+	}
+	else
+	{
+		qDebug() << "send BEAUTIFY_MESSAGE_MSG success";
+	}
+}
+
+void MessageWindowService::beautifyMessageAck(json& js)
+{
+	std::string msg = js["Message"];
+
+	emit showBeautifyRes_Home_Service(msg);
+}

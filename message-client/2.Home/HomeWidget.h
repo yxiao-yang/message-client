@@ -50,6 +50,10 @@ public:
 
 	void showNewChatAiMessage(QString& msg, QString& contentid);
 
+	void showTranslateRes(std::string& msg);
+
+	void showBeautifyRes(std::string& msg);
+
 	// 设置风格
 	void setStyle();
 
@@ -71,6 +75,8 @@ signals:
 	void startNewChat_Home_Service();
 	void getChatAiMessageInformation_Home_Service(QString& contentid);
 	void sendChatAiMessage_Home_Service(QString& msg, QString& contentid);
+	void translateMessage_Home_Service(QString& msg);
+	void beautifyMessage_Home_Service(QString& msg);
 
 public slots:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
@@ -86,6 +92,8 @@ public slots:
 	void startNewChat_Home_Wgt();
 	void getChatAiMessageInformation_Home_Wgt(QString& contentid);
 	void sendChatAiMessage_Home_Wgt(QString& msg, QString& contentid);
+	void translateMessage_Home_Wgt(QString& msg);
+	void beautifyMessage_Home_Wgt(QString& msg);
 
 private slots:
 	void onTbMinus();       // 最小化窗口
