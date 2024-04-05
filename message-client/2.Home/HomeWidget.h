@@ -5,9 +5,11 @@
 #include "MessageWidget.h"
 #include "FriendWidget.h"
 #include "ChatAiWidget.h"
+#include "GroupWidget.h"
 #include "user.hpp"
 #include "message.hpp"
 #include "chatai_message.hpp"
+#include "group.hpp"
 #include <unordered_map>
 
 QT_BEGIN_NAMESPACE
@@ -34,7 +36,7 @@ public:
 
 	void showMessageWgt();
 
-	void showMessageLst(std::map<std::string, User>& mapTimeUser);
+	void showMessageLst(std::map<std::string, User>& mapTimeUser, std::map<std::string, Group>& mapTimeGroup);
 
 	void showChatMessage(std::vector<Message*> arrMessage);
 
@@ -53,6 +55,10 @@ public:
 	void showTranslateRes(std::string& msg);
 
 	void showBeautifyRes(std::string& msg);
+
+	void showCreateGroupAck();
+
+	void showGroupLst(std::vector<Group>& arrGroup);
 
 	// 设置风格
 	void setStyle();
@@ -77,6 +83,9 @@ signals:
 	void sendChatAiMessage_Home_Service(QString& msg, QString& contentid);
 	void translateMessage_Home_Service(QString& msg);
 	void beautifyMessage_Home_Service(QString& msg);
+	void createGroup_Home_Service(QString& groupName, std::vector<User>& friendSelected);
+	void getGroupLst_Home_Service();
+	void sendGroupMessage_Home_Service(QString& groupid);
 
 public slots:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
@@ -94,6 +103,9 @@ public slots:
 	void sendChatAiMessage_Home_Wgt(QString& msg, QString& contentid);
 	void translateMessage_Home_Wgt(QString& msg);
 	void beautifyMessage_Home_Wgt(QString& msg);
+	void createGroup_Home_Wgt(QString& groupName, std::vector<User>& friendSelected);
+	void getGroupLst_Home_Wgt();
+	void sendGroupMessage_Home_Wgt(QString& groupid);
 
 private slots:
 	void onTbMinus();       // 最小化窗口
@@ -104,6 +116,7 @@ private:
 	MessageWgt* m_pMessageWgt = nullptr;
 	FriendWgt* m_pFriendWgt = nullptr;
 	ChatAiWgt* m_pChatAiWgt = nullptr;
+	GroupWgt* m_pGroupWgt = nullptr;
 
 	/*鼠标事件*/
 	QPoint last;                    // 窗口拖动用变量

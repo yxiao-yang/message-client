@@ -37,7 +37,13 @@ enum enMsgType
 	TRANSLATE_MESSAGE_MSG,                    // 翻译消息
 	TRANSLATE_MESSAGE_MSG_ACK,                // 翻译消息响应
 	BEAUTIFY_MESSAGE_MSG,                     // 美化消息
-	BEAUTIFY_MESSAGE_MSG_ACK                  // 美化消息响应
+	BEAUTIFY_MESSAGE_MSG_ACK,                 // 美化消息响应
+	CREATE_GROUP_MSG,                         // 创建群聊消息
+	CREATE_GROUP_MSG_ACK,                     // 创建群聊响应
+	GET_GROUPLST_MSG,                         // 获取群组列表
+	GET_GROUPLST_MSG_ACK,                     // 获取群组列表响应
+	SEND_GROUP_MESSAGE_MSG,                   // 向群发送消息
+	SEND_GROUP_MESSAGE_MSG_ACK                // 向群发送消息响应
 };
 
 enum enRegType
@@ -77,14 +83,16 @@ enum enHomeStackedWidgetId
 {
 	MESSAGE_WIDGET = 0,
 	FRIEND_WIDGET,
-	CHATAI_WIDGET
+	CHATAI_WIDGET,
+	GROUP_WIDGET
 };
 
 enum enMessageStackedWidgetId
 {
 	MESSAGE_EMPTY_WIDGET = 0,
 	ADDFRIEND_WIDGET,
-	MESSAGE_WINDOW_WIDGET
+	MESSAGE_WINDOW_WIDGET,
+	CREATE_GROUP_WIDGET
 };
 
 enum enFriendStackedWidgetId
@@ -98,6 +106,12 @@ enum enChatAiStackedWidgetId
 {
 	CHATAI_EMPTY_WIDGET = 0,
 	CHATAI_WINDOW_WIDGET
+};
+
+enum enGroupStackedWidgetId
+{
+	GROUP_EMPTY_WIDGET = 0,
+	GROUP_INFORMATION_WIDGET
 };
 
 #endif

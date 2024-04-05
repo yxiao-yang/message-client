@@ -3,6 +3,7 @@
 #include "pub.cache.h"
 #include "ConnectServer.h"
 #include "user.hpp"
+#include "group.hpp"
 #include <QDebug>
 
 MessageService::MessageService()
@@ -40,7 +41,9 @@ void MessageService::getMessageLst()
 void MessageService::getMessageLstAck(json& js)
 {
 	std::vector<std::string> arrUserJson;
+	std::vector<std::string> arrGroupJson;
 	std::map<std::string, User> mapTimeUser;
+	std::map<std::string, Group> mapTimeGroup;
 
 	arrUserJson = js["Users"];
 	for (int i = 0; i < arrUserJson.size(); ++i)
@@ -53,5 +56,15 @@ void MessageService::getMessageLstAck(json& js)
 		mapTimeUser[js["LastTime"]] = user;
 	}
 
-	emit showMessageLst_Home_Service(mapTimeUser);
+	arrGroupJson = js["Groups"];
+	for (int i = 0; i < arrGroupJson.size(); ++i)
+	{
+		json js = json::parse(arrGroupJson[i]);
+		Group group;
+		group.setId(js["Groupid"]);
+		group.setName(js["GroupName"]);
+		mapTimeGroup[js["LastTime"]] = group;
+	}
+
+	emit showMessageLst_Home_Service(mapTimeUser, mapTimeGroup);
 }

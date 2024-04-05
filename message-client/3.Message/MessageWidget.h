@@ -4,7 +4,9 @@
 #include "ui_MessageWidget.h"
 #include "AddFriendWidget.h"
 #include "MessageWindowWidget.h"
+#include "CreateGroupWidget.h"
 #include "user.hpp"
+#include "group.hpp"
 #include "message.hpp"
 #include <QWidget>
 
@@ -28,7 +30,7 @@ public:
 
 	void getMessageLst();
 
-	void showMessageLst(std::map<std::string, User>& mapTimeUser);
+	void showMessageLst(std::map<std::string, User>& mapTimeUser, std::map<std::string, Group>& mapTimeGroup);
 
 	void showChatMessage(std::vector<Message*> arrMessage);
 
@@ -40,6 +42,10 @@ public:
 
 	void showBeautifyRes(std::string& msg);
 
+	void showFriendship(std::vector<User>& arrUser);
+
+	void showCreateGroupAck();
+
 signals:
 	void searchUser_Home_Wgt(QString& Userid, QString& Searchid);
 	void addFriend_Home_Wgt(QString& userid);
@@ -48,6 +54,8 @@ signals:
 	void sendFriendMessage_Home_Wgt(QString& msg, QString& userid, QString& friendid);
 	void translateMessage_Home_Wgt(QString& msg);
 	void beautifyMessage_Home_Wgt(QString& msg);
+	void getFriendship_Home_Wgt();
+	void createGroup_Home_Wgt(QString& groupName, std::vector<User>& friendSelected);
 
 public slots:
 	void searchUser_Message_Friend_Wgt(QString& Userid, QString& Searchid);
@@ -56,9 +64,12 @@ public slots:
 	void sendFriendMessage_Message_Wgt(QString& msg, QString& userid, QString& friendid);
 	void translateMessage_Message_Wgt(QString& msg);
 	void beautifyMessage_Message_Wgt(QString& msg);
+	void getFriendship_Message_Wgt();
+	void createGroup_Message_Wgt(QString& groupName, std::vector<User>& friendSelected);
 
 private slots:
 	void onAddPb();
+	void onCreateGroupPb();
 	void onMessageLstItemWgt(QString& friendUserid, QString& friendName);
 
 private:
@@ -66,6 +77,7 @@ private:
 	QWidget* m_pEmptyWgt = nullptr;
 	AddFriendWgt* m_pAddFriendWgt = nullptr;
 	MessageWindowWgt* m_pMessageWindowWgt = nullptr;
+	CreateGroupWgt* m_pCreateGroupWgt = nullptr;
 	std::vector<QListWidgetItem*> m_arrMessageLstItemWgt;
 	std::map<std::string, User> m_mapTimeUser;
 	QString m_strCurrentFriendId;

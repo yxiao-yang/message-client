@@ -3,6 +3,7 @@
 
 #include "MessageWidget.h"
 #include "json.hpp"
+#include "group.hpp"
 
 using json = nlohmann::json;
 
@@ -17,6 +18,6 @@ public:
 	void getMessageLstAck(json& js);
 
 signals:
-	void showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser);
+	void showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser, std::map<std::string, Group>& mapTimeGroup);
 };
 #endif

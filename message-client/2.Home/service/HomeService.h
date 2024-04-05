@@ -9,9 +9,12 @@
 #include "FriendNoticeService.h"
 #include "MessageWindowService.h"
 #include "ChatAiService.h"
+#include "CreateGroupService.h"
+#include "GroupService.h"
 #include "pub.const.h"
 #include "message.hpp"
 #include "chatai_message.hpp"
+#include "group.hpp"
 
 using json = nlohmann::json;
 
@@ -38,6 +41,8 @@ public:
 	void sendChatAiMessageAck(json& js);
 	void translateMessageAck(json& js);
 	void beautifyMessageAck(json& js);
+	void createGroupAck(json& js);
+	void getGroupLstAck(json& js);
 
 public slots:
 	void searchUser_Home_Service(QString& Userid, QString& Searchid);
@@ -53,7 +58,7 @@ public slots:
 	void sendMessage_Home_Service(QString& userid);
 	void sendMessageApply_Home_Service();
 	void getMessageLst_Home_Service();
-	void showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser);
+	void showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser, std::map<std::string, Group>& mapTimeGroup);
 	void getMessageInformation_Home_Service(QString& friendUserid);
 	void showChatMessage_Home_Service(std::vector<Message*> arrMessage);
 	void sendFriendMessage_Home_Service(QString& msg, QString& userid, QString& friendid);
@@ -71,6 +76,11 @@ public slots:
 	void showTranslateRes_Home_Service(std::string& msg);
 	void beautifyMessage_Home_Service(QString& msg);
 	void showBeautifyRes_Home_Service(std::string& msg);
+	void createGroup_Home_Service(QString& groupName, std::vector<User>& friendSelected);
+	void showCreateGroupAck_Home_Service();
+	void getGroupLst_Home_Service();
+	void showGroupLst_Home_Service(std::vector<Group>& arrGroup);
+	void sendGroupMessage_Home_Service(QString& groupid);
 
 private:
 	HomeWidget* m_pHomeWgt = nullptr;
@@ -80,6 +90,8 @@ private:
 	FriendNoticeService* m_pFriendNoticeService = nullptr;
 	MessageWindowService* m_pMessageWindowService = nullptr;
 	ChatAiService* m_pChatAiService = nullptr;
+	CreateGroupService* m_pCreateGroupService = nullptr;
+	GroupService* m_pGroupService = nullptr;
 
 	void setSlots();
 };

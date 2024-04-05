@@ -29,6 +29,8 @@ void HomeService::setSlots()
 	m_pFriendNoticeService = new FriendNoticeService();
 	m_pMessageWindowService = new MessageWindowService();
 	m_pChatAiService = new ChatAiService();
+	m_pCreateGroupService = new CreateGroupService();
+	m_pGroupService = new GroupService();
 	connect(m_pHomeWgt, &HomeWidget::searchUser_Home_Service, this, &HomeService::searchUser_Home_Service);
 	connect(m_pAddFriendService, &AddFriendService::showSearchRes_Home_Service, this, &HomeService::showSearchRes_Home_Service);
 	connect(m_pHomeWgt, &HomeWidget::getFriendNotice_Home_Service, this, &HomeService::getFriendNotice_Home_Service);
@@ -60,6 +62,11 @@ void HomeService::setSlots()
 	connect(m_pMessageWindowService, &MessageWindowService::showTranslateRes_Home_Service, this, &HomeService::showTranslateRes_Home_Service);
 	connect(m_pHomeWgt, &HomeWidget::beautifyMessage_Home_Service, this, &HomeService::beautifyMessage_Home_Service);
 	connect(m_pMessageWindowService, &MessageWindowService::showBeautifyRes_Home_Service, this, &HomeService::showBeautifyRes_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::createGroup_Home_Service, this, &HomeService::createGroup_Home_Service);
+	connect(m_pCreateGroupService, &CreateGroupService::showCreateGroupAck_Home_Service, this, &HomeService::showCreateGroupAck_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::getGroupLst_Home_Service, this, &HomeService::getGroupLst_Home_Service);
+	connect(m_pGroupService, &GroupService::showGroupLst_Home_Service, this, &HomeService::showGroupLst_Home_Service);
+	connect(m_pHomeWgt, &HomeWidget::sendGroupMessage_Home_Service, this, &HomeService::sendGroupMessage_Home_Service);
 }
 
 void HomeService::search_ack(json& js)
@@ -157,9 +164,9 @@ void HomeService::getMessageLstAck(json& js)
 	m_pMessageService->getMessageLstAck(js);
 }
 
-void HomeService::showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser)
+void HomeService::showMessageLst_Home_Service(std::map<std::string, User>& mapTimeUser, std::map<std::string, Group>& mapTimeGroup)
 {
-	m_pHomeWgt->showMessageLst(mapTimeUser);
+	m_pHomeWgt->showMessageLst(mapTimeUser, mapTimeGroup);
 }
 
 void HomeService::getMessageInformation_Home_Service(QString& friendUserid)
@@ -290,4 +297,39 @@ void HomeService::beautifyMessageAck(json& js)
 void HomeService::showBeautifyRes_Home_Service(std::string& msg)
 {
 	m_pHomeWgt->showBeautifyRes(msg);
+}
+
+void HomeService::createGroup_Home_Service(QString& groupName, std::vector<User>& friendSelected)
+{
+	m_pCreateGroupService->createGroup(groupName, friendSelected);
+}
+
+void HomeService::createGroupAck(json& js)
+{
+	m_pCreateGroupService->createGroupAck(js);
+}
+
+void HomeService::showCreateGroupAck_Home_Service()
+{
+	m_pHomeWgt->showCreateGroupAck();
+}
+
+void HomeService::getGroupLst_Home_Service()
+{
+	m_pGroupService->getGroupLst();
+}
+
+void HomeService::getGroupLstAck(json& js)
+{
+	m_pGroupService->getGroupLstAck(js);
+}
+
+void HomeService::showGroupLst_Home_Service(std::vector<Group>& arrGroup)
+{
+	m_pHomeWgt->showGroupLst(arrGroup);
+}
+
+void HomeService::sendGroupMessage_Home_Service(QString& groupid)
+{
+	m_pGroupService->sendGroupMessage(groupid);
 }

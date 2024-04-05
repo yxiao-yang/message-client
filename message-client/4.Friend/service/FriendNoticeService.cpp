@@ -78,9 +78,9 @@ void FriendNoticeService::acceptFriendApply(QString& userid)
 	std::string user1id;
 	if (PubCache::getInstance()->getUserid(user1id))
 	{
-		js["User1ID"] = user1id;
+		js["User2ID"] = user1id;
 	}
-	js["User2ID"] = userid.toStdString();
+	js["User1ID"] = userid.toStdString();
 	std::string strRequest = js.dump();
 
 	int len = ConnectServer::getInstance()->getTcpSocket()->write(QString::fromStdString(strRequest).toLocal8Bit());

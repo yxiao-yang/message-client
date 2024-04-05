@@ -34,6 +34,11 @@ void MessageLstItemWgt::setFriendUserid(QString& userid)
 	m_strFriendUserid = userid;
 }
 
+void MessageLstItemWgt::setFlag(QString& flag)
+{
+	m_pUi->label->setText(flag);
+}
+
 void MessageLstItemWgt::mousePressEvent(QMouseEvent* event)
 {
 	if (event->button() == Qt::LeftButton)

@@ -17,11 +17,12 @@ HomeWidget::HomeWidget(QWidget* parent)
     m_pMessageWgt = new MessageWgt;
     m_pFriendWgt = new FriendWgt;
     m_pChatAiWgt = new ChatAiWgt;
+    m_pGroupWgt = new GroupWgt;
     m_pUi->stackedWidget->insertWidget(MESSAGE_WIDGET, m_pMessageWgt);
     m_pUi->stackedWidget->insertWidget(FRIEND_WIDGET, m_pFriendWgt);
     m_pUi->stackedWidget->insertWidget(CHATAI_WIDGET, m_pChatAiWgt);
-    
-    //showMessageWgt();
+    m_pUi->stackedWidget->insertWidget(GROUP_WIDGET, m_pGroupWgt);
+   
 
     setSlots();
 }
@@ -57,6 +58,7 @@ void HomeWidget::setStyle()
     m_pUi->CloseTb->setIcon(QIcon(":/0.ui/img/poweroff.png"));
     m_pUi->MessageTb->setIcon(QIcon(":/0.ui/img/message.png"));
     m_pUi->FriendTb->setIcon(QIcon(":/0.ui/img/user.png"));
+    m_pUi->GroupTb->setIcon(QIcon(":/0.ui/img/team.png"));
     m_pUi->ChatAiTb->setIcon(QIcon(":/0.ui/img/reddit.png"));
 }
 
@@ -76,6 +78,11 @@ void HomeWidget::setSlots()
         m_pChatAiWgt->getChatAiLst();
         m_pUi->stackedWidget->setCurrentIndex(CHATAI_WIDGET);
     });
+    connect(m_pUi->GroupTb, &QToolButton::clicked, [=]()
+    {
+        m_pGroupWgt->getGroupLst();
+        m_pUi->stackedWidget->setCurrentIndex(GROUP_WIDGET);
+    });
     connect(m_pMessageWgt, &MessageWgt::searchUser_Home_Wgt, this, &HomeWidget::searchUser_Home_Wgt);
     connect(m_pFriendWgt, &FriendWgt::getFriendNotice_Home_Wgt, this, &HomeWidget::getFriendNotice_Home_Wgt);
     connect(m_pMessageWgt, &MessageWgt::addFriend_Home_Wgt, this, &HomeWidget::addFriend_Home_Wgt);
@@ -91,6 +98,10 @@ void HomeWidget::setSlots()
     connect(m_pChatAiWgt, &ChatAiWgt::sendChatAiMessage_Home_Wgt, this, &HomeWidget::sendChatAiMessage_Home_Wgt);
     connect(m_pMessageWgt, &MessageWgt::translateMessage_Home_Wgt, this, &HomeWidget::translateMessage_Home_Wgt);
     connect(m_pMessageWgt, &MessageWgt::beautifyMessage_Home_Wgt, this, &HomeWidget::beautifyMessage_Home_Wgt);
+    connect(m_pMessageWgt, &MessageWgt::getFriendship_Home_Wgt, this, &HomeWidget::getFriendship_Home_Wgt);
+    connect(m_pMessageWgt, &MessageWgt::createGroup_Home_Wgt, this, &HomeWidget::createGroup_Home_Wgt);
+    connect(m_pGroupWgt, &GroupWgt::getGroupLst_Home_Wgt, this, &HomeWidget::getGroupLst_Home_Wgt);
+    connect(m_pGroupWgt, &GroupWgt::sendGroupMessage_Home_Wgt, this, &HomeWidget::sendGroupMessage_Home_Wgt);
 }
 
 void HomeWidget::onTbMinus()
@@ -177,6 +188,7 @@ void HomeWidget::showAcceptFriendApplyAns(enAcceptApplyType errnoType)
 void HomeWidget::showFriendship(std::vector<User>& arrUser)
 {
     m_pFriendWgt->showFriendship(arrUser);
+    m_pMessageWgt->showFriendship(arrUser);
 }
 
 void HomeWidget::sendMessage_Home_Wgt(QString& userid)
@@ -195,9 +207,9 @@ void HomeWidget::getMessageLst_Home_Wgt()
     emit getMessageLst_Home_Service();
 }
 
-void HomeWidget::showMessageLst(std::map<std::string, User>& mapTimeUser)
+void HomeWidget::showMessageLst(std::map<std::string, User>& mapTimeUser, std::map<std::string, Group>& mapTimeGroup)
 {
-    m_pMessageWgt->showMessageLst(mapTimeUser);
+    m_pMessageWgt->showMessageLst(mapTimeUser, mapTimeGroup);
 }
 
 void HomeWidget::getMessageInformation_Home_Wgt(QString& friendUserid)
@@ -285,3 +297,27 @@ void HomeWidget::showBeautifyRes(std::string& msg)
     m_pMessageWgt->showBeautifyRes(msg);
 }
 
+void HomeWidget::createGroup_Home_Wgt(QString& groupName, std::vector<User>& friendSelected)
+{
+    emit createGroup_Home_Service(groupName, friendSelected);
+}
+
+void HomeWidget::showCreateGroupAck()
+{
+    m_pMessageWgt->showCreateGroupAck();
+}
+
+void HomeWidget::getGroupLst_Home_Wgt()
+{
+    emit getGroupLst_Home_Service();
+}
+
+void HomeWidget::showGroupLst(std::vector<Group>& arrGroup)
+{
+    m_pGroupWgt->showGroupLst(arrGroup);
+}
+
+void HomeWidget::sendGroupMessage_Home_Wgt(QString& groupid)
+{
+    emit sendGroupMessage_Home_Service(groupid);
+}

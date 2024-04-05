@@ -20,6 +20,7 @@ public:
 	void setFriendUsername(QString& username);
 	void setLastTime(QString& time);
 	void setFriendUserid(QString& userid);
+	void setFlag(QString& flag);
 
 	void mousePressEvent(QMouseEvent* event);
 

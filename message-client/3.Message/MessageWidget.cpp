@@ -17,10 +17,12 @@ MessageWgt::MessageWgt(QWidget* parent)
 	m_pEmptyWgt = new QWidget;
 	m_pAddFriendWgt = new AddFriendWgt;
 	m_pMessageWindowWgt = new MessageWindowWgt;
+	m_pCreateGroupWgt = new CreateGroupWgt;
 
 	m_pUi->MessageSWgt->insertWidget(MESSAGE_EMPTY_WIDGET, m_pEmptyWgt);
 	m_pUi->MessageSWgt->insertWidget(ADDFRIEND_WIDGET, m_pAddFriendWgt);
 	m_pUi->MessageSWgt->insertWidget(MESSAGE_WINDOW_WIDGET, m_pMessageWindowWgt);
+	m_pUi->MessageSWgt->insertWidget(CREATE_GROUP_WIDGET, m_pCreateGroupWgt);
 
 	setSlots();
 }
@@ -45,11 +47,14 @@ void MessageWgt::setSlots()
 {
 	connect(m_pAddFriendWgt, &AddFriendWgt::searchUser_Message_Friend_Wgt, this, &MessageWgt::searchUser_Message_Friend_Wgt);
 	connect(m_pUi->AddPb, &QPushButton::clicked, this, &MessageWgt::onAddPb);
+	connect(m_pUi->CreateGroupPb, &QPushButton::clicked, this, &MessageWgt::onCreateGroupPb);
 	connect(m_pAddFriendWgt, &AddFriendWgt::addFriend_Message_Friend_Wgt, this, &MessageWgt::addFriend_Message_Friend_Wgt);
 	connect(m_pMessageWindowWgt, &MessageWindowWgt::getMessageInformation_Message_Wgt, this, &MessageWgt::getMessageInformation_Message_Wgt);
 	connect(m_pMessageWindowWgt, &MessageWindowWgt::sendFriendMessage_Message_Wgt, this, &MessageWgt::sendFriendMessage_Message_Wgt);
 	connect(m_pMessageWindowWgt, &MessageWindowWgt::translateMessage_Message_Wgt, this, &MessageWgt::translateMessage_Message_Wgt);
 	connect(m_pMessageWindowWgt, &MessageWindowWgt::beautifyMessage_Message_Wgt, this, &MessageWgt::beautifyMessage_Message_Wgt);
+	connect(m_pCreateGroupWgt, &CreateGroupWgt::getFriendship_Message_Wgt, this, &MessageWgt::getFriendship_Message_Wgt);
+	connect(m_pCreateGroupWgt, &CreateGroupWgt::createGroup_Message_Wgt, this, &MessageWgt::createGroup_Message_Wgt);
 }
 
 void MessageWgt::showSearchRes(std::vector<User>& arrUser)
@@ -60,6 +65,12 @@ void MessageWgt::showSearchRes(std::vector<User>& arrUser)
 void MessageWgt::onAddPb()
 {
 	switchMessageSWgt(ADDFRIEND_WIDGET);
+}
+
+void MessageWgt::onCreateGroupPb()
+{
+	m_pCreateGroupWgt->getFriendship();
+	switchMessageSWgt(CREATE_GROUP_WIDGET);
 }
 
 void MessageWgt::addFriend_Message_Friend_Wgt(QString& userid)
@@ -86,7 +97,7 @@ void MessageWgt::getMessageLst()
 	emit getMessageLst_Home_Wgt();
 }
 
-void MessageWgt::showMessageLst(std::map<std::string, User>& mapTimeUser)
+void MessageWgt::showMessageLst(std::map<std::string, User>& mapTimeUser, std::map<std::string, Group>& mapTimeGroup)
 {
 	m_mapTimeUser = mapTimeUser;
 	for (auto it : mapTimeUser)
@@ -104,9 +115,37 @@ void MessageWgt::showMessageLst(std::map<std::string, User>& mapTimeUser)
 		QString friendUsername = QString::fromStdString(it.second.getName());
 		QString time = QString::fromStdString(it.first);
 		QString friendUserid = QString::fromStdString(it.second.getId());
+		QString flag = "好友";
 		pCustomItem->setFriendUsername(friendUsername);
 		pCustomItem->setLastTime(time);
 		pCustomItem->setFriendUserid(friendUserid);
+		pCustomItem->setFlag(flag);
+
+		connect(pCustomItem, &MessageLstItemWgt::listItemClicked, this, &MessageWgt::onMessageLstItemWgt);
+
+		m_arrMessageLstItemWgt.push_back(pItem);
+	}
+
+	for (auto it : mapTimeGroup)
+	{
+		// 创建item
+		QListWidgetItem* pItem = new QListWidgetItem("");
+		m_pUi->MessageLstWgt->addItem(pItem);
+
+		// 创建自定义widget
+		MessageLstItemWgt* pCustomItem = new MessageLstItemWgt(pItem);
+		pCustomItem->adjustSize();
+		pItem->setSizeHint(pCustomItem->size());
+		m_pUi->MessageLstWgt->setItemWidget(pItem, pCustomItem);
+
+		QString groupName = QString::fromStdString(it.second.getName());
+		QString time = QString::fromStdString(it.first);
+		QString groupid = QString::fromStdString(it.second.getId());
+		QString flag = "群组";
+		pCustomItem->setFriendUsername(groupName);
+		pCustomItem->setLastTime(time);
+		pCustomItem->setFriendUserid(groupid);
+		pCustomItem->setFlag(flag);
 
 		connect(pCustomItem, &MessageLstItemWgt::listItemClicked, this, &MessageWgt::onMessageLstItemWgt);
 
@@ -172,3 +211,22 @@ void MessageWgt::showBeautifyRes(std::string& msg)
 	m_pMessageWindowWgt->showBeautifyRes(msg);
 }
 
+void MessageWgt::getFriendship_Message_Wgt()
+{
+	emit getFriendship_Home_Wgt();
+}
+
+void MessageWgt::showFriendship(std::vector<User>& arrUser)
+{
+	m_pCreateGroupWgt->showFriendship(arrUser);
+}
+
+void MessageWgt::createGroup_Message_Wgt(QString& groupName, std::vector<User>& friendSelected)
+{
+	emit createGroup_Home_Wgt(groupName, friendSelected);
+}
+
+void MessageWgt::showCreateGroupAck()
+{
+	m_pCreateGroupWgt->showCreateGroupAck();
+}

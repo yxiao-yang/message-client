@@ -79,6 +79,19 @@ QToolButton#FriendTb {
         background-color: rgb(115,110,95);
     }
 
+QToolButton#GroupTb {
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+    QToolButton#GroupTb:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QToolButton#GroupTb:pressed {
+        background-color: rgb(115,110,95);
+    }
+
 QToolButton#ChatAiTb {
     background-color: transparent;
     border-radius: 15px;
@@ -273,4 +286,15 @@ QListWidget#ChatAiWindowLstWgt {
 QTextEdit#InputTedit {
     background-color: transparent;
     border: none;
+}
+
+/*GroupWidget*/
+QListWidget#GroupLstWgt {
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(180,179,172), stop:1 rgb(217,215,214));
+    border-radius: 8px;
+}
+
+QWidget#GroupSWgt {
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(180,179,172), stop:1 rgb(217,215,214));
+    border-radius: 8px;
 }

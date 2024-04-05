@@ -9,5 +9,6 @@
         <file>0.ui/img/reddit.png</file>
         <file>0.ui/img/delete.png</file>
         <file>0.ui/img/giphy.gif</file>
+        <file>0.ui/img/team.png</file>
     </qresource>
 </RCC>

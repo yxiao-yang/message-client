@@ -81,6 +81,7 @@ void FriendWgt::acceptFriendApply_Friend_Wgt(QString& userid)
 
 void FriendWgt::showAcceptFriendApplyAns(enAcceptApplyType errnoType)
 {
+	getFriendship();
 	m_pFriendNoticeWgt->showAcceptFriendApplyAns(errnoType);
 }
 

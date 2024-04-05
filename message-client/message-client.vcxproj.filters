@@ -139,6 +139,27 @@
     <ClCompile Include="5.ChatAi\ChatAIWindowLstItemWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="3.Message\CreateGroupWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="3.Message\service\CreateGroupService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="3.Message\CreateGroupAnsWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="6.Group\GroupWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="6.Group\service\GroupService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="6.Group\GroupItemWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="6.Group\GroupInformationWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="1.Login\ui\LoginWidget.ui">
@@ -198,6 +219,21 @@
     <QtUic Include="5.ChatAi\ui\ChatAiWindowWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="3.Message\ui\CreateGroupWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="3.Message\ui\CreateGroupAnsWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="6.Group\ui\GroupWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="6.Group\ui\GroupItemWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="6.Group\ui\GroupInformationWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <None Include="0.ui\LoginWidget.css" />
@@ -225,6 +261,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="0.pub\chatai_message.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="0.pub\group.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -326,6 +365,27 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="5.ChatAi\ChatAIWindowLstItemWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="3.Message\CreateGroupWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="3.Message\service\CreateGroupService.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="3.Message\CreateGroupAnsWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="6.Group\GroupWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="6.Group\service\GroupService.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="6.Group\GroupItemWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="6.Group\GroupInformationWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
