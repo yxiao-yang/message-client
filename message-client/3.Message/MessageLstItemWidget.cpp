@@ -43,6 +43,7 @@ void MessageLstItemWgt::mousePressEvent(QMouseEvent* event)
 {
 	if (event->button() == Qt::LeftButton)
 	{
+		//this->setStyleSheet("QWidget#MessageLstItemWgt{color:white;background-color:rgb(1,164,240);}");
 		emit this->listItemClicked(m_strFriendUserid, m_strFriendName);
 	}
 }

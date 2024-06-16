@@ -116,10 +116,19 @@ void ChatAiWgt::sendChatAiMessage_ChatAi_Wgt(QString& msg, QString& contentid)
 
 void ChatAiWgt::showNewChatAiMessage(QString& msg, QString& contentid)
 {
-	qDebug() << "111";
 	if (m_strCurrentContentId == contentid)
 	{
 		std::string message = msg.toStdString();
 		m_pChatAiWindowWgt->insertMessage(message);
 	}
+}
+
+void ChatAiWgt::translateMessage_Message_Wgt(QString& msg)
+{
+	emit translateMessage_Home_Wgt(msg);
+}
+
+void ChatAiWgt::beautifyMessage_Message_Wgt(QString& msg)
+{
+	emit beautifyMessage_Home_Wgt(msg);
 }

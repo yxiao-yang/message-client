@@ -33,6 +33,8 @@ public:
 public slots:
 	void getChatAiMessageInformation_ChatAi_Wgt(QString& contentid);
 	void sendChatAiMessage_ChatAi_Wgt(QString& msg, QString& contentid);
+	void translateMessage_Message_Wgt(QString& msg);
+	void beautifyMessage_Message_Wgt(QString& msg);
 
 private slots:
 	void onAddPb();
@@ -43,6 +45,8 @@ signals:
 	void startNewChat_Home_Wgt();
 	void getChatAiMessageInformation_Home_Wgt(QString& contentid);
 	void sendChatAiMessage_Home_Wgt(QString& msg, QString& contentid);
+	void translateMessage_Home_Wgt(QString& msg);
+	void beautifyMessage_Home_Wgt(QString& msg);
 
 private:
 	Ui::ChatAiWgt* m_pUi = nullptr;

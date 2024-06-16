@@ -10,6 +10,7 @@ FriendInformationWgt::FriendInformationWgt(QWidget* parent)
 	, m_pUi(new Ui::FriendInformationWgt())
 {
 	m_pUi->setupUi(this);
+	m_pUi->toolButton->setIcon(QIcon(":/0.ui/img/user.png"));
 	setSlots();
 }
 

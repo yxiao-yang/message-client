@@ -10,6 +10,7 @@ GroupInformationWgt::GroupInformationWgt(QWidget* parent)
 	, m_pUi(new Ui::GroupInformationWgt())
 {
 	m_pUi->setupUi(this);
+	m_pUi->toolButton->setIcon(QIcon(":/0.ui/img/team.png"));
 	setSlots();
 }
 

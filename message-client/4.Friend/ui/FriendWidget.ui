@@ -30,7 +30,21 @@
       </widget>
      </item>
      <item>
-      <widget class="QListWidget" name="FriendLstWgt"/>
+      <widget class="QListWidget" name="FriendLstWgt">
+       <property name="styleSheet">
+        <string notr="true">QListWidget#FriendLstWgt::item{
+	color:black;
+	background-color:rgb(203,203,195);
+}
+QListWidget#FriendLstWgt::item:selected {
+	background-color:gray;
+}
+QListWidget#FriendLstWgt::item:hover{
+	background-color:lightgray;
+}
+</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

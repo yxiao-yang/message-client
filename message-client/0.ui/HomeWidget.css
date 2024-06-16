@@ -141,10 +141,10 @@ QPushButton#CreateGroupPb {
         background-color: rgb(115,110,95);
     }
 
-QListWidget#MessageLstWgt {
+/*QListWidget#MessageLstWgt {
     background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(180,179,172), stop:1 rgb(217,215,214));
     border-radius: 8px;
-}
+}*/
 
 QWidget#MessageSWgt {
     background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(180,179,172), stop:1 rgb(217,215,214));

@@ -55,8 +55,12 @@
           <height>50</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">font: 25 14pt '微软雅黑 Light';
+color: black;</string>
+        </property>
         <property name="text">
-         <string>...</string>
+         <string>羊</string>
         </property>
        </widget>
       </item>

@@ -47,7 +47,25 @@
       </layout>
      </item>
      <item>
-      <widget class="QListWidget" name="MessageLstWgt"/>
+      <widget class="QListWidget" name="MessageLstWgt">
+       <property name="styleSheet">
+        <string notr="true">QListWidget#MessageLstWgt {
+    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(180,179,172), stop:1 rgb(217,215,214));
+    border-radius: 8px;
+}
+QListWidget#MessageLstWgt::item{
+	color:black;
+	background-color:rgb(203,203,195);
+}
+QListWidget#MessageLstWgt::item:selected {
+	background-color:gray;
+}
+QListWidget#MessageLstWgt::item:hover{
+	background-color:lightgray;
+}
+</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

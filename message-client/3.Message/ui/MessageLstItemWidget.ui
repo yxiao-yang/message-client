@@ -14,12 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget#MessageLstItemWgt {
-	background-color: rgb(203,203,203);
-	border-radius: 15px;
-}
-
-QLabel {
+   <string notr="true">QLabel {
 	font: 25 10pt '微软雅黑 Light';
 	color: black;
 }</string>

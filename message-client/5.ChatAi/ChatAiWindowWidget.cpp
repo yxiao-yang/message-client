@@ -25,6 +25,9 @@ ChatAiWindowWgt::~ChatAiWindowWgt()
 void ChatAiWindowWgt::setSlots()
 {
 	connect(m_pUi->pbSend, &QPushButton::clicked, this, &ChatAiWindowWgt::onPbSend);
+	connect(m_pUi->translatePb, &QPushButton::clicked, this, &ChatAiWindowWgt::onTranslatePb);
+	connect(m_pUi->beautifyPb, &QPushButton::clicked, this, &ChatAiWindowWgt::onBeautifyPb);
+	connect(m_pUi->restorePb, &QPushButton::clicked, this, &ChatAiWindowWgt::onRestorePb);
 }
 
 void ChatAiWindowWgt::getMessageInformation(QString& contentid)
@@ -95,3 +98,35 @@ void ChatAiWindowWgt::insertMessage(std::string& message)
 	dealMessage(messageW, item, message_q, ChatAiWindowLstItemWgt::User_Friend, true);
 	m_pUi->ChatAiWindowLstWgt->scrollToBottom();
 }
+
+void ChatAiWindowWgt::onTranslatePb()
+{
+	QString msg = m_pUi->InputTedit->toPlainText();
+	m_strOriginalMessage = msg;
+	emit translateMessage_ChatAi_Wgt(msg);
+}
+
+void ChatAiWindowWgt::showTranslateRes(std::string& msg)
+{
+	QString message = QString::fromStdString(msg);
+	m_pUi->InputTedit->setText(message);
+}
+
+void ChatAiWindowWgt::onBeautifyPb()
+{
+	QString msg = m_pUi->InputTedit->toPlainText();
+	m_strOriginalMessage = msg;
+	emit beautifyMessage_ChatAi_Wgt(msg);
+}
+
+void ChatAiWindowWgt::showBeautifyRes(std::string& msg)
+{
+	QString message = QString::fromStdString(msg);
+	m_pUi->InputTedit->setText(message);
+}
+
+void ChatAiWindowWgt::onRestorePb()
+{
+	m_pUi->InputTedit->setText(m_strOriginalMessage);
+}
+

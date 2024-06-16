@@ -38,18 +38,62 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,3,1">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,4,1">
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="translatePb">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: rgb(203,203,203);
+    border-radius: 15px;
+    font: 25 10pt '微软雅黑 Light';
+    color: rgb(31,31,31);
+}
+
+    QPushButton:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QPushButton:pressed {
+        background-color: rgb(115,110,95);
+    }</string>
+         </property>
          <property name="text">
-          <string>PushButton</string>
+          <string>翻译为英文</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="beautifyPb">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: rgb(203,203,203);
+    border-radius: 15px;
+    font: 25 10pt '微软雅黑 Light';
+    color: rgb(31,31,31);
+}
+
+    QPushButton:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QPushButton:pressed {
+        background-color: rgb(115,110,95);
+    }</string>
+         </property>
          <property name="text">
-          <string>PushButton</string>
+          <string>文字润色</string>
          </property>
         </widget>
        </item>
@@ -66,10 +110,47 @@
          </property>
         </spacer>
        </item>
+       <item>
+        <widget class="QPushButton" name="restorePb">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: rgb(203,203,203);
+    border-radius: 15px;
+    font: 25 10pt '微软雅黑 Light';
+    color: rgb(31,31,31);
+}
+
+    QPushButton:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QPushButton:pressed {
+        background-color: rgb(115,110,95);
+    }</string>
+         </property>
+         <property name="text">
+          <string>还原</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
      <item>
-      <widget class="QTextEdit" name="InputTedit"/>
+      <widget class="QTextEdit" name="InputTedit">
+       <property name="styleSheet">
+        <string notr="true">QTextEdit#InputTedit {
+    border-radius: 15px;
+    font: 25 12pt '微软雅黑 Light';
+    color: rgb(31,31,31);
+}</string>
+       </property>
+      </widget>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="4,1">

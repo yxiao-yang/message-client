@@ -13,7 +13,11 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,8,1">
+  <property name="styleSheet">
+   <string notr="true">font: 25 14pt '微软雅黑 Light';
+color: rgb(31,31,31);</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,7,1">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
@@ -24,7 +28,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(170,168,159);</string>
+       </property>
+      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer">
@@ -80,7 +88,7 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="5,1">
      <item>
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
@@ -96,6 +104,20 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+    QPushButton:hover {
+        background-color: rgb(170,168,159);
+    }
+
+    QPushButton:pressed {
+        background-color: rgb(115,110,95);
+    }</string>
+       </property>
        <property name="text">
         <string>创建</string>
        </property>

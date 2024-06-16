@@ -17,7 +17,20 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout" stretch="10">
      <item>
-      <widget class="QListWidget" name="GroupLstWgt"/>
+      <widget class="QListWidget" name="GroupLstWgt">
+       <property name="styleSheet">
+        <string notr="true">QListWidget#GroupLstWgt::item{
+	color:black;
+	background-color:rgb(203,203,195);
+}
+QListWidget#GroupLstWgt::item:selected {
+	background-color:gray;
+}
+QListWidget#GroupLstWgt::item:hover{
+	background-color:lightgray;
+}</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
